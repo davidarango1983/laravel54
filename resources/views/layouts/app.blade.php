@@ -8,10 +8,14 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'GYMZONE') }}</title>
 
     <!-- Styles -->
-    <link href="/css/app.css" rel="stylesheet">
+ <link rel="stylesheet" href="{{ URL::asset('css/app.css') }}">
+    
+    <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
 
     <!-- Scripts -->
     <script>
@@ -19,47 +23,65 @@
             'csrfToken' => csrf_token(),
         ]) !!};
     </script>
+        <!-- Latest compiled and minified Jquery -->
+  
 </head>
-<body>
-    <div id="app">
-        <nav class="navbar navbar-default navbar-static-top">
-            <div class="container">
-                <div class="navbar-header">
 
-                    <!-- Collapsed Hamburger -->
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse">
-                        <span class="sr-only">Toggle Navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
+<body id="app-layout">
+    <nav class="navbar navbar-default navbar-static-top">
+        <div class="container">
+            <div class="navbar-header">
 
-                    <!-- Branding Image -->
-                    <a class="navbar-brand" href="{{ url('/') }}">
-                        {{ config('app.name', 'Laravel') }}
-                    </a>
-                </div>
+                <!-- Collapsed Hamburger -->
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse">
+                    <span class="sr-only">Toggle Navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
 
-                <div class="collapse navbar-collapse" id="app-navbar-collapse">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="nav navbar-nav">
-                        &nbsp;
-                    </ul>
+                <!-- Branding Image -->
+                <a class="navbar-brand" href="{{ url('/') }}">
+                   GYM<span class="fa fa-star"></span>ZONE               </a>
+            </div>
 
-                    <!-- Right Side Of Navbar -->
-                    <ul class="nav navbar-nav navbar-right">
-                        <!-- Authentication Links -->
-                        @if (Auth::guest())
-                            <li><a href="{{ url('/login') }}">Login</a></li>
-                            <li><a href="{{ url('/register') }}">Register</a></li>
-                        @else
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                    {{ Auth::user()->name }} <span class="caret"></span>
-                                </a>
+            <div class="collapse navbar-collapse" id="app-navbar-collapse">
+                <!-- Left Side Of Navbar -->
+                <ul title="Nosotros" class="nav navbar-nav">
+                    <li><a href="{{ url('/laempresa') }}">Quiénes Somos</a></li>
+                </ul>
+                                   <ul title="Actividades" class="nav navbar-nav">
+                    <li><a href="{{ url('/actividades') }}">Actividades</a></li>
+                </ul>
+                  <ul title="Contacto" class="nav navbar-nav">
+                    <li><a href="{{ url('/galería') }}">Galería</a></li>
+                </ul>
+                <ul title="Contacto" class="nav navbar-nav">
+                    <li><a href="{{ url('/contacto') }}">Contacto</a></li>
+                </ul>
+                
 
-                                <ul class="dropdown-menu" role="menu">
-                                    <li>
+
+
+                <!-- Right Side Of Navbar -->
+                <ul class="nav navbar-nav navbar-right">
+                    <!-- Authentication Links -->
+                    @if (Auth::guest())
+                    <li><a class="fa fa-child"href="{{ url('/login') }}">  Iniciar Sesión</a></li>
+                    <li><a class="fa fa-smile-o"href="{{ url('/register') }}">  Registrarse</a></li>
+                    
+                     
+                    @else
+                     
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                {{ Auth::user()->name }} <span class="caret"></span>
+                            </a>
+
+                            <ul class="dropdown-menu" role="menu">
+                                 <li><a href="{{ url('/reservaclases') }}"><i class="fa fa-edit"></i> Reservar Clases</a></li>
+                                <li><a href="{{ url('/perfil') }}"><i class="fa fa-edit"></i> Mi Perfil</a></li>
+                               <li>
                                         <a href="{{ url('/logout') }}"
                                             onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
@@ -70,18 +92,57 @@
                                             {{ csrf_field() }}
                                         </form>
                                     </li>
-                                </ul>
-                            </li>
-                        @endif
-                    </ul>
-                </div>
+                                 @if(Auth::check() && Auth::user()->id_rol==2)
+                                    <li role="separator" class="divider"></li>
+                                 <li><a href="{{ url('admin') }}"><i class="fa fa-wrench"></i>  Administrar Web</a></li>
+                                    @endif
+                            </ul>
+                        </li>
+                    @endif
+                    
+                  
+                </ul>
             </div>
-        </nav>
+        </div>
+    </nav>
 
-        @yield('content')
-    </div>
+    @yield('content')
+    
+      <footer id='footer' class="navbar-static-bottom "> 
 
-    <!-- Scripts -->
-    <script src="/js/app.js"></script>
+        <div class="container">
+            <div class="text-center center-block">
+                <br class='visible-xs'></br>
+                <a href="/"><i id="social-fb" class="fa fa-facebook-square fa-3x social"></i></a>
+                <a href="/"><i id="social-tw" class="fa fa-twitter-square fa-3x social"></i></a>
+                <a href="/"><i id="social-gp" class="fa fa-google-plus-square fa-3x social"></i></a>
+                <a href="mailto:cdarangosannicolas@gmail.com"><i id="social-em" class="fa fa-envelope-square fa-3x social"></i></a>
+           
+                <p class='visible-sm visible-md visible-lg'>GYMZONE ZARAGOZA 2017</p>
+                <p class='visible-sm visible-md visible-lg'>Todos los derechos Reservados.</p>
+              
+            </div>
+        </div>
+
+    </footer>
+   
+
+
+    <!-- JavaScripts -->
+ <script src="{{URL::asset('js/app.js')}}"></script>
+ <script type="text/javascript" src="https://cdn.datatables.net/v/bs-3.3.7/jq-2.2.4/dt-1.10.13/datatables.min.js"></script>
+ <link rel="stylesheet" href="{{ URL::asset('css/datedroppernuevo.css') }}">
+    <!-- Latest compiled and minified JavaScript -->
+<!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <script src="//cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js"></script>-->
+  
+
+<script src="{{URL::asset('js/datedroppernuevo.js')}}"></script>
+  
+<!--<script src="{{URL::asset('js/Growl/js/growl.js')}}"></script>-->
+<script src="{{URL::asset('js/principal.js')}}"></script>
+
+    
 </body>
+
 </html>

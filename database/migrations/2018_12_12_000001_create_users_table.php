@@ -23,7 +23,7 @@ class CreateUsersTable extends Migration {
             $table->string('email',100)->unique();
             $table->string('password');
             $table->integer('id_suscripcion')->unsigned();
-            $table->foreign('id_suscripcion')->references('id')->on('tipos_suscripcions')->onDelete('cascade');
+            $table->foreign('id_suscripcion')->references('id')->on('tipos_suscripcions');
             $table->date('fecha_nac');
             $table->integer('id_rol')->unsigned();
             $table->foreign('id_rol')->references('id')->on('rols');

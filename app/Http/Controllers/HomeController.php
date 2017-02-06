@@ -2,8 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-
 class HomeController extends Controller
 {
     /**
@@ -13,6 +11,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
+        
         $this->middleware('auth');
     }
 
@@ -21,8 +20,13 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+   
+    
+    public function perfil()
     {
-        return view('home');
+        return view('auth.perfil');
     }
+   
+    
+    
 }

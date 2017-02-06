@@ -6,6 +6,9 @@ use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use App\Jobs\Utiles;
+use App\TiposSuscripcion;
+use App\Suscripcion;
 
 class RegisterController extends Controller
 {
@@ -27,7 +30,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/';
 
     /**
      * Create a new controller instance.
@@ -47,11 +50,18 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
+          $dieciseisanyos = Utiles::dieciseisanyosatras();
         return Validator::make($data, [
-            'name' => 'required|max:255',
-            'email' => 'required|email|max:255|unique:users',
-            'password' => 'required|min:6|confirmed',
+                    'name' => 'required|max:255',
+                    'apellido' => 'required|max:255',
+                    'telefono' => 'required|min:0|max:9999999999|numeric',
+                    'email' => 'required|email|max:255|unique:users',
+                    'password' => 'required|min:8|confirmed',
+                    'fecha' => 'required|date_format:"Y-m-d"|before:' . $dieciseisanyos,
+                    'suscripcion' => 'required|string',
         ]);
+       
+       
     }
 
     /**
@@ -62,10 +72,38 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => bcrypt($data['password']),
-        ]);
+      $formatFecha = Utiles::formatearFecha($data['fecha']);
+
+        $create = User::create([
+                    'name' => $data['name'],
+                    'last_name' => $data['apellido'],
+                    'telefono' => $data['telefono'],
+                    'email' => $data['email'],
+                    'fecha_nac' => $formatFecha,
+                    'id_suscripcion' => $data['suscripcion'],
+                    'password' => bcrypt($data['password']),
+                    'id_rol' => 1,]);
+        $datos = $create['original'];
+        $fechaini = Date('Y-m-d');
+        $tipo = TiposSuscripcion::find($datos['id_suscripcion']);
+        $fechafin = Utiles::sumarFecha($fechaini, $tipo['duration']);
+        $suscripcion = ([
+            'user_id' => $datos['id'], 'tipos_suscripcions_id' => $datos['id_suscripcion'],
+            'fecha_ini' => $fechaini, 'fecha_fin' => $fechafin, 'active' => true,]);
+        Suscripcion::create($suscripcion);
+        return $create;
+    }
+    
+  
+    public function showRegistrationForm() {
+
+        $datos = new \App\TiposSuscripcion();
+        $tipos = $datos->all();
+
+        if (property_exists($this, 'registerView')) {
+            return view($this->registerView);
+        }
+
+        return view('auth.register', array('datos' => $tipos));
     }
 }
