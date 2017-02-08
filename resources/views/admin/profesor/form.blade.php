@@ -80,13 +80,8 @@
                             <label for="fecha de nacimiento" class="col-md-4 control-label">Fecha de Nacimiento</label>
 
                             <div class="col-md-6">
-                                <input id="fecha" type="text" class="form-control" name="fecha"  data-lang="es"   data-min-year="1940"  value="<?php
-                            if ((old('fecha') != null)) {
-                                echo old('fecha');
-                            } else {
-                                 (isset($profesor)) ? print $profesor->fecha_nac : '';
-                            }
-                            ?>">
+                                <input id="fecha"  type="text" class="form-control" name="fecha" value="{{ isset($profesor->fecha_nac) ? $profesor->fecha_nac: ''}}" data-default-set='false' data-init-set="false"  data-lang="es"   data-min-year="1940" >
+
                                 
 
                                 @if ($errors->has('fecha'))

@@ -74,24 +74,18 @@ abstract class Utiles {
         return date('H:i', $time);
     }
 
-    public static function redimensionarImagen($imagen) {
-     	// crear una imagen desde el original 
-
-	$img = ImageCreateFromJPEG($imagen);
-
-	// crear una imagen nueva 
-
-	$thumb = imagecreatetruecolor(400,400);
-
-	// redimensiona la imagen original copiandola en la imagen 
-
-	ImageCopyResized($thumb,$img,0,0,0,0,400,400,ImageSX($img),ImageSY($img));
-
- 	// guardar la nueva imagen redimensionada donde indicia $img_nueva 
-
-	ImageJPEG($thumb,$img_nueva,$img_nueva_calidad);
-
-	ImageDestroy($img);
-    }
+    
+      
+     public function dni($value,$parameters){
+  
+         $letra = strtoupper(substr($parameters, -1));
+	$numeros = substr($parameters, 0, -1);
+	if ( substr("TRWAGMYFPDXBNJZSQVHLCKE", $numeros%23, 1) == $letra && strlen($letra) == 1 && strlen ($numeros) == 8 ){
+		return true;
+	}else{
+		return false;
+	}
+}
+   
 
 }

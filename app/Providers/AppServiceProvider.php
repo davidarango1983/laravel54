@@ -16,6 +16,7 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
             Schema::defaultStringLength(250);
+             require_once app_path() . '/customValidation/customValidation.php';
         //
     }
 
