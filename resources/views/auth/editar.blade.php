@@ -36,7 +36,7 @@
                     </div>
 
                     <div class="form-group{{ $errors->has('apellido') ? ' has-error' : '' }}">
-                        <label for="apellido" class="col-md-4 control-label">Apellidos</label>
+                        <label for="apellido" class="col-md-4 control-label">Apellidos </label>
 
                         <div class="col-md-6">
                             <input id="last_name" type="text" class="form-control" name="apellido" value="<?php
@@ -55,16 +55,10 @@
                         </div>
                     </div>
                     <div class="form-group{{ $errors->has('apellido') ? ' has-error' : '' }}">
-                        <label for="fecha de nacimiento" class="col-md-4 control-label">Fecha de Nacimiento</label>
+                        <label for="fecha de nacimiento" class="col-md-4 control-label">Fecha de Nacimiento </label>
 
                         <div class="col-md-6">
-                            <input id="fecha" type="text" class="form-control" name="fecha" value="<?php
-                            if ((old('fecha') != null)) {
-                                echo (old('fecha'));
-                            } else {
-                                echo ($usuario->fecha_nac);
-                            }
-                            ?>">
+                            <input id="fecha"  type="text" class="form-control" name="fecha" value="{{ ($usuario->fecha_nac)}}" data-init-set="false"   data-large-default="true"   data-lang="es"   data-min-year="1940" >
 
                             @if ($errors->has('fecha'))
                             <span class="help-block">

@@ -803,13 +803,13 @@ div.datedropper.vanilla .pick-submit,
 div.datedropper.vanilla .pick-lg-b .pick-sl:before,
 div.datedropper.vanilla .pick-m,
 div.datedropper.vanilla .pick-lg-h {
-  background-color: #feac92;
+  background-color:  #1995dc;
 }
 div.datedropper.vanilla .pick-y.pick-jump,
 div.datedropper.vanilla .pick li span,
 div.datedropper.vanilla .pick-lg-b .pick-wke,
 div.datedropper.vanilla .pick-btn {
-  color: #feac92;
+  color:  #1995dc;
 }
 div.datedropper.vanilla .picker,
 div.datedropper.vanilla .pick-l {
@@ -852,7 +852,7 @@ div.datedropper.leaf .pick-submit,
 div.datedropper.leaf .pick-lg-b .pick-sl:before,
 div.datedropper.leaf .pick-m,
 div.datedropper.leaf .pick-lg-h {
-  background-color: #1ecd80;
+  background-color: #1995dc;
 }
 div.datedropper.leaf .pick-y.pick-jump,
 div.datedropper.leaf .pick li span,
@@ -901,13 +901,13 @@ div.datedropper.primary .pick-submit,
 div.datedropper.primary .pick-lg-b .pick-sl:before,
 div.datedropper.primary .pick-m,
 div.datedropper.primary .pick-lg-h {
-  background-color: #fd4741;
+  background-color: #1995dc;
 }
 div.datedropper.primary .pick-y.pick-jump,
 div.datedropper.primary .pick li span,
 div.datedropper.primary .pick-lg-b .pick-wke,
 div.datedropper.primary .pick-btn {
-  color: #fd4741;
+  color: #1995dc;
 }
 div.datedropper.primary .picker,
 div.datedropper.primary .pick-l {

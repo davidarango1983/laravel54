@@ -13,7 +13,7 @@
                             <label for="inicio" class="col-md-4 control-label">Hora de Inicio</label>
 
                             <div class="col-md-2">
-                                <input id="inicio" type="time" class="form-control" required name="inicio" value="{{ old('inicio') }}">
+                                <input id="inicio" type="text" class="form-control" required name="inicio" value="{{ old('inicio') }}">
 
                                 @if ($errors->has('inicio'))
                                 <span class="help-block">
@@ -22,12 +22,13 @@
                                 @endif
                             </div>
                         </div>
+                         <script>$( "#inicio" ).timeDropper();</script>
 
                         <div class="form-group{{ $errors->has('fin') ? ' has-error' : '' }}">
                             <label for="fin" class="col-md-4 control-label">Hora de Finalización</label>
 
                             <div class="col-md-2">
-                                <input id="fin" type="time" class="form-control" name="fin" value="{{ old('fin') }}">
+                                <input id="fin" type="text" class="form-control" name="fin" value="{{ old('fin') }}">
 
                                 @if ($errors->has('fin'))
                                 <span class="help-block">
@@ -36,6 +37,7 @@
                                 @endif
                             </div>
                         </div>
+                        <script>$( "#fin" ).timeDropper();</script>
 
                         <div class="form-group{{ $errors->has('limit') ? ' has-error' : '' }}">
                             <label for="limit" class="col-md-4 control-label">Límite de Usuarios</label>
@@ -138,4 +140,6 @@
     </div>
 </div>
 @endsection
+<link rel="stylesheet" type="text/css" href="{{ URL::asset('css/timedropper.css')}}">
+
 <script src="{{ URL::asset('js/clases.js')}}"></script>

@@ -26,7 +26,7 @@ class UserUpdateRequest extends Request
     {
        
         
-        $dieciseisanyos = Utiles::dieciseisanyosatras();
+        $dieciseisanyos = Utiles::anyosatras(16);
         return [
                     'name' => 'required|max:255',
                     'apellido' => 'required|max:255',

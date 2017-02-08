@@ -206,6 +206,7 @@
         </div>
     </div>
 </div>
+<link rel="stylesheet" type="text/css" href="{{ URL::asset('css/timedropper.css')}}">
 
 <script src="{{ URL::asset('js/clases.js')}}"></script>
 @endsection

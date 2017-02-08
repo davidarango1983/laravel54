@@ -80,13 +80,14 @@
                             <label for="fecha de nacimiento" class="col-md-4 control-label">Fecha de Nacimiento</label>
 
                             <div class="col-md-6">
-                                <input id="fecha" type="text" class="form-control" name="fecha" value="<?php
+                                <input id="fecha" type="text" class="form-control" name="fecha"  data-lang="es"   data-min-year="1940"  value="<?php
                             if ((old('fecha') != null)) {
                                 echo old('fecha');
                             } else {
                                  (isset($profesor)) ? print $profesor->fecha_nac : '';
                             }
                             ?>">
+                                
 
                                 @if ($errors->has('fecha'))
                                     <span class="help-block">
@@ -95,6 +96,9 @@
                                 @endif
                             </div>
                         </div>
+                        
+                      
+
                          <div class="form-group{{ $errors->has('telefono') ? ' has-error' : '' }}">
                             <label for="telefono" class="col-md-4 control-label">Teléfono</label>
 

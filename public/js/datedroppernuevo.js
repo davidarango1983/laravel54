@@ -1246,10 +1246,10 @@
 			return parseInt(pickers[picker.id].key[k].today);
 		},
 		get_today_full = function() {
-			return get_today('m')+'/'+get_today('d')+'/'+get_today('y');
+			return get_today('m')+'-'+get_today('d')+'-'+get_today('y');
 		},
 		get_current_full = function() {
-			return get_current('m')+'/'+get_current('d')+'/'+get_current('y');
+			return get_current('m')+'-'+get_current('d')+'-'+get_current('y');
 		},
 		get_jumped = function(k,val) {
 			var
@@ -1929,7 +1929,7 @@
 				var
 					picker_default_date = (input.data('default-date')&&is_date(input.data('default-date'))) ? input.data('default-date') : null,
 					picker_disabled_days = (input.data('disabled-days')) ? input.data('disabled-days').split(',') : null,
-					picker_format = input.data('format') || 'm/d/Y',
+					picker_format = input.data('format') || 'Y-m-d',
 					picker_fx = (input.data('fx')===false) ? input.data('fx') : true,
 					picker_fx_class = (input.data('fx')===false) ? '' : 'picker-fxs',
 					picker_fx_mobile = (input.data('fx-mobile')===false) ? input.data('fx-mobile') : true,
@@ -1940,7 +1940,7 @@
 					picker_lock = (input.data('lock')=='from'||input.data('lock')=='to') ? input.data('lock') : false,
 					picker_jump = (input.data('jump')&&is_int(input.data('jump'))) ? input.data('jump') : 10,
 					picker_max_year = (input.data('max-year')&&is_int(input.data('max-year'))) ? input.data('max-year') : new Date().getFullYear(),
-					picker_min_year = (input.data('min-year')&&is_int(input.data('min-year'))) ? input.data('min-year') : 1970,
+					picker_min_year = (input.data('min-year')&&is_int(input.data('min-year'))) ? input.data('min-year') : 1950,
 
 					picker_modal = (input.data('modal')===true) ? 'picker-modal' : '',
 					picker_theme = input.data('theme') || 'primary',

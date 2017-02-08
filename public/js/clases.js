@@ -13,9 +13,9 @@ $(document).ready(function () {
     });
 
 
+    
 
-
-
+    
 
 
     $('#clases').addClass('active');

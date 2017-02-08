@@ -9,7 +9,8 @@ $(document).ready(function () {
 
 
 
-  $('#fecha').dateDropper();
+  $('#fecha').dateDropper({format:"Y-m-d",
+                            lang:"es"});
     /*
      * Dropdown auto
      * 

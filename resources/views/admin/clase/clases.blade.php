@@ -19,4 +19,6 @@
 <div id='modalprofesor' class="modal fade" tabindex="-1" role="dialog"></div>
 
 <script src="{{ URL::asset('js/clases.js')}}"></script>
+
+
 @endsection

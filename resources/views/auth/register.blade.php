@@ -41,7 +41,7 @@
                             <label for="fecha de nacimiento" class="col-md-4 control-label">Fecha de Nacimiento</label>
 
                             <div class="col-md-6">
-                                <input id="fecha" type="text" class="form-control" data-lang="es" name="fecha" value="{{ old('fecha') }}">
+                                <input id="fecha"    type="text" class="form-control" data-lang="es" name="fecha" value="{{ old('fecha') }}">
 
                                 @if ($errors->has('fecha'))
                                 <span class="help-block">

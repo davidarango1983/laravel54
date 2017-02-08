@@ -79,7 +79,7 @@ $(".status").click(function ()
                             <label for="imagen" class="col-md-2 col-sm-2 control-label">Imagen</label>                             
 
                             <div class="col-md-5 col-sm-6">
-                                <input id="imagen" type="file" class="form-control" name="imagen" value="">
+                                <input id="imagen" type="file" class="form-control" name="imagen">
                                 <i>Por motivos de seguridad debe insertar la imagen manualmente.</i>
 
 

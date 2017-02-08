@@ -83,6 +83,14 @@ class ReservaController extends Controller
      
    
     }
+    
+    public function reiniciarReservas(){
+        
+            return redirect()->action('AdministracionController@noticias');
+        
+        
+        
+    }
       
 
 
