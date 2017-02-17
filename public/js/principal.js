@@ -26,10 +26,6 @@ $(document).ready(function () {
      */
 
     $('#editar').click(function () {
-
-
-
-
         /*
          * Hacemos una petición ajax para recuperar la información del usuario desde la bbdd
          *  
@@ -81,7 +77,6 @@ $(document).ready(function () {
 
     $('.btnreserva').prop('disabled', false);
 
-
     /*
      * Redireccionamos al día actual.
      * 
@@ -129,7 +124,6 @@ $(document).ready(function () {
     $('.formularioreserva').on('click', function (event) {
 
         event.preventDefault();
-        var boton = $(this[3]);
         $('.btnreserva').prop('disabled', true);
         if (this[3].name === 'cancelar') {
             $url = 'anulareserva';
@@ -142,7 +136,6 @@ $(document).ready(function () {
             url: $url,
             //estos son los datos que queremos actualizar, en json:
             data: $(this).serialize()
-
             ,
             error: function (status, error) {
                 //mostraríamos alguna ventana de alerta con el error
@@ -151,7 +144,7 @@ $(document).ready(function () {
             success: function (data) {
 
                 var options = {
-                    "icon": true, //Icon class - false / string - see provided CSS
+                    "icon": "heart", //Icon class - false / string - see provided CSS
                     "title": 'Administración', //Show title - false / string
                     "cls": "eliminado", //Additional container class
                     "speed": 500, //Fade-in / out animation speed
@@ -159,6 +152,7 @@ $(document).ready(function () {
                 };
                 $.Growl.show(data, options);
                 setTimeout(reiniciar, 2000);
+               
                 function reiniciar() {
                     window.location.reload();
                 }

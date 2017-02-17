@@ -14,34 +14,7 @@ use App\Reservas;
 |
 */
 
-Route::get('/', function () {
-    
-    /*
-     * 
-     * Cargamos las noticias 
-     * 
-     */
-    $noticias=  NoticiasController::cargarNoticias();
-    $clasesdehoy = ClaseController::cargarClases();
-     $ruta=storage_path().'/imgNoticias'; 
-    
-    //Conmprobamos si es un usuario autentificado
-     if(Auth::check()){
-     
-    //comprobamos si su siscripción está activa, de no ser así redirigimos a la zona de activación
-         $sus = Auth::user()->suscripcion;
-        if($sus->fecha_fin > getdate()){
-            
-            return view('auth.perfil');
-        } 
-         
-            
-    $reservasUsuario = Reservas::all()->where('user_id', Auth::user()->id);    
-    return view('home',['noticia'=>$noticias,'ruta'=>$ruta,'clases'=>$clasesdehoy,'reservas'=>$reservasUsuario]);
-     }else{    
-    return view('home',['noticia'=>$noticias,'ruta'=>$ruta,'clases'=>$clasesdehoy]);
-     }
-});
+Route::get('/', 'HomeController@home');
 
 
 Route::get("test-email", function() {

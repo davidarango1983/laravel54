@@ -2,36 +2,73 @@
 @extends('layouts.app')
 @section('content')
 <div class="container">
-    <div id='divIzquierdo'class='col-xs-12 col-sm-3 col-lg-2'>
-        <div class="panel panel-default">
-            <div class="panel-body">
+    <div class='row'>
+   
+    <div class="col-md-4 col-lg-3 col-sm-12 col-xs-12 visible-lg visible-md">
+            <div class="sidebar-nav-fixed affix">
+                <div class="well container-fuild">
+                    
                 @if (Auth::guest())
                 <a href="/register">Inscríbete Ya!</a>
                 @else
                 <p> Hola! <strong>{{ Auth::user()->name}}</strong></p>
-                <p>Echa un vistazo a las clases de hoy!</p>
-                <a href="/reservaclases">
-                    @foreach ($clases as $clase)
-                    <strong>{{$clase->tipo->name}}</strong><br/>
-                    <i>{{$clase->hora_ini}}</i></br>
-                    <i>{{$clase->profesor->name}}</i>
-                    <hr/>
-                    @endforeach
+               
+                <a href="/reservaclases"> <p>Echa un vistazo a las clases de hoy...</p>
+                  
                 </a>
                 @endif
                 @if (!Auth::guest())
+                @if (count($reservas)>0)
                 <p>No olvides tus clases ya reservadas</p>
+                @endif                              
                 @foreach ($reservas as $reserva)           
-                <strong>{{strtoupper($reserva->clase->dia)}}</strong><br/><strong>{{substr($reserva->clase->hora_ini,0,5)}}</strong><br/>
+                <strong>{{strtoupper($reserva->clase->dia)}} </strong><a href='/reservaclases/{{$reserva->clase->dia}}'><strong>{{substr($reserva->clase->hora_ini,0,5)}}
+                    </strong></a>
+                 
                 <hr/>
                 @endforeach
                 @endif
+          
+                </div>
+                <!--/.well -->
             </div>
+            <!--/sidebar-nav-fixed -->
+        </div>
+        <!--/span-->
+        <div>
+               <div class="col-xs-12 col-sm-12 visible-xs visible-sm">
+         
+                <div class="well">
+                    
+                @if (Auth::guest())
+                <a href="/register">Inscríbete Ya!</a>
+                @else
+                <p> Hola! <strong>{{ Auth::user()->name}}</strong></p>
+               
+                <a href="/reservaclases"> <p>Echa un vistazo a las clases de hoy...</p>
+                  
+                </a>
+                @endif
+                @if (!Auth::guest())
+                @if (count($reservas)>0)
+                <p>No olvides tus clases ya reservadas</p>
+                @endif                              
+                @foreach ($reservas as $reserva)           
+                <strong>{{strtoupper($reserva->clase->dia)}} </strong><a href='/reservaclases/{{$reserva->clase->dia}}'><strong>{{substr($reserva->clase->hora_ini,0,5)}}
+                    </strong></a>
+                 
+                <hr/>
+                @endforeach
+                @endif
+          
+                </div>
+                <!--/.well -->
+            </div>
+            <!--/sidebar-nav-fixed -->
         </div>
 
-    </div>
-
-    <div id='divCentral'class='col-xs-12 col-sm-9 col-lg-10'>
+    <div id='divCentral'class='col-xs-12 col-sm-12 col-lg-9 col-md-8'>
+         
 
 
         @foreach ($noticia as $new)
@@ -53,7 +90,7 @@
 
 
 
-
+</div>
 </div>
 
 

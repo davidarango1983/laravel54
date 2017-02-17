@@ -30,10 +30,10 @@ class Reservas extends Model
              return $this->belongsTo('App\User');
           }
 
-          public function clase()
-              {
-                 return $this->belongsTo('App\Clase');
-              }
+      public function clase()
+             {
+                return $this->belongsTo('App\Clase');
+             }
 
 
 

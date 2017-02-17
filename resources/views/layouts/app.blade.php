@@ -28,7 +28,8 @@
 </head>
 
 <body id="app-layout">
-    <nav class="navbar navbar-default navbar-static-top">
+    <div >
+    <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
 
@@ -74,11 +75,11 @@
                     @else
                      
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">
                                 {{ Auth::user()->name }} <span class="caret"></span>
                             </a>
 
-                            <ul class="dropdown-menu" role="menu">
+                            <ul class="dropdown-menu fixed" role="menu">
                                  <li><a href="{{ url('/reservaclases') }}"><i class="fa fa-edit"></i> Reservar Clases</a></li>
                                 <li><a href="{{ url('/perfil') }}"><i class="fa fa-edit"></i> Mi Perfil</a></li>
                                <li>
@@ -94,7 +95,7 @@
                                     </li>
                                  @if(Auth::check() && Auth::user()->id_rol==2)
                                     <li role="separator" class="divider"></li>
-                                 <li><a href="{{ url('admin') }}"><i class="glyphicon glyphicon-cog"></i>  Administrar Web</a></li>
+                                 <li><a href="{{ url('admin') }}"><span class="glyphicons glyphicons-headphones"></span>  Administrar Web</a></li>
                                     @endif
                             </ul>
                         </li>
@@ -105,10 +106,14 @@
             </div>
         </div>
     </nav>
+        </br>
+        </br>
+       
+        </br>
 
     @yield('content')
     
-      <footer id='footer' class="navbar-static-bottom "> 
+      <footer id='footer' class="navbar-fixed-bottom "> 
 
         <div class="container">
             <div class="text-center center-block">
@@ -127,21 +132,21 @@
     </footer>
    
 
-
+    </div>
     <!-- JavaScripts -->
  <script src="{{URL::asset('js/app.js')}}"></script>
  <script type="text/javascript" src="https://cdn.datatables.net/v/bs-3.3.7/jq-2.2.4/dt-1.10.13/datatables.min.js"></script>
- <link rel="stylesheet" href="{{ URL::asset('css/datedroppernuevo.css') }}">
+ <link rel="stylesheet" href="{{ URL::asset('js/Growl/css/growl.css') }}">
+  <link rel="stylesheet" href="{{ URL::asset('css/datedroppernuevo.css') }}">
     <!-- Latest compiled and minified JavaScript -->
 <!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
   <script src="//cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js"></script>-->
   
 
 <script src="{{URL::asset('js/datedroppernuevo.js')}}"></script>
-  
-<!--<script src="{{URL::asset('js/Growl/js/growl.js')}}"></script>-->
-<script src="{{URL::asset('js/principal.js')}}"></script>
 
+<script src="{{URL::asset('js/principal.js')}}"></script>
+<script src="{{URL::asset('js/Growl/js/growl.js')}}"></script>
     
 </body>
 

@@ -18,68 +18,54 @@ $(document).ready(function () {
             return xhr.setRequestHeader('X-CSRF-TOKEN', token);
         }
     });
-
-
-
     $('#noticias').addClass('active');
-
-
-
-        $(function (){$('#noticias-table').DataTable({
-                retrieve: true,
-                processing: true,
-                serverSide: true,
-                "ajax": {
-                    "url": "noticias",
-                    'type': 'POST'
-
-
-
-                },
-                columns: [
-                    {data: 'id', name: 'id'},
-                    {data: 'title', name: 'title'},
-                    {data: 'content', name: 'content',
+    $(function () {
+        $('#noticias-table').DataTable({
+            retrieve: true,
+            processing: true,
+            serverSide: true,
+            "ajax": {
+                "url": "noticias",
+                'type': 'POST'
+            },
+            columns: [
+                {data: 'id', name: 'id'},
+                {data: 'title', name: 'title'},
+                {data: 'content', name: 'content',
                     'render': function (data) {
-                             return data.substring(0,30)+"...";
-
-                        }
-                    },
-                         {data: 'publicado', name: 'publicado'},
-                    {data: 'urlimg', name: 'urlimg'},
-                     
-                    {'data': "id", "className": "visible-lg",
-                        'render': function () {
-                            /*añadimos las clases editarbtn y borrarbtn para procesar los eventos click de los botones. No lo hacemos mediante id ya que habrá más de un botón de edición o borrado*/
-                            return "<a href='editarnoticia/"+arguments[0] +"' class='editar btn btn-sm btn-warning ' >Editar</a><span> </span><button class='borrarbtn btn btn-xs btn-danger'>Borrar</button>";
-
-                        }
+                        return data.substring(0, 30) + "...";
+                    }
+                },
+                {data: 'publicado', name: 'publicado'},
+                {data: 'urlimg', name: 'urlimg'},
+                {'data': "id", "className": "visible-lg",
+                    'render': function () {
+                        /*añadimos las clases editarbtn y borrarbtn para procesar los eventos click de los botones. No lo hacemos mediante id ya que habrá más de un botón de edición o borrado*/
+                        return "<a href='editarnoticia/" + arguments[0] + "' class='editar btn btn-sm btn-warning ' >Editar</a><span> </span><button class='borrarbtn btn btn-xs btn-danger'>Borrar</button>";
 
                     }
-
-
-
-
-                ],
-                'language': {
-                    "url": "/spanish"
-
-                },
-                "oAria": {
-                    "sSortAscending": ": Activar para ordenar la columna de manera ascendente",
-                    "sSortDescending": ": Activar para ordenar la columna de manera descendente"
                 }
-            });
 
+            ],
+            'language': {
+                "url": "/spanish"
 
-
-
-
-
-
-
-
+            },
+            "oAria": {
+                "sSortAscending": ": Activar para ordenar la columna de manera ascendente",
+                "sSortDescending": ": Activar para ordenar la columna de manera descendente"
+            }
         });
+
+
+
+
+
+
+
+
+
+    });
 
 
 
@@ -132,9 +118,9 @@ $(document).ready(function () {
      * 
      */
 
-  
-  
-    
-    
+
+
+
+
 });
 

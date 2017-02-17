@@ -205,6 +205,9 @@
             </div>
         </div>
     </div>
+    
+                         <script>$( "#inicio" ).timeDropper();</script>
+                                 <script>$( "#fin" ).timeDropper();</script>
 </div>
 <link rel="stylesheet" type="text/css" href="{{ URL::asset('css/timedropper.css')}}">
 

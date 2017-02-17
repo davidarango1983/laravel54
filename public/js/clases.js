@@ -12,9 +12,6 @@ $(document).ready(function () {
         }
     });
 
-
-    
-
     
 
 
@@ -57,7 +54,7 @@ $(document).ready(function () {
                  "className": "visible-lg "},
                 {data: 'publicado', name: 'publicado',
                     'render': function () {
-                        return (arguments[0] === 1) ? 'SI' : 'NO';
+                        return (arguments[0] == 1) ? 'SI' : 'NO';
                     },
                  "className": "visible-lg visible-md"},
                 {data: 'profesor.name', name: 'profesor_id',
@@ -159,7 +156,13 @@ $(document).ready(function () {
             columns: [
                 {data: 'id', name: 'id'},
                 {data: 'name', name: 'name'},
-                {data: 'description', name: 'description'},
+                 {data: 'description', name: 'description',
+                    'render': function (data) {
+                        return data.substring(0, 30) + "...";
+                    }
+                },
+                 {data: 'urlimg', name: 'urlimg'},
+                
                 {'data': "id",
                     'render': function () {
                         /*añadimos las clases editarbtn y borrarbtn para procesar los eventos click de los botones. No lo hacemos mediante id ya que habrá más de un botón de edición o borrado*/
@@ -237,9 +240,7 @@ $(document).ready(function () {
 $('.btnimprimir').click(function (){
    window.print(); 
     
-});
-
-     
+});     
 
     $(function () {
        $('#reservasusuarios-table').DataTable({

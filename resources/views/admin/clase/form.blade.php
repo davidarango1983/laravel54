@@ -13,7 +13,7 @@
                             <label for="inicio" class="col-md-4 control-label">Hora de Inicio</label>
 
                             <div class="col-md-2">
-                                <input id="inicio" type="text" class="form-control" required name="inicio" value="{{ old('inicio') }}">
+                                <input id="inicio" type="text" format=' h:mm'  class="form-control" required name="inicio" value="{{ old('inicio') }}">
 
                                 @if ($errors->has('inicio'))
                                 <span class="help-block">
@@ -22,13 +22,11 @@
                                 @endif
                             </div>
                         </div>
-                         <script>$( "#inicio" ).timeDropper();</script>
-
                         <div class="form-group{{ $errors->has('fin') ? ' has-error' : '' }}">
                             <label for="fin" class="col-md-4 control-label">Hora de Finalización</label>
 
                             <div class="col-md-2">
-                                <input id="fin" type="text" class="form-control" name="fin" value="{{ old('fin') }}">
+                                <input id="fin" type="text" format=' HH:mm' class="form-control" name="fin" value="{{ old('fin') }}">
 
                                 @if ($errors->has('fin'))
                                 <span class="help-block">
@@ -37,7 +35,7 @@
                                 @endif
                             </div>
                         </div>
-                        <script>$( "#fin" ).timeDropper();</script>
+                
 
                         <div class="form-group{{ $errors->has('limit') ? ' has-error' : '' }}">
                             <label for="limit" class="col-md-4 control-label">Límite de Usuarios</label>
@@ -70,10 +68,24 @@
                             <label for="publicar" class="col-md-4 control-label">Publicar</label>
 
                             <div class="col-md-2">
-                                <select id="publicar"  class="form-control" name="publicar" value="{{ old('publicar') }}">
-                                    <option value='1'>SI</option>
-                                    <option value='0'>NO</option>
-                                </select>
+
+
+                                @if (old('publicar') != null) 
+                                
+                                @if (old('publicar')==1)  
+
+                                <input checked type='radio'  name="publicar" value='1'/>SI
+                                <input type='radio'  name="publicar" value='0'/>NO
+                                @else
+                                <input checked type='radio'  name="publicar" value='1'/>SI
+                                <input type='radio'  name="publicar" value='0'/>NO
+                                @endif                    
+                                @else
+                               <input checked type='radio'  name="publicar" value='1'/>SI
+                                <input type='radio'  name="publicar" value='0'/>NO
+                                @endif
+
+
                                 @if ($errors->has('publicar'))
                                 <span class="help-block">
                                     <strong><i>{{ $errors->first('publicar') }}</i></strong>
@@ -138,8 +150,13 @@
             </div>
         </div>
     </div>
+
+                         <script>$( "#inicio" ).timeDropper();</script>
+                                 <script>$( "#fin" ).timeDropper();</script>
 </div>
+
 @endsection
 <link rel="stylesheet" type="text/css" href="{{ URL::asset('css/timedropper.css')}}">
 
 <script src="{{ URL::asset('js/clases.js')}}"></script>
+
