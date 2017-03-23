@@ -43,7 +43,7 @@
 
                 <!-- Branding Image -->
                 <a class="navbar-brand" href="{{ url('/') }}">
-                   GYM<span class="fa fa-star"></span>ZONE               </a>
+                   GYM<span class="fa fa-star"></span>ZONEX               </a>
             </div>
 
             <div class="collapse navbar-collapse" id="app-navbar-collapse">
