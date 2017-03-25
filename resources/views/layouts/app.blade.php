@@ -113,23 +113,21 @@
 
     @yield('content')
     
-      <footer id='footer' class="navbar-fixed-bottom "> 
-
-        <div class="container">
-            <div class="text-center center-block">
-                <br class='visible-xs'></br>
-                <a href="/"><i id="social-fb" class="fa fa-facebook-square fa-3x social"></i></a>
-                <a href="/"><i id="social-tw" class="fa fa-twitter-square fa-3x social"></i></a>
-                <a href="/"><i id="social-gp" class="fa fa-google-plus-square fa-3x social"></i></a>
-                <a href="mailto:cdarangosannicolas@gmail.com"><i id="social-em" class="fa fa-envelope-square fa-3x social"></i></a>
-           
-                <p class='visible-sm visible-md visible-lg'>GYMZONE ZARAGOZA 2017</p>
-                <p class='visible-sm visible-md visible-lg'>Todos los derechos Reservados.</p>
-              
-            </div>
-        </div>
-
-    </footer>
+     <div class="navbar-fixed-bottom footer-basic">
+        <footer>
+            <div class="social"><a href="#" data-bs-hover-animate="rubberBand"><i class="icon ion-social-instagram" data-bs-hover-animate="rubberBand"></i></a><a href="#" data-bs-hover-animate="rubberBand"><i class="icon ion-email" data-bs-hover-animate="rubberBand"></i></a>
+                <a
+                href="#" data-bs-hover-animate="rubberBand"><i class="icon ion-social-twitter" data-bs-hover-animate="rubberBand"></i></a><a href="#" data-bs-hover-animate="rubberBand"><i class="icon ion-social-facebook" data-bs-hover-animate="rubberBand"></i></a></div>
+            <ul class="list-inline">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Terms</a></li>
+                <li><a href="#">Privacy Policy</a></li>
+            </ul>
+            <p class="copyright">GymZone Zaragoza 2017</p>
+        </footer>
+    </div>
    
 
     </div>

@@ -7,7 +7,28 @@
 
 $(document).ready(function () {
 
+ /*
+  * 
+  * 
+  * FUNCIONES DE ANIMACIÓN
+  * 
+  */
+ 
+ 
 
+	$('[data-bs-hover-animate]')
+		.mouseenter( function(){ var elem = $(this); elem.addClass('animated ' + elem.attr('data-bs-hover-animate')); })
+		.mouseleave( function(){ var elem = $(this); elem.removeClass('animated ' + elem.attr('data-bs-hover-animate')); });
+
+ 
+ 
+ 
+ 
+ 
+ /*
+  * FIN DE CUNIONES DE ANIMACIÓN
+  * 
+  */
 
   $('#fecha').dateDropper({format:"Y-m-d",
                             lang:"es"});
