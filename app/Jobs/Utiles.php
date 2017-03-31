@@ -39,11 +39,11 @@ abstract class Utiles {
         return date("Y-m-d", strtotime($fecha));
     }
 
-    public static function getDia() {
+    public static function getDia($intDay) {
 
         $hoy = getdate();
 
-        $dia = $hoy['wday'];
+        $dia = $hoy['wday']+$intDay;
 
         switch ($dia) {
             case 0:

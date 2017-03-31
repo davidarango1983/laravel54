@@ -2,19 +2,81 @@
 
 @section('content')
 <div class="container">
-    <div class="row">
-        <div class="col-md-12">
-            <div class="panel panel-default">
-                <div class="panel-heading">Registro de Usuarios</div>
-                <div class="panel-body">
-                    <form class="form-horizontal" role="form" method="POST" action="{{ url('/register') }}">
+     <div class="login-card"><img src="{{ URL::asset('/images/logogym25.png') }}" class="profile-img-card">
+        <p class="profile-name-card"> </p>
+       
+        <form class="form-signin" role="form" method="POST" action="{{ url('/login') }}">
+              {{ csrf_field() }}
+              <div class="form-group">
+            <input class="form-control" type="email" required placeholder="Nombre" autofocus="" id="inputEmail" name="email" value="{{ old('email') }}" autofocus>
+            
+             @if ($errors->has('email'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('email') }}</strong>
+                                    </span>
+                                @endif
+            <input class="form-control" type="password" required="" placeholder="Apellidos" id="inputPassword"  name="password" required>
+            
+                                @if ($errors->has('password'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('password') }}</strong>
+                                    </span>
+                                @endif
+                                  <input class="form-control" type="password" required="" placeholder="Fecha Nacimiento" id="inputPassword"  name="password" required>
+            
+                                  </div>
+                                  <input class="form-control" type="password" required="" placeholder="Teléfono" id="inputPassword"  name="password" required>
+            
+                                @if ($errors->has('password'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('password') }}</strong>
+                                    </span>
+                                @endif
+                                  <input class="form-control" type="email" required="" placeholder="email" id="inputPassword"  name="password" required>
+            
+                                @if ($errors->has('password'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('password') }}</strong>
+                                    </span>
+                                @endif
+                                  <input class="form-control" type="password" required="" placeholder="Tipo de Suscripción" id="inputPassword"  name="password" required>
+            
+                                @if ($errors->has('password'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('password') }}</strong>
+                                    </span>
+                                @endif
+                                  <input class="form-control" type="password" required="" placeholder="Password" id="inputPassword"  name="password" required>
+            
+                                @if ($errors->has('password'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('password') }}</strong>
+                                    </span>
+                                @endif
+                                  <input class="form-control" type="password" required="" placeholder="Password" id="inputPassword"  name="password" required>
+            
+                                @if ($errors->has('password'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('password') }}</strong>
+                                    </span>
+                                @endif
+           
+            <button class="btn btn-primary btn-block btn-lg btn-signin" type="submit">Identificarse</button>
+        </form><a href="{{ url('/password/reset') }}" class="forgot-password">Has olvidado tu contraseña?</a></div>
+        
+    
+</div>
+<div class="container">
+   <div class="login-card"><img src="{{ URL::asset('/images/logogym25.png') }}" class="profile-img-card">
+        <p class="profile-name-card"> </p>
+                    <form class="form-signin" role="form" method="POST" action="{{ url('/register') }}">
                         {{ csrf_field() }}
 
                         <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                            <label for="name" class="col-md-4 control-label">Nombre</label>
+                          
 
                             <div class="col-md-6">
-                                <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}">
+                                <input id="name" type="text" class="form-control" name="name" placeholder="Nombre"value="{{ old('name') }}">
 
                                 @if ($errors->has('name'))
                                 <span class="help-block">

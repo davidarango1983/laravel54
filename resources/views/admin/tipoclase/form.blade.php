@@ -1,8 +1,8 @@
 @extends ('admin.admin')
 @section('contenido')
 <script src="{{ URL::asset('js/clases.js')}}"></script>
-<link rel="stylesheet" type="text/css" href="{{ URL::asset('js/editor/jquery-te-1.4.0.css')}}"> 
-<script src="{{ URL::asset('js/editor/jquery-te-1.4.0.min.js')}}"></script>
+<!--<link rel="stylesheet" type="text/css" href="{{ URL::asset('js/editor/jquery-te-1.4.0.css')}}"> -->
+<!--<script src="{{ URL::asset('js/editor/jquery-te-1.4.0.min.js')}}"></script>-->
 
 
 <div class="content col-md-10 col-md-offset-1">  

@@ -113,19 +113,11 @@
 
     @yield('content')
     
-     <div class="navbar-fixed-bottom footer-basic">
+     <div class=" footer-basic ">
         <footer>
             <div class="social"><a href="#" data-bs-hover-animate="rubberBand"><i class="icon ion-social-instagram" data-bs-hover-animate="rubberBand"></i></a><a href="#" data-bs-hover-animate="rubberBand"><i class="icon ion-email" data-bs-hover-animate="rubberBand"></i></a>
-                <a
-                href="#" data-bs-hover-animate="rubberBand"><i class="icon ion-social-twitter" data-bs-hover-animate="rubberBand"></i></a><a href="#" data-bs-hover-animate="rubberBand"><i class="icon ion-social-facebook" data-bs-hover-animate="rubberBand"></i></a></div>
-            <ul class="list-inline">
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Services</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Terms</a></li>
-                <li><a href="#">Privacy Policy</a></li>
-            </ul>
-            <p class="copyright">GymZone Zaragoza 2017</p>
+                <a href="#" data-bs-hover-animate="rubberBand"><i class="icon ion-social-twitter" data-bs-hover-animate="rubberBand"></i></a><a href="#" data-bs-hover-animate="rubberBand"><i class="icon ion-social-facebook" data-bs-hover-animate="rubberBand"></i></a></div>
+            
         </footer>
     </div>
    
@@ -133,14 +125,14 @@
     </div>
     <!-- JavaScripts -->
  <script src="{{URL::asset('js/app.js')}}"></script>
- <script type="text/javascript" src="https://cdn.datatables.net/v/bs-3.3.7/jq-2.2.4/dt-1.10.13/datatables.min.js"></script>
+
  <link rel="stylesheet" href="{{ URL::asset('js/Growl/css/growl.css') }}">
   <link rel="stylesheet" href="{{ URL::asset('css/datedroppernuevo.css') }}">
     <!-- Latest compiled and minified JavaScript -->
 <!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
   <script src="//cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js"></script>-->
-  
-
+<!--   <script type="text/javascript" src="https://cdn.datatables.net/v/bs-3.3.7/dt-1.10.13/datatables.min.js"></script>-->
+ <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.13/datatables.min.js"></script>
 <script src="{{URL::asset('js/datedroppernuevo.js')}}"></script>
 
 <script src="{{URL::asset('js/principal.js')}}"></script>

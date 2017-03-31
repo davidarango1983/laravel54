@@ -125,7 +125,7 @@ class ClaseController extends Controller {
         $clases = Clase::all()->where('dia', $dia);
         $clasesR = DB::select("SELECT clases.id,count(reservas.clase_id) as count FROM reservas,clases where clases.id = reservas.clase_id and dia=:dia group by clase_id", ['dia' => $dia]);
         $array = array($clasesR);
-        $hoy = Utiles::getDia();
+        $hoy = Utiles::getDia(0);
         $hora = Utiles::getHora();      
         return view('reservas.dia', ['hora' => $hora, 'hoy' => $hoy, 'reserva' => $reservasUsuario, 'clases' => $clases, 'dia' => $dia, 'reservar' => $array]);
     }
@@ -135,9 +135,9 @@ class ClaseController extends Controller {
      * @return clases del día
      */
 
-    public static function cargarClases() {
+    public static function cargarClases($intDay) {
         
-        $dia=Utiles::getDia();
+        $dia=Utiles::getDia($intDay);
         return Clase::all()->where('dia', $dia);
         
     }

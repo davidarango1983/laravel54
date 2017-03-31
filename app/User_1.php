@@ -7,7 +7,9 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 class User extends Authenticatable
 {
 
-
+ protected $casts = [
+        'isAdmin' => 'boolean',
+    ];
     protected $table='users';
     /**
      * The attributes that are mass assignable.

@@ -33,6 +33,7 @@
                     <label><legend>Suscripción</legend>
                         <p>Suscripción :  
                             @if($sus->fecha_fin < getdate() ) <span class='alert-success'> Activa </span></p>
+                     
                         @else <span class="alert-danger">Inactiva</span><button id='btnpagar' class="btn btn-info">Pagar Suscripción</button>
                         @endif
                         <p>Fecha de inicio : {{$sus->fecha_ini}}</p>

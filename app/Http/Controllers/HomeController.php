@@ -32,15 +32,15 @@ class HomeController extends Controller
         return view('auth.perfil');
     }
    
-    public function home(){
-        
+    public function home(){        
         /*
      * 
      * Cargamos las noticias 
      * 
      */
     $noticias=  NoticiasController::cargarNoticias();
-    $clasesdehoy = ClaseController::cargarClases();
+    $clasesdehoy = ClaseController::cargarClases(0);
+    $clasesM = ClaseController::cargarClases(1);
      $ruta=storage_path().'/imgNoticias'; 
     
     //Conmprobamos si es un usuario autentificado
@@ -48,16 +48,15 @@ class HomeController extends Controller
      
     //comprobamos si su siscripción está activa, de no ser así redirigimos a la zona de activación
          $sus = Auth::user()->suscripcion;
-        if($sus->fecha_fin > getdate()){
-            
+        if($sus->fecha_fin > getdate()){            
             return view('auth.perfil');
         } 
          
-            
+         
     $reservasUsuario = Reservas::all()->where('user_id', Auth::user()->id);    
-    return view('home',['noticia'=>$noticias,'ruta'=>$ruta,'clases'=>$clasesdehoy,'reservas'=>$reservasUsuario]);
+    return view('home',['noticia'=>$noticias,'ruta'=>$ruta,'clases'=>$clasesdehoy,'clasesM'=>$clasesM,'reservas'=>$reservasUsuario]);
      }else{    
-    return view('home',['noticia'=>$noticias,'ruta'=>$ruta,'clases'=>$clasesdehoy]);
+    return view('home',['noticia'=>$noticias,'ruta'=>$ruta]);
      }
         
     }

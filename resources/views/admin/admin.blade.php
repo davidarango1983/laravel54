@@ -1,5 +1,13 @@
-@extends('layouts.app')
- <script src="{{URL::asset('js/app.js')}}"></script>
+@extends('layouts.adminapp')
+<!--  
+--> 
+
+<script src="{{URL::asset('js/app.js')}}"></script>
+
+
+ 
+
+
  <link rel="stylesheet" href="{{URL::asset('js/Growl/css/growl.css')}}"/>
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs-3.3.7/jq-2.2.4/dt-1.10.13/datatables.min.css"/>
 <link rel="stylesheet" type="text/css" href="{{ URL::asset('js/editor/jquery-te-1.4.0.css')}}">
@@ -71,11 +79,7 @@
     </div>
 
 </div>
-<!-- jQuery -->
 
-<!--<script src="//code.jquery.com/jquery.js"></script>-->
-
-    <!-- Latest compiled and minified JavaScript -->
 
 
 
