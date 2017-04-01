@@ -10,6 +10,8 @@ use App\TipoClase;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use App\Jobs\Utiles;
+use Illuminate\Foundation\Auth\User;
+use Illuminate\Support\Facades\Mail;
 
 class ClaseController extends Controller {
 
@@ -38,8 +40,6 @@ class ClaseController extends Controller {
     }
 
     public function update(ClaseRequest $request) {
-
-
         try {
             $clase = Clase::find($request['id']);
         } catch (Exception $e) {
@@ -54,7 +54,26 @@ class ClaseController extends Controller {
             'publicado' => $request['publicar'],
             'profesor_id' => $request['profesor'],
             'tipo_id' => $request['tipo']]);
-
+        
+        /**Si la clase ha pasado de publicada a no publicada
+         *eliminamos las reservas asociadas a esa clase
+         *  y enviamos un email a los usuarios
+         * 
+         */
+        if( $request['publicar']==0){
+            $get = Reservas::all()->where('clase_id', $clase->id);
+            foreach ($get as $user){
+                $user= User::find($user->user_id);
+                Mail::send('emails.cancelacion', ['user'=>$user , 'clase'=>$clase],function ($m) use ($user){                    
+                  $m->from('hello@app.com', 'GYMZONE ZARAGOZA');  
+                   $m->to($user->email, $user->name)->subject('Tu clase ha sido cancelada!');
+                });
+            
+                
+            }
+            DB::table('reservas')->where('clase_id', $clase->id)->delete();
+        }
+        
 
         $clase->save();
 
@@ -71,9 +90,20 @@ class ClaseController extends Controller {
         try {
             Clase::find($id);
         } catch (Exception $e) {
-            return 'Se ha producdo el siguiente error: ' . $e;
+            return 'No se ha encontrado la clase con id: ' . $e;
         }
+        try{
         Clase::destroy($id);
+        }  catch ( \Exception $e){
+            
+            if($e->getCode()=='23000'){                
+                 return ("Error ".$e->getCode().". No se puede eliminar una clase asociada a reservas. Debes pasar la clase a NO publicado. "
+                         . " El sistema borrará las reservas y avisará a los usuarios via email."
+                         . " Pincha aquí para editar la clase: <a href='/admin/editarclase/".$id."'>Editar Clase</a>");
+            }else{
+                 return "Error :".$e->getCode();
+            }
+        }
         return 'Se ha borrado correctamente la clase con id: ' . $id;
     }
 

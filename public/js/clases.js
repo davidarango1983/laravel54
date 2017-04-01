@@ -54,7 +54,7 @@ $(document).ready(function () {
                  "className": "visible-lg "},
                 {data: 'publicado', name: 'publicado',
                     'render': function () {
-                        return (arguments[0] == 1) ? 'SI' : 'NO';
+                        return (arguments[0] === '1') ? 'SI' : 'NO';
                     },
                  "className": "visible-lg visible-md"},
                 {data: 'profesor.name', name: 'profesor_id',
@@ -122,7 +122,7 @@ $(document).ready(function () {
                     "title": 'Administración', //Show title - false / string
                     "cls": "eliminado", //Additional container class
                     "speed": 200, //Fade-in / out animation speed
-                    "timeout": 2000 //Timeout before notification disappears    
+                    "timeout": 100000 //Timeout before notification disappears    
                 };
                 $.Growl.show(data, options);
             },

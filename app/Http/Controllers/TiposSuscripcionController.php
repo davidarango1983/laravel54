@@ -72,8 +72,12 @@ class TiposSuscripcionController extends Controller
           return 'Se ha eliminido correctamente el tipo con id: '.$id;
             
         }  catch (\Exception $e){
-            
-            return $e->getMessage();
+            if($e->getCode()=='23000'){                
+                 return ("Error ".$e->getCode().". No se puede eliminar un tipo de suscripción asociada a un usuario.");
+            }else{
+                 return "Error :".$e->getCode();
+            }
+           
         }
      
    
