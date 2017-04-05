@@ -92,9 +92,15 @@ class NoticiasController extends Controller {
 
     public static function cargarNoticias() {
 
-        $noticias = DB::table('noticias')->orderBy('created_at', 'DESC')->paginate(2);
+        $noticias = DB::table('noticias')->orderBy('created_at', 'DESC')->paginate(1);
 
         return $noticias;
+    }
+    
+    public function vista(){
+        $ruta=storage_path().'/imgNoticias'; 
+        $noticias= self::cargarNoticias();
+        return view('news',['noticia'=>$noticias,'ruta'=>$ruta]);
     }
 
 }

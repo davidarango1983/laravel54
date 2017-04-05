@@ -9,12 +9,16 @@
 
 @import url(https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css);
 // Variables
-@import "variables";
-@import "estilospropios";
+//@import "variables";
+//@import "estilospropios";
 
 // Bootstrap
 @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
 
+@import "grayscale.scss";
+@import "_mixins.scss";
+@import "_variables.scss";
+@import "datatables.scss";
 
 
 

@@ -38,10 +38,10 @@ class HomeController extends Controller
      * Cargamos las noticias 
      * 
      */
-    $noticias=  NoticiasController::cargarNoticias();
+    
     $clasesdehoy = ClaseController::cargarClases(0);
     $clasesM = ClaseController::cargarClases(1);
-     $ruta=storage_path().'/imgNoticias'; 
+  
     
     //Conmprobamos si es un usuario autentificado
      if(Auth::check()){
@@ -54,9 +54,9 @@ class HomeController extends Controller
          
          
     $reservasUsuario = Reservas::all()->where('user_id', Auth::user()->id);    
-    return view('home',['noticia'=>$noticias,'ruta'=>$ruta,'clases'=>$clasesdehoy,'clasesM'=>$clasesM,'reservas'=>$reservasUsuario]);
+    return view('home',['clases'=>$clasesdehoy,'clasesM'=>$clasesM,'reservas'=>$reservasUsuario]);
      }else{    
-    return view('home',['noticia'=>$noticias,'ruta'=>$ruta]);
+    return view('home');
      }
         
     }

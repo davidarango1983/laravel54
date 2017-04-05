@@ -40,7 +40,7 @@
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
                         Menu <i class="fa fa-bars"></i>
                     </button>
-                    <a class="navbar-brand page-scroll" href="#page-top">
+                    <a class="navbar-brand page-scroll" href="/">
                         <i class="fa fa-play-circle"></i> <span class="light">GYM</span>ZONE
                     </a>
                 </div>
@@ -55,16 +55,16 @@
                        <?php (url()->current() == url('/'))? $barra='/' : $barra=''; ?>
                       
                          <li>
-                            <a class="page-scroll" href="noticias">NOTICIAS</a>
+                            <a class="page-scroll" href="/noticias">NOTICIAS</a>
                         </li>
                         <li>
-                            <a class="page-scroll" href="#about">QUIÉNES SOMOS</a>
+                            <a class="page-scroll" href="/#about">QUIÉNES SOMOS</a>
                         </li>                        
                         <li>
-                            <a class="page-scroll" href="#jobs">ACTIVIDADES</a>
+                            <a class="page-scroll" href="/#jobs">ACTIVIDADES</a>
                         </li>                  
                         <li>
-                            <a class="page-scroll" href="#galery">GALERIA</a>
+                            <a class="page-scroll" href="/#download">GALERIA</a>
                         </li>
                         <li>
                             <a class="page-scroll" href="#contact">CONTACTO</a>
@@ -118,19 +118,19 @@
         <section id="contact" class="container content-section text-center">
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2">
-                    <h2>¿ Deseas más información ?</h2>
-                    <p>No dudes en escribirnos. Te daremos toda la información que necesites. Y si quieres visitarnos estamos <a class="page-scroll" href='#map'>aquí</a></p>
-                    <p><a href="mailto:gymzonezaragoza@gmail.com">gymzonezaragoza@gmail.com</a>
+                    <h2>Contact Start Bootstrap</h2>
+                    <p>Feel free to email us to provide some feedback on our templates, give us suggestions for new templates and themes, or to just say hello!</p>
+                    <p><a href="mailto:feedback@startbootstrap.com">feedback@startbootstrap.com</a>
                     </p>
                     <ul class="list-inline banner-social-buttons">
                         <li>
-                            <a href="https://twitter.com/" class="btn btn-default btn-lg"><i class="fa fa-twitter fa-fw"></i> <span class="network-name">Twitter</span></a>
+                            <a href="https://twitter.com/SBootstrap" class="btn btn-default btn-lg"><i class="fa fa-twitter fa-fw"></i> <span class="network-name">Twitter</span></a>
                         </li>
                         <li>
-                            <a href="https://github.com/davidarango1983/laravel54" class="btn btn-default btn-lg"><i class="fa fa-github fa-fw"></i> <span class="network-name">Github</span></a>
+                            <a href="https://github.com/IronSummitMedia/startbootstrap" class="btn btn-default btn-lg"><i class="fa fa-github fa-fw"></i> <span class="network-name">Github</span></a>
                         </li>
                         <li>
-                            <a href="https://www.facebook.com" class="btn btn-default btn-lg"><i class="fa fa-facebook fa-fw"></i> <span class="network-name">Facebook</span></a>
+                            <a href="https://plus.google.com/+Startbootstrap/posts" class="btn btn-default btn-lg"><i class="fa fa-google-plus fa-fw"></i> <span class="network-name">Google+</span></a>
                         </li>
                     </ul>
                 </div>
@@ -138,17 +138,12 @@
         </section>
 
         <!-- Map Section -->
-        <div id="map">
-        
-        </div>
+        <div id="map"></div>
 
         <!-- Footer -->
         <footer>
             <div class="container text-center">
-                
-                <p>Gym Zone Zaragoza 2017</p>
-                <p>Aviso Legal</p>
-                <p>Política de Privacidad</p>
+                <p>Copyright &copy; Your Website 2016</p>
             </div>
         </footer>
 
@@ -160,7 +155,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
 
         <!-- Google Maps API Key - Use your own API key to enable the map feature. More information on the Google Maps API can be found at https://developers.google.com/maps/ -->
-        <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA9hllqRn8l_ER1ON-3bAAKjc8uv4hZaZA"></script>
+        <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCRngKslUGJTlibkQ3FkfTxj3Xss1UlZDA&sensor=false"></script>
 
         <!-- Theme JavaScript -->
         <script src="js/grayscale.js"></script>

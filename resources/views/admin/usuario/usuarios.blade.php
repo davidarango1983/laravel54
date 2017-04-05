@@ -15,6 +15,6 @@
     </thead>
 </table>
 <div id='modalusuarios' class="modal fade" tabindex="-1" role="dialog"></div>
- <script src="{{URL::asset('js/app.js')}}"></script>
+
 <script src="{{ URL::asset('js/usuarios.js')}}"></script>
 @endsection

@@ -78,7 +78,7 @@ Route::post('admin/listaclases', 'DatatablesController@clases');
 Route::post('admin/eliminarclase/{id}', 'ClaseController@destroy');
 Route::post('admin/editarclase', 'ClaseController@update');
 Route::get('admin/editarclase/{id}', 'ClaseController@editar');
-Route::get('reservaclases','ClaseController@reservas')->middleware('CuentaActiva');
+Route::get('reservaclases','ClaseController@reservas');
 Route::post('reservarclase','ReservaController@create')->middleware('CuentaActiva');
 
 /*
@@ -142,6 +142,12 @@ Route::post('admin/noticias', 'DatatablesController@noticias');
 Route::post('admin/eliminarnoticia/{id}', 'NoticiasController@destroy');
 Route::get('admin/editarnoticia/{id}', 'NoticiasController@editar');
 Route::post('admin/editarnoticia', 'NoticiasController@update');
+/*
+ * VISTA DE NOTICIAS
+ * 
+ */
+Route::get('noticias', 'NoticiasController@vista');
+
 
 /*
  * Rutas para las imágenes

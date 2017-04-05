@@ -14,8 +14,6 @@ $(document).ready(function () {
   * 
   */
  
- 
-
 	$('[data-bs-hover-animate]')
 		.mouseenter( function(){ var elem = $(this); elem.addClass('animated ' + elem.attr('data-bs-hover-animate')); })
 		.mouseleave( function(){ var elem = $(this); elem.removeClass('animated ' + elem.attr('data-bs-hover-animate')); });
@@ -26,26 +24,19 @@ $(document).ready(function () {
  
  
  /*
-  * FIN DE CUNIONES DE ANIMACIÓN
+  * FIN DE FUNCIONES DE ANIMACIÓN
   * 
   */
 
   $('#fecha').dateDropper({format:"Y-m-d",
                             lang:"es"});
-    /*
-     * Dropdown auto
-     * 
-     */
-    $('ul.nav li.dropdown').hover(function () {
-        $(this).find('.dropdown-menu').stop(true, true).delay(100).fadeIn(100);
-    }, function () {
-        $(this).find('.dropdown-menu').stop(true, true).delay(100).fadeOut(100);
-    });
-    /*
+    
+    
+    
+    /*Edición del perfil
      * Botón Editar en perfil
      * 
      */
-
     $('#editar').click(function () {
         /*
          * Hacemos una petición ajax para recuperar la información del usuario desde la bbdd
@@ -71,6 +62,8 @@ $(document).ready(function () {
             }
         });
     });
+    
+    
     /*
      * ZONA ADMINISTRATIVA
      * 
@@ -78,11 +71,9 @@ $(document).ready(function () {
      */
 
     $('#limitClase').on('input', function () {
-
         $('#infoLimit').html(this.value);
     });
     $('#limitClase').on('change', function () {
-
         $('#infoLimit').html(this.value);
     });
     /*

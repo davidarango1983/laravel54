@@ -103,7 +103,7 @@
         </div>
         
         <!-- JavaScripts -->
-        <script src="{{URL::asset('js/app.js')}}"></script>
+<!--        <script src="{{URL::asset('js/app.js')}}"></script>-->
 
         <link rel="stylesheet" href="{{ URL::asset('js/Growl/css/growl.css') }}">
         <link rel="stylesheet" href="{{ URL::asset('css/datedroppernuevo.css') }}">
