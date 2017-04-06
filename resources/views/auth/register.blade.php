@@ -1,72 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-     <div class="login-card"><img src="{{ URL::asset('/images/logogym25.png') }}" class="profile-img-card">
-        <p class="profile-name-card"> </p>
-       
-        <form class="form-signin" role="form" method="POST" action="{{ url('/login') }}">
-              {{ csrf_field() }}
-              <div class="form-group">
-            <input class="form-control" type="email" required placeholder="Nombre" autofocus="" id="inputEmail" name="email" value="{{ old('email') }}" autofocus>
-            
-             @if ($errors->has('email'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                @endif
-            <input class="form-control" type="password" required="" placeholder="Apellidos" id="inputPassword"  name="password" required>
-            
-                                @if ($errors->has('password'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
-                                @endif
-                                  <input class="form-control" type="password" required="" placeholder="Fecha Nacimiento" id="inputPassword"  name="password" required>
-            
-                                  </div>
-                                  <input class="form-control" type="password" required="" placeholder="Teléfono" id="inputPassword"  name="password" required>
-            
-                                @if ($errors->has('password'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
-                                @endif
-                                  <input class="form-control" type="email" required="" placeholder="email" id="inputPassword"  name="password" required>
-            
-                                @if ($errors->has('password'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
-                                @endif
-                                  <input class="form-control" type="password" required="" placeholder="Tipo de Suscripción" id="inputPassword"  name="password" required>
-            
-                                @if ($errors->has('password'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
-                                @endif
-                                  <input class="form-control" type="password" required="" placeholder="Password" id="inputPassword"  name="password" required>
-            
-                                @if ($errors->has('password'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
-                                @endif
-                                  <input class="form-control" type="password" required="" placeholder="Password" id="inputPassword"  name="password" required>
-            
-                                @if ($errors->has('password'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
-                                @endif
-           
-            <button class="btn btn-primary btn-block btn-lg btn-signin" type="submit">Identificarse</button>
-        </form><a href="{{ url('/password/reset') }}" class="forgot-password">Has olvidado tu contraseña?</a></div>
-        
-    
-</div>
-<div class="container">
+<header class="intro">
+    <div class="intro-body">
+        <div class="container" id='containerregister'>
    <div class="login-card"><img src="{{ URL::asset('/images/logogym25.png') }}" class="profile-img-card">
         <p class="profile-name-card"> </p>
                     <form class="form-signin" role="form" method="POST" action="{{ url('/register') }}">
@@ -75,7 +12,7 @@
                         <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
                           
 
-                            <div class="col-md-6">
+                            <div class="">
                                 <input id="name" type="text" class="form-control" name="name" placeholder="Nombre"value="{{ old('name') }}">
 
                                 @if ($errors->has('name'))
@@ -87,10 +24,9 @@
                         </div>
 
                         <div class="form-group{{ $errors->has('apellido') ? ' has-error' : '' }}">
-                            <label for="apellido" class="col-md-4 control-label">Apellidos</label>
-
-                            <div class="col-md-6">
-                                <input id="name" type="text" class="form-control" name="apellido" value="{{ old('apellido') }}">
+                          
+                            <div class="">
+                                <input id="name" type="text" class="form-control" name="apellido" placeholder="Apellido"value="{{ old('apellido') }}">
 
                                 @if ($errors->has('apellido'))
                                 <span class="help-block">
@@ -100,10 +36,9 @@
                             </div>
                         </div>
                         <div class="form-group{{ $errors->has('apellido') ? ' has-error' : '' }}">
-                            <label for="fecha de nacimiento" class="col-md-4 control-label">Fecha de Nacimiento</label>
-
-                            <div class="col-md-6">
-                                <input id="fecha"    type="text" class="form-control" data-lang="es" name="fecha" value="{{ old('fecha') }}">
+                           
+                            <div class="">
+                                <input id="fecha" type="text" class="form-control picker-input" data-lang="es" name="fecha" placeholder="Fecha Nac" title='Fecha Nac.'value="{{ old('fecha') }}">
 
                                 @if ($errors->has('fecha'))
                                 <span class="help-block">
@@ -113,10 +48,9 @@
                             </div>
                         </div>
                         <div class="form-group{{ $errors->has('telefono') ? ' has-error' : '' }}">
-                            <label for="telefono" class="col-md-4 control-label">Teléfono</label>
-
-                            <div class="col-md-6">
-                                <input id="telefono" type="tel" class="form-control" name="telefono" value="{{ old('telefono') }}">
+                           
+                            <div class="">
+                                <input id="telefono" type="tel" class="form-control" placeholder="Teléfono" name="telefono" value="{{ old('telefono') }}">
 
                                 @if ($errors->has('telefono'))
                                 <span class="help-block">
@@ -127,10 +61,9 @@
                         </div>
 
                         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label for="email" class="col-md-4 control-label">E-Mail Address</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}">
+                           
+                            <div class="">
+                                <input id="email" type="email" class="form-control" name="email" placeholder="Email" value="{{ old('email') }}">
 
                                 @if ($errors->has('email'))
                                 <span class="help-block">
@@ -140,10 +73,10 @@
                             </div>
                         </div>
                         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label for="email" class="col-md-4 control-label">Suscripción</label>
-
-                            <div class="col-md-6">
+                           
+                            <div class="">
                                 <select id="suscripcion" class="form-control" name="suscripcion">
+                                
                                     @foreach ($datos as $suscripcion)
                                     <option value="{{$suscripcion['id']}}">{{$suscripcion['name']}} {{$suscripcion['precio']}} €</option>
                                     @endforeach
@@ -158,10 +91,9 @@
 
 
                         <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                            <label for="password" class="col-md-4 control-label">Password</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control" name="password">
+                           
+                            <div class="">
+                                <input id="password" type="password" class="form-control" placeholder="Contraseña" name="password">
 
                                 @if ($errors->has('password'))
                                 <span class="help-block">
@@ -172,10 +104,9 @@
                         </div>
 
                         <div class="form-group{{ $errors->has('password_confirmation') ? ' has-error' : '' }}">
-                            <label for="password-confirm" class="col-md-4 control-label">Confirm Password</label>
-
-                            <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation">
+                         
+                            <div class="">
+                                <input id="password-confirm" type="password" class="form-control" placeholder="Repetir contraseña" name="password_confirmation">
 
                                 @if ($errors->has('password_confirmation'))
                                 <span class="help-block">
@@ -186,18 +117,26 @@
                         </div>
 
                         <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
+                            <div class="">
+                                <button type="submit" class="btn btn-primary col-lg-offset-3 col-md-offset-3 col-sm-offset-3 col-xs-offset-3">
                                     <i class="fa fa-btn fa-user"></i> Registrar
                                 </button>
                             </div>
                         </div>
+                         <a href="{{ url('/password/reset') }}" class="forgot-password">Has olvidado tu contraseña?</a></div>
                     </form>
                 </div>
             </div>
+        
+       
+        
+    
+</div>
+
         </div>
     </div>
 </div>
+</header>
 @endsection
 
 

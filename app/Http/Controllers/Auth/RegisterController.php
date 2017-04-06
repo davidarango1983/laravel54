@@ -50,7 +50,7 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
-          $dieciseisanyos = Utiles::dieciseisanyosatras();
+          $dieciseisanyos = Utiles::anyosatras(16);
         return Validator::make($data, [
                     'name' => 'required|max:255',
                     'apellido' => 'required|max:255',

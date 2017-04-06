@@ -9,7 +9,7 @@
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title>Grayscale - Start Bootstrap Theme</title>
+        <title>GYMZONE </title>
 
         <!-- Bootstrap Core CSS -->
 
@@ -38,7 +38,7 @@
             <div class="container">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
-                        Menu <i class="fa fa-bars"></i>
+                        Menu <i class="fa fa-angle-double-down"></i> 
                     </button>
                     <a class="navbar-brand page-scroll" href="#page-top">
                         <i class="fa fa-play-circle"></i> <span class="light">GYM</span>ZONE
