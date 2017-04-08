@@ -3,7 +3,7 @@
 namespace App;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
-
+use Illuminate\Support\Facades\Notification;
 class User extends Authenticatable
 {
 
@@ -51,6 +51,8 @@ class User extends Authenticatable
         return $this->hasOne('App\Suscripcion');
     }
     
+    
+   
      
 
 

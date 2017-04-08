@@ -38,7 +38,7 @@
                         <div class="form-group{{ $errors->has('apellido') ? ' has-error' : '' }}">
                            
                             <div class="">
-                                <input id="fecha" type="text" class="form-control picker-input" data-lang="es" name="fecha" placeholder="Fecha Nac" title='Fecha Nac.'value="{{ old('fecha') }}">
+                                <input id="fecha" type="text" class="form-control picker-input" data-lang="es" name="fecha" placeholder="Fecha Nacimiento" title='Fecha Nac.'value="{{ old('fecha') }}">
 
                                 @if ($errors->has('fecha'))
                                 <span class="help-block">

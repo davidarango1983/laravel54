@@ -7,6 +7,7 @@ use App\Jobs\Utiles;
 use App\User;
 use Illuminate\Support\Facades\Auth;
 
+
 class UserController extends Controller {
 
     public function editar() {
