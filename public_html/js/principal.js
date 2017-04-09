@@ -7,29 +7,13 @@
 
 $(document).ready(function () {
 
- /*
-  * 
-  * 
-  * FUNCIONES DE ANIMACIÓN
-  * 
-  */
- 
-	$('[data-bs-hover-animate]')
-		.mouseenter( function(){ var elem = $(this); elem.addClass('animated ' + elem.attr('data-bs-hover-animate')); })
-		.mouseleave( function(){ var elem = $(this); elem.removeClass('animated ' + elem.attr('data-bs-hover-animate')); });
-
- 
- 
- 
- 
- 
- /*
-  * FIN DE FUNCIONES DE ANIMACIÓN
-  * 
-  */
 
   $('#fecha').dateDropper({format:"Y-m-d",
                             lang:"es"});
+    $('#fecha-user').dateDropper({format:"Y-m-d",
+                            lang:"es"});
+                        
+                        
     
     
     
@@ -160,7 +144,7 @@ $(document).ready(function () {
                     "title": 'Administración', //Show title - false / string
                     "cls": "eliminado", //Additional container class
                     "speed": 500, //Fade-in / out animation speed
-                    "timeout": 3000 //Timeout before notification disappears    
+                    "timeout": 4000 //Timeout before notification disappears    
                 };
                 $.Growl.show(data, options);
                 setTimeout(reiniciar, 2000);

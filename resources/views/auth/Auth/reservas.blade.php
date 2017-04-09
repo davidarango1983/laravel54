@@ -46,7 +46,6 @@
                 </div>
             </nav>
         </div>
- 
 
 
     <div id='contenidoadmin' class='panel panel-default container-fluid'>

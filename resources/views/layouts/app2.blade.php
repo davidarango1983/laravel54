@@ -9,18 +9,20 @@
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title>Grayscale - Start Bootstrap Theme</title>
+          <title>GYMZONE </title>
 
         <!-- Bootstrap Core CSS -->
 
         <link rel="stylesheet" href="{{ URL::asset('css/app.css') }}">
+              <link rel="stylesheet" href="{{ URL::asset('css/Growl/css/growl.css') }}">
 
         <!-- Custom Fonts -->
         <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-        <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
-        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+<!--        <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">-->
 
         <script src="{{URL::asset('js/app.js')}}"></script>
+       
 
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->

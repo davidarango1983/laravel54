@@ -1,6 +1,9 @@
 // Fonts
 @import url(https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css);
 @import url(https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css);
+@import url(https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic);
+@import url(https://fonts.googleapis.com/css?family=Montserrat:400,700);
+@import url('https://fonts.googleapis.com/css?family=Audiowide&subset=latin-ext');
 //Datatables
 
 
@@ -9,85 +12,15 @@
 
 @import url(https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css);
 // Variables
-//@import "variables";
-//@import "estilospropios";
+@import "_variables";
+@import"_mixins.scss";
+@import"datedroppernuevo.css";
 
 // Bootstrap
 @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
 
+
 @import "grayscale.scss";
-@import "_mixins.scss";
-@import "_variables.scss";
-@import "datatables.scss";
+//@import "_mixins.scss";
 
 
-
-
-// United 3.3.7
-// Bootswatch
-// -----------------------------------------------------
-
-$web-font-path: "https://fonts.googleapis.com/css?family=Fira+Sans+Condensed:400,700" !default;
-@import url($web-font-path);
-
-// Navbar =====================================================================
-
-.navbar {
-
-  &-default {
-
-    .badge {
-      background-color: #fff;
-      color: $navbar-default-bg;
-    }
-  }
-
-  &-inverse {
-
-    .badge {
-      background-color: #fff;
-      color: $navbar-inverse-bg;
-    }
-  }
-}
-
-
-
-
-@media (max-width: $grid-float-breakpoint-max) {
-
-  .navbar {
-
-    .dropdown-menu {
-      a {
-        color: #fff;
-      }
-    }
-  }
-}
-
-
-// Buttons ====================================================================
-
-// Typography =================================================================
-$font-family-sans-serif:  "Fira", Tahoma, "Helvetica Neue", Helvetica, Arial, sans-serif !default;
-$font-family-serif:       Georgia, "Times New Roman", Times, serif !default;
-
-// Tables =====================================================================
-
-// Forms ======================================================================
-
-.help-block{
-    color: $brand-danger;
-}
-
-// Navs =======================================================================
-
-// Indicators =================================================================
-
-// Progress bars ==============================================================
-
-// Containers =================================================================
-.row{
-    margin-bottom: 50px !important;
-}

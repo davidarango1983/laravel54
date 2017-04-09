@@ -4,8 +4,8 @@
     <div class="intro-body">
         <div class="container">       
                                   <div class="login-card"><img src="{{ URL::asset('/images/logogym25.png') }}" class="profile-img-card">
-                        <p class="profile-name-card"> </p>
-
+            
+<div class="panel-heading">iniciar sesión</div>
                         <form class="form-signin" role="form" method="POST" action="{{ url('/login') }}">
                             {{ csrf_field() }}
                             <input class="form-control" type="email" required placeholder="Email" autofocus="" id="inputEmail" name="email" value="{{ old('email') }}" autofocus>

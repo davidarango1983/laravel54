@@ -6,14 +6,11 @@
 
 .carousel-inner > .item > img,
   .carousel-inner > .item > a > img {
-      width: 70%;
+      width: 60%;
       margin: auto;
   }
   
-  .loginlink{
-      
-    cursor: pointer !important;
-  }
+  
   
   
   
@@ -30,6 +27,8 @@
   margin-top: 50px;
   border-radius: 2px;
   box-shadow: $gray-darker;
+  opacity: 0.9;
+  border-radius: $border-rad;
   .profile-img-card {
     width: 96px;
     height: 96px;
@@ -56,9 +55,9 @@
     white-space: nowrap;
     box-sizing: border-box;
   }
-    input {
-      &[type=email], &[type=password], &[type=text] {
-        height: 44px;
+    input, select {
+      &[type=email], &[type=password], &[type=text]  {
+        height: 34px;
         font-size: 16px;
         width: 100%;
         display: block;
@@ -81,7 +80,7 @@
     }
   }
   label {
-    color: $close-color;
+    color: $pre-color;
   }
   .form-signin .form-control:focus {
     border-color: $brand-primary;
@@ -117,6 +116,14 @@
   #containerregister{
       margin-top: 150px;
       
+  }
+  
+  .help-block strong{
+      color: $brand-danger;
+  }
+  
+  #panelreserva{
+      color: $black;
   }
   
   

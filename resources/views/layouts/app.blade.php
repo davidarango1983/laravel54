@@ -14,11 +14,12 @@
         <!-- Bootstrap Core CSS -->
 
         <link rel="stylesheet" href="{{ URL::asset('css/app.css') }}">
+              <link rel="stylesheet" href="{{ URL::asset('css/Growl/css/growl.css') }}">
 
         <!-- Custom Fonts -->
-        <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-        <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
-        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+<!--        <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">-->
+<!--        <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">-->
 
         <script src="{{URL::asset('js/app.js')}}"></script>
 
@@ -163,13 +164,15 @@
         <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA9hllqRn8l_ER1ON-3bAAKjc8uv4hZaZA"></script>
 
         <!-- Theme JavaScript -->
-        <script src="js/grayscale.js"></script>
+       <script src="{{URL::asset('js/estilos.js')}}"></script>
 
         <!--JavaScript -->
         <script src="{{URL::asset('js/principal.js')}}"></script>
-        <script src="{{URL::asset('js/Growl/js/growl.js')}}"></script>
+    
+        <script src="{{URL::asset('css/Growl/js/growl.js')}}"></script>
         <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.13/datatables.min.js"></script>
         <script src="{{URL::asset('js/datedroppernuevo.js')}}"></script>
+<link rel="stylesheet" href="{{ URL::asset('css/datedroppernuevo.css') }}">
     </body>
 
 </html>

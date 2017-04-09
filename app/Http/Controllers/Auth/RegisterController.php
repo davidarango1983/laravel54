@@ -59,6 +59,7 @@ class RegisterController extends Controller
                     'password' => 'required|min:8|confirmed',
                     'fecha' => 'required|date_format:"Y-m-d"|before:' . $dieciseisanyos,
                     'suscripcion' => 'required|string',
+                    'condiciones' => 'required'
         ]);
        
        

@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\ClaseController;
-use App\Http\Controllers\NoticiasController;
+
 use App\Reservas;
 use Auth;
 
@@ -32,7 +32,7 @@ class HomeController extends Controller
         return view('auth.perfil');
     }
    
-    public function home(){        
+    public function index(){        
         /*
      * 
      * Cargamos las noticias 

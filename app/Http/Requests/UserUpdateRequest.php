@@ -32,7 +32,7 @@ class UserUpdateRequest extends Request
                     'apellido' => 'required|max:255',
                     'telefono' => 'required|min:0|max:9999999999|numeric',
                     'email' => 'required|email|max:255|exists:users',
-                      'fecha' => 'required|date_format:"Y-m-d"|before:' . $dieciseisanyos,
+                    'fecha' => 'required|date_format:"Y-m-d"|before:' . $dieciseisanyos,
                    
         ];
         

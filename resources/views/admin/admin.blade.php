@@ -7,9 +7,9 @@
 
  
 
-
- <link rel="stylesheet" href="{{URL::asset('js/Growl/css/growl.css')}}"/>
-<!--<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs-3.3.7/jq-2.2.4/dt-1.10.13/datatables.min.css"/>-->
+<!--<link rel="stylesheet" href="{{ URL::asset('css/Growl/css/growl.css') }}">-->
+<!--<link rel="stylesheet" href="{{URL::asset('js/Growl/css/growl.css')}}"/>-->
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs-3.3.7/jq-2.2.4/dt-1.10.13/datatables.min.css"/>-->
 <link rel="stylesheet" type="text/css" href="{{ URL::asset('js/editor/jquery-te-1.4.0.css')}}">
 <script src="{{ URL::asset('js/editor/jquery-te-1.4.0.min.js')}}"></script>
 <script src="{{ URL::asset('js/timedropper.js')}}"></script>

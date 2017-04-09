@@ -1,4 +1,4 @@
-@extends('layouts.app2')
+@extends('layouts.app')
 @section('content') 
 <section class="container content-section text-center">
 <div id='panelreserva'>
@@ -44,9 +44,6 @@
           
             </nav>
         </div>
- 
-
-
     <div id='contenidoadmin' class='panel panel-default container-fluid'>
         @yield('contenido')
 

@@ -1,3 +1,36 @@
 // Variables
+$black: black;
+$primary: #E95420;
+$gray-base:              #000 !default;
+$gray-darker:            lighten($gray-base, 13.5%) !default; // #222
+$gray-dark:              #333 !default;   // #333
+$gray:                   #777 !default; // #555
+$gray-light:             #AEA79F !default;   // #999
+$gray-lighter:           lighten($gray-base, 93.5%) !default; // #eee
 
-$primary: #42DCA3;
+$brand-primary:         #E95420 !default;
+$brand-success:         #38B44A !default;
+$brand-info:            #772953 !default;
+$brand-warning:         #EFB73E !default;
+$brand-danger:          #DF382C !default;
+
+
+$code-color:                  #c7254e !default;
+$code-bg:                     #ffffff !default;
+
+$kbd-color:                   #fff !default;
+$kbd-bg:                      #333 !default;
+
+$pre-bg:                      #f5f5f5 !default;
+$pre-color:                   $gray-dark !default;
+$pre-border-color:            #ccc !default;
+$pre-scrollable-max-height:   340px !default;
+
+
+//FONTS
+
+$font-primary: 'Audiowide', cursive;
+$font-body:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif;
+//"Montserrat","Helvetica Neue",Helvetica,Arial,sans-serif; 
+
+$border-rad : 10px;

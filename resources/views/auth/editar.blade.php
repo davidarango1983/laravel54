@@ -1,11 +1,11 @@
 @extends('layouts.app')
-
 @section('content')
-<div class="row">      <div class="col-md-8 col-md-offset-2">
-        <div class="panel panel-default">
+<header class="intro">
+    <div class="intro-body">
+        <div class="container panel panel-default perfil">
             <div class="panel-heading">Editar Usuario</div>
             <div class="panel-body">
-                <div class='col-md-8 col-md-offset-2'>
+                <div class='col-lg-8 col-lg-offset-2 black'>
                     <p>Por seguridad, si deseas cambiar tu contraseña, ve a Iniciar sesión, he olvidado mi contraseña y te enviaremos un correo para que
                         cambies tu contraseña.</p>
                     <p>Si deseas cambiar tu suscripción deberás esperar a su vencimiento y activarla nuevamente.
@@ -117,9 +117,12 @@
                         </div>
                     </div>
                 </form>
-            </div>
+ 
         </div>
     </div>
-
-</div>
+    </div>
+</header>
 @endsection
+ 
+
+

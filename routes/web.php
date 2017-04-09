@@ -14,7 +14,7 @@ use App\Reservas;
 |
 */
 
-Route::get('/', 'HomeController@home');
+Route::get('/', 'HomeController@index');
 
 
 Route::get("test-email", function() {
