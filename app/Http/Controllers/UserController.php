@@ -49,9 +49,10 @@ class UserController extends Controller {
         return 'Se ha borrado correctamente al Usuario con id: ' . $id;
     }
     
-  
-    
-  
+public static function cuentaActiva(){    
+    return ($this->fecha_fin < getdate() ) ? true : false ;
+}
+     
     
 
 }

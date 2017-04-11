@@ -5,22 +5,23 @@
 @import url(https://fonts.googleapis.com/css?family=Montserrat:400,700);
 @import url('https://fonts.googleapis.com/css?family=Audiowide&subset=latin-ext');
 //Datatables
-
-
+@import "_variables";
+@import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
 
 // Animaciones Especiales
 
 @import url(https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css);
+// Bootstrap
+//@import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
 // Variables
-@import "_variables";
-@import"_mixins.scss";
+
+
 @import"datedroppernuevo.css";
 
-// Bootstrap
-@import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+
 
 
 @import "grayscale.scss";
 //@import "_mixins.scss";
-
+@import"_mixins.scss";
 

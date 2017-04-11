@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,20 +12,12 @@
 
         <!-- Styles -->
         <link rel="stylesheet" href="{{ URL::asset('css/app.css') }}">
-         <link rel="stylesheet" href="{{ URL::asset('css/Growl/css/growl.css') }}">
+    
 
-
-        <!-- Latest compiled and minified CSS -->
-
-
-
-        <!-- Scripts -->
-      
-        <!-- Latest compiled and minified Jquery -->
 
     </head>
 
-    <body id="app-layout">
+    <body id='admin-layout'>
         <div >
             <nav class="navbar navbar-default navbar-fixed-top">
                 <div class="container">
@@ -41,7 +33,7 @@
 
                         <!-- Branding Image -->
                         <a class="navbar-brand" href="{{ url('/') }}">
-                            GYM<span class="fa fa-star"></span>ZONEX               </a>
+                            GYM<span class="fa fa-star"></span>ZONE</a>
                     </div>
 
                     <div class="collapse navbar-collapse" id="app-navbar-collapse">
@@ -96,9 +88,10 @@
             </br>
 
             </br>
+           <div class="container-fluid">
 
             @yield('content')
-
+</div>
              
 
 
@@ -107,7 +100,7 @@
         <!-- JavaScripts -->
 <!--        <script src="{{URL::asset('js/app.js')}}"></script>-->
 
-        <link rel="stylesheet" href="{{ URL::asset('js/Growl/css/growl.css') }}">
+        <link rel="stylesheet" href="{{ URL::asset('css/Growl/css/growl.css') }}">
         <link rel="stylesheet" href="{{ URL::asset('css/datedroppernuevo.css') }}">
         <!-- Latest compiled and minified JavaScript -->
     <!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
@@ -115,9 +108,8 @@
     <!--   <script type="text/javascript" src="https://cdn.datatables.net/v/bs-3.3.7/dt-1.10.13/datatables.min.js"></script>-->
         <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.13/datatables.min.js"></script>
         <script src="{{URL::asset('js/datedroppernuevo.js')}}"></script>
-
         <script src="{{URL::asset('js/principal.js')}}"></script>
-        <script src="{{URL::asset('js/Growl/js/growl.js')}}"></script>
+        <script src="{{URL::asset('css/Growl/js/growl.js')}}"></script>
 
     </body>
 
