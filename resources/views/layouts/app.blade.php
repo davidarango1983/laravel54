@@ -81,11 +81,11 @@
                             @else
 
                             <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" >
                                     {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
 
-                                <ul class="dropdown-menu fixed" role="menu">
+                                <ul  class="dropdown-menu fixed" role="menu" >
                                     <li><a href="{{ url('/reservaclases') }}"><i class="fa fa-edit"></i> Reservar Clases</a></li>
                                     <li><a href="{{ url('/perfil') }}"><i class="fa fa-edit"></i> Mi Perfil</a></li>
                                     <li>
