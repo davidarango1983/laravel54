@@ -1,7 +1,5 @@
 <?php
-use App\Http\Controllers\ClaseController;
-use App\Http\Controllers\NoticiasController;
-use App\Reservas;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -78,8 +76,8 @@ Route::post('admin/listaclases', 'DatatablesController@clases');
 Route::post('admin/eliminarclase/{id}', 'ClaseController@destroy');
 Route::post('admin/editarclase', 'ClaseController@update');
 Route::get('admin/editarclase/{id}', 'ClaseController@editar');
-Route::get('reservaclases','ClaseController@reservas');
-Route::post('reservarclase','ReservaController@create')->middleware('CuentaActiva');
+Route::get('reservaclases','ClaseController@reservas')->middleware('CuentaActiva');
+Route::post('reservarclase','ReservaController@create');
 
 /*
  * TIPO DE CLASES

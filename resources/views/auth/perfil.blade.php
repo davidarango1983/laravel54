@@ -31,8 +31,8 @@
 
                 <div class='col-lg-6'>
                     <label><legend>Suscripción</legend>
-                        <p>Suscripción :  
-                            @if($sus->fecha_fin < getdate() ) <span class='alert-success'> Activa </span></p>
+                        <p>Suscripción :                        
+                            @if(App\Jobs\Utiles::cuentaActiva(Auth::user())) <span class='alert-success'> Activa </span></p>
 
                         @else <span class="alert-danger">Inactiva</span><button id='btnpagar' class="btn btn-info">Pagar Suscripción</button>
                         @endif

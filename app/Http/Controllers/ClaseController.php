@@ -68,8 +68,7 @@ class ClaseController extends Controller {
                   $m->from('hello@app.com', 'GYMZONE ZARAGOZA');  
                    $m->to($user->email, $user->name)->subject('Tu clase ha sido cancelada!');
                 });
-            
-                
+                          
             }
             DB::table('reservas')->where('clase_id', $clase->id)->delete();
         }
@@ -155,9 +154,11 @@ class ClaseController extends Controller {
         $clases = Clase::all()->where('dia', $dia);
         $clasesR = DB::select("SELECT clases.id,count(reservas.clase_id) as count FROM reservas,clases where clases.id = reservas.clase_id and dia=:dia group by clase_id", ['dia' => $dia]);
         $array = array($clasesR);
+       
         $hoy = Utiles::getDia(0);
-        $hora = Utiles::getHora();      
-        return view('reservas.dia', ['hora' => $hora, 'hoy' => $hoy, 'reserva' => $reservasUsuario, 'clases' => $clases, 'dia' => $dia, 'reservar' => $array]);
+        $hora = Utiles::getHora();
+        $puedeReservar=Utiles::getPuedeReservar($dia);
+        return view('reservas.dia', ['hora' => $hora, 'hoy' => $hoy, 'reserva' => $reservasUsuario, 'clases' => $clases, 'day'=>$dia, 'reservar' => $array,'puedeReservar'=>$puedeReservar]);
     }
     
     /*
