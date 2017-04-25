@@ -10,7 +10,7 @@ use App\TiposSuscripcion;
 use App\Profesor;
 use App\TipoClase;
 use App\Noticias;
-
+use App\Imagenes;
 
 class DatatablesController extends Controller {
 
@@ -104,12 +104,13 @@ class DatatablesController extends Controller {
         return Datatables::of($clases)->make(true);
     }
 
+    
+    
     /*
      * TIPOS DE CLASE
      * 
      */
-    
-    
+        
     public function tipoclases() {
         try {
             $clases = TipoClase::all();
@@ -152,6 +153,24 @@ class DatatablesController extends Controller {
             return 'Se ha producdo el siguiente error: ' . $e;
         }
         return Datatables::of($noticias)->make(true);
+        
+        
+    }
+    
+    /*
+     * NOTICIAS
+     * 
+     */
+    
+     public function imagenes() {
+         try {
+
+            $imagenes= Imagenes::all();
+        } catch (\Exception $e) {
+
+            return 'Se ha producdo el siguiente error: ' . $e;
+        }
+        return Datatables::of($imagenes)->make(true);
         
         
     }

@@ -47,6 +47,7 @@ Route::get('admin/imagenes', 'AdministracionController@imagenes');
 Route::get('admin/general', 'AdministracionController@general');
 Route::get('admin/reservas', 'AdministracionController@reservas');
 Route::get('admin/noticias', 'AdministracionController@noticias');
+Route::get('admin/imagenes', 'AdministracionController@imagenes');
 
 //RUTA UTILIZADA POR CRON
 Route::get('admin/eliminarclases', 'AdministracionController@eliminarClases');
@@ -145,6 +146,20 @@ Route::post('admin/editarnoticia', 'NoticiasController@update');
  * 
  */
 Route::get('noticias', 'NoticiasController@vista');
+
+
+/*
+ * IMÁGENES
+ * 
+ */
+Route::get('admin/anadirimagen','ImagenesController@anadir');
+Route::post('admin/createimagen','ImagenesController@create');
+Route::post('admin/imagenes', 'DatatablesController@imagenes');
+Route::post('admin/eliminarimagen/{id}', 'ImagenesController@destroy');
+Route::get('admin/editarimagen/{id}', 'ImagenesController@editar');
+Route::post('admin/editarimagen', 'ImagenesController@update');
+
+
 
 
 /*

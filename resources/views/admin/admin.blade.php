@@ -45,7 +45,29 @@
                             <li><a href="{{url('admin/noticias')}}">Listar Noticias</a></li>
                             <li><a href="{{url('admin/anadirnoticia')}}">Añadir Noticia</a></li>
                         </ul>
+                       
                     </li>
+                    
+                     <li id='imagenes' role="presentation" class="dropdown"> <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Imágenes<span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="{{url('admin/imagenes')}}">Listar Imágenes</a></li>
+                            <li><a href="{{url('admin/anadirimagen')}}">Añadir Imagen</a></li>
+                        </ul>
+                       
+                    </li>
+                     <li id='config' role="presentation" class="dropdown"> <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Configuración<span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="{{url('admin/config')}}">Configuración</a></li>
+                            
+                        </ul>
+                       
+                    </li>
+                    
+                    
+                    
+                       
                 </ul>
             </div>
         </div>

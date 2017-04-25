@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Jobs\Utiles;
+
 use App\Http\Requests\NoticiasRequest;
 use App\Noticias;
 use Storage;
@@ -91,9 +91,7 @@ class NoticiasController extends Controller {
      */
 
     public static function cargarNoticias() {
-
         $noticias = DB::table('noticias')->orderBy('created_at', 'DESC')->paginate(1);
-
         return $noticias;
     }
     

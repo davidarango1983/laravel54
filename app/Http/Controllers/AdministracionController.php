@@ -47,7 +47,7 @@ class AdministracionController extends Controller
     }
       public function imagenes(){        
         
-        return view('admin.imagenes');
+        return view('admin.imagenes.imagenes');
     }
       public function general(){        
         
@@ -66,6 +66,7 @@ class AdministracionController extends Controller
         
         return view('admin.reservas.reservas');
     }
+   
     
     
     public function traduccionDatatable(){
