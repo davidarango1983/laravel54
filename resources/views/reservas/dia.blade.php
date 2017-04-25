@@ -31,9 +31,9 @@
 
                 @foreach ($reserva as $res)
 
-                 @if ($res->clase_id == $clase->id) $encontrado = true;                                
+               <?php if($res->clase_id == $clase->id) $encontrado = true ;  ?>                                 
                  
-                 @endif
+                
 
                 @endforeach
                 @if (!$puedeReservar)
