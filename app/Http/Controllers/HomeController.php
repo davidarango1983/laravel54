@@ -2,10 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\ClaseController;
-
-use App\Reservas;
-use Auth;
+use \App\Imagenes;
+use App\TipoClase;
 
 class HomeController extends Controller
 {
@@ -39,27 +37,15 @@ class HomeController extends Controller
      * 
      */
     
-    $clasesdehoy = ClaseController::cargarClases(0);
-    $clasesM = ClaseController::cargarClases(1);
-  
-    
-    //Conmprobamos si es un usuario autentificado
-     if(Auth::check()){
+     $actividad= TipoClase::all();
+    $imagenes= Imagenes::all();
+    return view('home',['imagen'=>$imagenes,'actividad'=>$actividad]);
+ 
      
-    //comprobamos si su siscripción está activa, de no ser así redirigimos a la zona de activación
-         $sus = Auth::user()->suscripcion;
-        if($sus->fecha_fin > getdate()){            
-            return view('auth.perfil');
-        } 
-         
-         
-    $reservasUsuario = Reservas::all()->where('user_id', Auth::user()->id);    
-    return view('home',['clases'=>$clasesdehoy,'clasesM'=>$clasesM,'reservas'=>$reservasUsuario]);
-     }else{    
-    return view('home');
-     }
         
     }
+    
+   
     
     
 }

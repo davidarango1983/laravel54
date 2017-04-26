@@ -2,17 +2,15 @@
 
 namespace App\Http\Controllers;
 
-
 use App\Http\Requests\NoticiasRequest;
 use App\Noticias;
 use Storage;
 use Illuminate\Support\Facades\DB;
 
 class NoticiasController extends Controller {
+    
 
     public function create(NoticiasRequest $request) {
-
-
         $noticia = new Noticias();
         $noticia->title = $request->titulo;
         $noticia->content = $request->contenido;
@@ -45,13 +43,13 @@ class NoticiasController extends Controller {
         $noticia->title = $request->titulo;
         $noticia->content = $request->contenido;
         $noticia->publicado = $request->publicar;
-
         $imagen = $request->file('imagen');
         if ($imagen != null) {
+            Storage::disk('public')->delete($noticia->urlimg);
             $rutaimg = time() . '_' . $imagen->getClientOriginalName();
             Storage::disk('public')->put($rutaimg, file_get_contents($imagen->getRealPath()));
             $noticia->urlimg = $rutaimg;
-        }        
+        }
 
         $noticia->update();
 
@@ -69,12 +67,13 @@ class NoticiasController extends Controller {
     }
 
     public function destroy($id) {
-
+        $noticia;
         try {
-            Noticias::find($id);
+            $noticia = Noticias::find($id);
         } catch (Exception $e) {
             return 'Se ha producido el siguiente error: ' . $e;
         }
+        Storage::disk('public')->delete($$noticia->urlimg);
         Noticias::destroy($id);
         return 'Se ha borrado correctamente al Profesor con id: ' . $id;
     }
@@ -91,14 +90,14 @@ class NoticiasController extends Controller {
      */
 
     public static function cargarNoticias() {
-        $noticias = DB::table('noticias')->orderBy('created_at', 'DESC')->paginate(1);
+        $noticias = DB::table('noticias')->orderBy('created_at', 'DESC')->paginate(5);
         return $noticias;
     }
-    
-    public function vista(){
-        $ruta=storage_path().'/imgNoticias'; 
-        $noticias= self::cargarNoticias();
-        return view('news',['noticia'=>$noticias,'ruta'=>$ruta]);
+
+    public function vista() {
+        $ruta = storage_path() . '/imgNoticias';
+        $noticias = self::cargarNoticias();
+        return view('news', ['noticia' => $noticias, 'ruta' => $ruta]);
     }
 
 }

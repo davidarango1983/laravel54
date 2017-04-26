@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Http\Requests\UpdateImagenesRequest;
 use App\Http\Requests\ImagenesRequest;
 use App\Imagenes;
 use Illuminate\Support\Facades\Storage;
@@ -26,7 +26,6 @@ class ImagenesController extends Controller
      */
     public function create(ImagenesRequest $request)
     {
-    
         $imagen = new Imagenes();
         $imagen->title = $request->title;
         $imagen->alt = $request->alt;
@@ -42,35 +41,7 @@ class ImagenesController extends Controller
         return redirect()->action('AdministracionController@imagenes');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-   
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
+      /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -78,19 +49,19 @@ class ImagenesController extends Controller
      * @return \Illuminate\Http\Response
      */
       
-     public function update(ImagenRequest $request) {
-        try {
+     public function update(UpdateImagenesRequest $request) {
+      
+         try {
             $imagen = Imagenes::find($request['id']);
         } catch (Exception $e) {
-            return 'Se ha producdo el siguiente error: ' . $e;
+            return 'Se ha producido el siguiente error: ' . $e;
         }
-
         $imagen->title = $request->title;
         $imagen->alt = $request->alt;
-         $imagen->urlImg = $request->urlimg;
         $imagen->publicado = $request->publicar;        
         $imagenOri = $request->file('imagen');
         if ($imagenOri != null) {
+              Storage::disk('public')->delete($imagen->urlimg);
             $rutaimg = time() . '_' . $imagenOri->getClientOriginalName();
             Storage::disk('public')->put($rutaimg, file_get_contents($imagenOri->getRealPath()));
             $imagen->urlimg = $rutaimg;
@@ -134,7 +105,7 @@ class ImagenesController extends Controller
      */
     public function editar($id) {
         $imagen = Imagenes::find($id);
-        return view('admin.imagenes.edit', ['noticia' => $imagen]);
+        return view('admin.imagenes.edit', ['imagen' => $imagen]);
     }
     
     public static function cargarImagenes() {

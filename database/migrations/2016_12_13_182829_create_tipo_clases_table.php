@@ -15,7 +15,6 @@ class CreateTipoClasesTable extends Migration
         Schema::create('tipo_clases', function (Blueprint $table) {
             $table->increments('id');           
             $table->longText('description');
-             $table->string('urlimg');
              $table->string('name',100)->unique();
             $table->timestamps();
         });

@@ -1,4 +1,4 @@
-@extends('home')
+@extends('layouts.app')
 @section('content')
 <header class="intro">
     <div class="intro-body">

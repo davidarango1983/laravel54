@@ -161,8 +161,7 @@ $(document).ready(function () {
                         return data.substring(0, 30) + "...";
                     }
                 },
-                 {data: 'urlimg', name: 'urlimg'},
-                
+             
                 {'data': "id",
                     'render': function () {
                         /*añadimos las clases editarbtn y borrarbtn para procesar los eventos click de los botones. No lo hacemos mediante id ya que habrá más de un botón de edición o borrado*/
@@ -291,4 +290,3 @@ $('.btnimprimir').click(function (){
 
 
 });
-

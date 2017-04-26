@@ -31,7 +31,9 @@ Route::get('editar','UserController@editar');
 Route::get('loginadmin', 'AdministracionController@login');
 
 
+//RUTAS DE APP LAYOUT
 
+Route::get('admin', 'AdministracionController@administrador');
 
 
 //Rutas de la zona administrativa. Middleware isAdmin
@@ -157,7 +159,7 @@ Route::post('admin/createimagen','ImagenesController@create');
 Route::post('admin/imagenes', 'DatatablesController@imagenes');
 Route::post('admin/eliminarimagen/{id}', 'ImagenesController@destroy');
 Route::get('admin/editarimagen/{id}', 'ImagenesController@editar');
-Route::post('admin/editarimagen', 'ImagenesController@update');
+Route::post('admin/updateimagen', 'ImagenesController@update');
 
 
 

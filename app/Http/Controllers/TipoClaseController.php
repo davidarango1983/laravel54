@@ -17,8 +17,8 @@ class TipoClaseController extends Controller {
     protected function validator(array $data) {
         return Validator::make($data, [
                     'name' => 'required|max:255',
-                    'description' => 'required|max:10000',
-                    'imagen'=>'mimes:jpeg,jpg,png | max:1000'
+                    'description' => 'required|max:10000'
+                    
         ]);
     }
 
@@ -34,12 +34,6 @@ class TipoClaseController extends Controller {
         $tipoclase->name = $request->name;
         $tipoclase->description = $request->description;
 
-        $imagen = $request->file('imagen');
-        if ($imagen != null) {
-            $rutaimg = time() . '_' . $imagen->getClientOriginalName();
-            Storage::disk('public')->put($rutaimg, file_get_contents($imagen->getRealPath()));
-            $tipoclase->urlimg = $rutaimg;
-        }
         $tipoclase->save();
 
 
@@ -87,12 +81,7 @@ class TipoClaseController extends Controller {
         $tipoclase->name = $request->name;
         $tipoclase->description = $request->description;
 
-        $imagen = $request->file('imagen');
-        if ($imagen != null) {
-            $rutaimg = time() . '_' . $imagen->getClientOriginalName();
-            Storage::disk('public')->put($rutaimg, file_get_contents($imagen->getRealPath()));
-            $tipoclase->urlimg = $rutaimg;
-        }
+        
         $tipoclase->update();
         return redirect()->action('AdministracionController@tipoclases');
     }

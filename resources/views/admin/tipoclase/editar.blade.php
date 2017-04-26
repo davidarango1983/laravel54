@@ -31,50 +31,20 @@
                         @endif
                     </div>
                 </div>
-                   <div class="form-group{{ $errors->has('imagen') ? ' has-error' : '' }}">
-
-                            <label for="imagen" class="col-md-2 col-sm-2 control-label">Imagen</label>                             
-
-                            <div class="col-md-6 col-sm-6">
-                                <input id="imagen" type="file" class="form-control" name="imagen" value="">
-                                <i>Por motivos de seguridad debe insertar la imagen manualmente.</i>
-
-
-                                @if ($errors->has('imagen'))
-                                <span class="help-block">
-                                    <strong><i>{{ $errors->first('urlimg') }}</i></strong>
-                                </span>
-                                @endif
-                            </div>
-                        </div>
+ 
 
                 <div class="col-md-12 form-group{{ $errors->has('fin') ? ' has-error' : '' }}">
                     <label for="description" class="col-md-2 control-label">Descripción:</label><i> Utiliza el editor para crear un texto con estilo, puedres crear hypervínculos, darle formato al texto e incluso crear listas.</i>
 
                     <div class="col-md-10 col-md-offset-1">
 
-                        <textarea name="description" class="jqte-test"><?php
+                        <textarea name="description" cols="100" rows="10"><?php
                         if ((old('description') != null)) {
                             echo old('description');
                         } else {
                             isset($tipo) ? print $tipo->description : '';
                         }
                         ?></textarea>
-
-
-
-
-                        <script>
-                        $('.jqte-test').jqte();
-
-                        // settings of status
-                        var jqteStatus = true;
-                        $(".status").click(function ()
-                        {
-                            jqteStatus = jqteStatus ? false : true;
-                            $('.jqte-test').jqte({"status": jqteStatus});
-                        });
-                        </script>
 
 
                         @if ($errors->has('fin'))

@@ -53,19 +53,21 @@
                         <li class="hidden">
                             <a href="#page-top"></a>
                         </li>
-                       <?php (url()->current() == url('/'))? $barra='/' : $barra=''; ?>
+                       <?php $barra=(url()->current() == url('/'))? '#' : '/#'; ?>
                       
                          <li>
-                            <a class="page-scroll" href="noticias">NOTICIAS</a>
+                            <a class="page-scroll" href="/noticias">NOTICIAS</a>
                         </li>
+                         <li>
+                            <a class="page-scroll" href="{{$barra}}activities">ACTIVIDADES</a>
+                        </li>  
                         <li>
-                            <a class="page-scroll" href="#about">QUIÉNES SOMOS</a>
-                        </li>                        
+                            <a class="page-scroll" href="{{$barra}}about">QUIÉNES SOMOS</a>
+                        </li> 
+                         
+                            
                         <li>
-                            <a class="page-scroll" href="#jobs">ACTIVIDADES</a>
-                        </li>                  
-                        <li>
-                            <a class="page-scroll" href="#galery">GALERIA</a>
+                            <a class="page-scroll" href="{{$barra}}galery">GALERIA</a>
                         </li>
                         <li>
                             <a class="page-scroll" href="#contact">CONTACTO</a>

@@ -15,7 +15,7 @@ class TipoClase extends Model
      * @var array
      */
     protected $fillable = [
-        'name','description','urlimg'
+        'name','description'
     ];
     
     

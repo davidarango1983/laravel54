@@ -7,7 +7,7 @@
             <th title="Ordenar">Id</th>
             <th title="Ordenar">Nombre</th>
             <th title="Ordenar">Descripción</th>
-                     <th title="Ordenar">Url Imagen</th>
+          
             <th>Editar</th>
         </tr>
     </thead>

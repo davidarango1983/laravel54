@@ -29,7 +29,7 @@ class NoticiasRequest extends Request
         return [
             'titulo'=>'required',
             'contenido'=>'required',
-            //'imagen'=>'mimes:jpeg,jpg,png | max:1000',
+           'imagen'=>'image|mimes:jpeg,jpg,png|max:2048',
                    
                         
         ];

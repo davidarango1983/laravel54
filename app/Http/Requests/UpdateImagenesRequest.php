@@ -5,7 +5,7 @@ namespace App\Http\Requests;
 use App\Http\Requests\Request;
 
 
-class ImagenesRequest extends Request
+class UpdateImagenesRequest extends Request
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -29,7 +29,7 @@ class ImagenesRequest extends Request
         return [
             'title'=>'required',
             'alt'=>'required',
-            'imagen'=>'required|image|mimes:jpeg,jpg,png|max:2048',
+            'imagen'=>'image|mimes:jpeg,jpg,png|max:2048',
                    
                         
         ];

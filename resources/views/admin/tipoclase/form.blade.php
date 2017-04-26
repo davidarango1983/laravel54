@@ -25,42 +25,15 @@
                         @endif
                     </div>
                 </div>
-                 <div class="form-group{{ $errors->has('imagen') ? ' has-error' : '' }}">
-                            <label for="imagen" class="col-md-2 col-sm-2 control-label">Imagen</label>
-
-                            <div class="col-md-6 col-sm-6">
-                                <input id="urlimg" type="file" class="form-control" name="imagen" value="{{old('imagen')}}">
-
-
-                                @if ($errors->has('imagen'))
-                                <span class="help-block">
-                                    <strong><i>{{ $errors->first('imagen') }}</i></strong>
-                                </span>
-                                @endif
-                            </div>
-                        </div>
+                
 
                 <div class="col-md-12 form-group{{ $errors->has('description') ? ' has-error' : '' }}">
                     <label for="description" class="col-md-2 control-label">Descripción:</label><i> Utiliza el editor para crear un texto con estilo, puedres crear hypervínculos, darle formato al texto e incluso crear listas.</i>
 
                     <div class="col-md-10 col-md-offset-1">
 
-                        <textarea name="description" class="jqte-test">Describe la actividad a realizar</textarea>
+                        <textarea name="description" cols="100" rows="10">Describe la actividad a realizar</textarea>
 
-
-
-
-                        <script>
-$('.jqte-test').jqte();
-
-// settings of status
-var jqteStatus = true;
-$(".status").click(function ()
-{
-    jqteStatus = jqteStatus ? false : true;
-    $('.jqte-test').jqte({"status": jqteStatus});
-});
-                        </script>
 
 
                         @if ($errors->has('fin'))
