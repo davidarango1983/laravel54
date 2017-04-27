@@ -32,7 +32,7 @@
 
                     <div class="col-md-10 col-md-offset-1">
 
-                        <textarea name="description" cols="100" rows="10">Describe la actividad a realizar</textarea>
+                        <textarea name="description" cols="100" rows="10" maxlength="200">Describe la actividad a realizar</textarea>
 
 
 
