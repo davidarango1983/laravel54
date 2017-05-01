@@ -1,6 +1,5 @@
-@extends ('admin.admin')
-@section('contenido')
-
+@extends('layouts.adminapp')
+@section('content')
 <table class="display table table-striped table-hover" id="tipos-table">
     <h1 class="text-center">TIPOS DE SUSCRIPCIÓN</h1>
     <thead>

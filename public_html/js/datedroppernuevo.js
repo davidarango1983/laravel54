@@ -61,6 +61,60 @@
 					]
 				}
 			},
+			'ka' : {
+				name : 'Georgian',
+				gregorian : false,
+				months : {
+					short: [
+						'იან',
+						'თებ',
+						'მარტ',
+						'აპრ',
+						'მაი',
+						'ივნ',
+						'ივლ',
+						'აგვ',
+						'სექტ',
+						'ოქტ',
+						'ნოემბ',
+						'დეკ'
+					],
+					full : [
+						'იანვარი',
+						'თებერვალი',
+						'მარტი',
+						'აპრილი',
+						'მაისი',
+						'ივნისი',
+						'ივლისი',
+						'აგვისტო',
+						'სექტემბერი',
+						'ოქტომბერი',
+						'ნოემბერი',
+						'დეკემბერი'
+					]
+				},
+				weekdays : {
+					short : [
+						'კვ',
+						'ორ',
+						'სამ',
+						'ოთხ',
+						'ხუთ',
+						'პარ',
+						'შაბ'
+					],
+					full : [
+						'კვირა',
+						'ორშაბათი',
+						'სამშაბათი',
+						'ოთხშაბათი',
+						'ხუთშაბათი',
+						'პარასკევი',
+						'შაბათი'
+					]
+				}
+			},//
 			'it' : {
 				name : 'Italiano',
 				gregorian : true,
@@ -477,7 +531,7 @@
 						'D',
 						'L',
 						'M',
-						'M',
+						'X',
 						'J',
 						'V',
 						'S'
@@ -1226,14 +1280,8 @@
 			return n % 1 === 0;
 		},
 		is_date = function(value) {
-			var format;
-			if (toString.call(value) === '[object Date]') {
-				return true;
-			}
-			if (typeof value.replace === 'function') {
-				value.replace(/^\s+|\s+$/gm, '');
-			}
-			format = /(^\d{1,4}[\.|\\/|-]\d{1,2}[\.|\\/|-]\d{1,4})(\s*(?:0?[1-9]:[0-5]|1(?=[012])\d:[0-5])\d\s*[ap]m)?$/;
+			var
+				format = /(^\d{1,4}[\.|\\/|-]\d{1,2}[\.|\\/|-]\d{1,4})(\s*(?:0?[1-9]:[0-5]|1(?=[012])\d:[0-5])\d\s*[ap]m)?$/;
 			return format.test(value);
 		},
 
@@ -1246,10 +1294,10 @@
 			return parseInt(pickers[picker.id].key[k].today);
 		},
 		get_today_full = function() {
-			return get_today('m')+'-'+get_today('d')+'-'+get_today('y');
+			return get_today('m')+'/'+get_today('d')+'/'+get_today('y');
 		},
 		get_current_full = function() {
-			return get_current('m')+'-'+get_current('d')+'-'+get_current('y');
+			return get_current('m')+'/'+get_current('d')+'/'+get_current('y');
 		},
 		get_jumped = function(k,val) {
 			var
@@ -1929,7 +1977,7 @@
 				var
 					picker_default_date = (input.data('default-date')&&is_date(input.data('default-date'))) ? input.data('default-date') : null,
 					picker_disabled_days = (input.data('disabled-days')) ? input.data('disabled-days').split(',') : null,
-					picker_format = input.data('format') || 'Y-m-d',
+					picker_format = input.data('format') || 'm/d/Y',
 					picker_fx = (input.data('fx')===false) ? input.data('fx') : true,
 					picker_fx_class = (input.data('fx')===false) ? '' : 'picker-fxs',
 					picker_fx_mobile = (input.data('fx-mobile')===false) ? input.data('fx-mobile') : true,
@@ -1940,7 +1988,7 @@
 					picker_lock = (input.data('lock')=='from'||input.data('lock')=='to') ? input.data('lock') : false,
 					picker_jump = (input.data('jump')&&is_int(input.data('jump'))) ? input.data('jump') : 10,
 					picker_max_year = (input.data('max-year')&&is_int(input.data('max-year'))) ? input.data('max-year') : new Date().getFullYear(),
-					picker_min_year = (input.data('min-year')&&is_int(input.data('min-year'))) ? input.data('min-year') : 1950,
+					picker_min_year = (input.data('min-year')&&is_int(input.data('min-year'))) ? input.data('min-year') : 1970,
 
 					picker_modal = (input.data('modal')===true) ? 'picker-modal' : '',
 					picker_theme = input.data('theme') || 'primary',
@@ -1990,12 +2038,6 @@
 					},
 					translate : picker_translate_mode
 				};
-
-				if(input.data('auto-lang')===true) {
-					var
-						lng = window.navigator.userLanguage || window.navigator.language;
-					pickers[id].lang = lng;
-				}
 
 				if(picker_default_date) {
 

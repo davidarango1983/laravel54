@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\DB;
 use App\Jobs\Utiles;
 use Illuminate\Foundation\Auth\User;
 use Illuminate\Support\Facades\Mail;
-
+use Illuminate\Support\Facades\View;
 class ClaseController extends Controller {
 
     /**

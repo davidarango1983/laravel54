@@ -1,6 +1,5 @@
-@extends ('admin.admin')
-@section('contenido')
-
+@extends('layouts.adminapp')
+@section('content')
 <div class="content col-md-10 col-md-offset-1">  
     <div class="panel panel-default">
         <div class="panel-heading">Añadir Tipo de Suscripción</div>

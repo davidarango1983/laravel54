@@ -1,5 +1,5 @@
-@extends ('admin.admin')
-@section('contenido')
+@extends('layouts.adminapp')
+@section('content')
 
 <!--<link rel="stylesheet" type="text/css" href="{{ URL::asset('js/editor/jquery-te-1.4.0.css')}}"> 
 <script src="{{ URL::asset('js/editor/jquery-te-1.4.0.min.js')}}"></script>-->

@@ -12,7 +12,8 @@ $(document).ready(function () {
         }
     });
 
-
+  $('#fecha').dateDropper({format:"Y-m-d",
+                            lang:"es"});
 
     $('#profesores').addClass('active');
 

@@ -1,10 +1,5 @@
-@extends ('admin.admin')
-@section('contenido')
-<script src="{{ URL::asset('js/clases.js')}}"></script>
-<link rel="stylesheet" type="text/css" href="{{ URL::asset('js/editor/jquery-te-1.4.0.css')}}"> 
-<script src="{{ URL::asset('js/editor/jquery-te-1.4.0.min.js')}}"></script>
-
-
+@extends('layouts.adminapp')
+@section('content')
 <div class="content col-md-10 col-md-offset-1">  
     <div class="panel panel-default">
         <div class="panel-heading">Editar Tipo de Clase</div>
@@ -67,6 +62,9 @@
     </div>
 
 </div>
+<script src="{{ URL::asset('js/clases.js')}}"></script>
+<link rel="stylesheet" type="text/css" href="{{ URL::asset('js/editor/jquery-te-1.4.0.css')}}"> 
+<script src="{{ URL::asset('js/editor/jquery-te-1.4.0.min.js')}}"></script>
 
 @endsection
 

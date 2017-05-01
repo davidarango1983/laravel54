@@ -171,7 +171,7 @@
         <script src="{{URL::asset('js/principal.js')}}"></script>
     
         <script src="{{URL::asset('css/Growl/js/growl.js')}}"></script>
-        <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.13/datatables.min.js"></script>
+   
         <script src="{{URL::asset('js/datedroppernuevo.js')}}"></script>
 <link rel="stylesheet" href="{{ URL::asset('css/datedroppernuevo.css') }}">
     </body>

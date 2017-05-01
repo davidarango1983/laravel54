@@ -1,5 +1,5 @@
 @extends ('admin.admin')
-@section('contenido')
+@section('content')
 <table class="display table table-striped table-hover" id="noticias-table">
     <h1 class="text-center">Noticias</h1>
     <thead>

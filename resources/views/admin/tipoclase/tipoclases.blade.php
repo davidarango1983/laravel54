@@ -1,5 +1,5 @@
-@extends ('admin.admin')
-@section('contenido')
+@extends('layouts.adminapp')
+@section('content')
 <table class="display table table-striped table-hover" id="tipoclase-table">
     <h1 class="text-center">TIPOS DE CLASES</h1>
     <thead>

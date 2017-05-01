@@ -1,5 +1,8 @@
-@extends ('admin.admin')
-@section('contenido')
+@extends('layouts.adminapp')
+@section('content')
+<script src="{{ URL::asset('js/profesores.js')}}"></script>
+
+
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
@@ -80,7 +83,8 @@
                             <label for="fecha de nacimiento" class="col-md-4 control-label">Fecha de Nacimiento</label>
 
                             <div class="col-md-6">
-                                <input id="fecha"  type="text" class="form-control" name="fecha" value="{{ isset($profesor->fecha_nac) ? $profesor->fecha_nac: ''}}" data-default-set='false' data-init-set="false"  data-lang="es"   data-min-year="1940" >
+                                <input id="fecha"  type="text" class="form-control" name="fecha" value="{{ isset($profesor->fecha_nac) ? $profesor->fecha_nac: ''}}" 
+placeholder="Fecha de nacimiento" data-modal="true" data-large-default="true" data-large-mode="true" data-lang="es"   data-min-year="1940" >
 
                                 
 
@@ -155,4 +159,5 @@
         </div>
     </div>
 </div>
+
 @endsection

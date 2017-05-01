@@ -1,5 +1,6 @@
-@extends ('admin.admin')
-@section('contenido')
+@extends('layouts.adminapp')
+@section('content')
+<script src="{{ URL::asset('js/usuarios.js')}}"></script>
 <table class="display table table-striped table-hover" id="users-table">
     <h1 class="text-center">USUARIOS</h1>
     <thead>
@@ -16,5 +17,5 @@
 </table>
 <div id='modalusuarios' class="modal fade" tabindex="-1" role="dialog"></div>
 
-<script src="{{ URL::asset('js/usuarios.js')}}"></script>
+
 @endsection

@@ -11,106 +11,124 @@
         <title>{{ config('app.name', 'GYMZONE') }}</title>
 
         <!-- Styles -->
-        <link rel="stylesheet" href="{{ URL::asset('css/app.css') }}">
-    
+        <link rel="stylesheet" href="{{ URL::asset('/backend/css/appback.css') }}">
+       
+<link rel="stylesheet" href="{{ URL::asset('css/Growl/css/growl.css') }}">
+<!--<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs-3.3.7/jq-2.2.4/dt-1.10.13/datatables.min.css" />-->
+
+<link rel="stylesheet" type="text/css" href="{{ URL::asset('js/editor/jquery-te-1.4.0.css')}}">
+
+         
+         <script src="{{URL::asset('js/app.js')}}"></script>
+            <script src="{{URL::asset('js/principal.js')}}"></script>
+<script src="{{ URL::asset('js/editor/jquery-te-1.4.0.min.js')}}"></script>
+<script src="{{ URL::asset('js/timedropper.js')}}"></script>
+  <script src="{{URL::asset('js/datedroppernuevo.js')}}"></script>
+<link rel="stylesheet" href="{{ URL::asset('css/datedroppernuevo.css') }}">
+
+
+<script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.13/datatables.min.js"></script>
+
 
 
     </head>
 
-    <body id='admin-layout'>
-        <div >
-            <nav class="navbar navbar-default navbar-fixed-top">
-                <div class="container">
-                    <div class="navbar-header">
-
-                        <!-- Collapsed Hamburger -->
-                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse">
-                            <span class="sr-only">Toggle Navigation</span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                        </button>
-
-                        <!-- Branding Image -->
-                        <a class="navbar-brand" href="{{ url('/') }}">
-                            GYM<span class="fa fa-star"></span>ZONE</a>
-                    </div>
-
-                    <div class="collapse navbar-collapse" id="app-navbar-collapse">
-
-
-
-
-
-                        <!-- Right Side Of Navbar -->
-                        <ul class="nav navbar-nav navbar-right">
-                            <!-- Authentication Links -->
-                            @if (Auth::guest())
-                            <li><a class="fa fa-child"href="{{ url('/login') }}">  Iniciar Sesión</a></li>
-                            <li><a class="fa fa-smile-o"href="{{ url('/register') }}">  Registrarse</a></li>
-
-
-                            @else
-
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">
-                                    {{ Auth::user()->name }} <span class="caret"></span>
-                                </a>
-
-                                <ul class="dropdown-menu fixed" role="menu">
-                                 
-                                    <li><a href="{{ url('/perfil') }}"><i class="fa fa-edit"></i> Mi Perfil</a></li>
-                                    <li>
-                                        <a href="{{ url('/logout') }}"
-                                           onclick="event.preventDefault();
-                                                   document.getElementById('logout-form').submit();">
-                                            Logout
-                                        </a>
-
-                                        <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
-                                            {{ csrf_field() }}
-                                        </form>
-                                    </li>
-                                    @if(Auth::check() && Auth::user()->id_rol==2)
-                                    <li role="separator" class="divider"></li>
-                                    <li><a href="{{ url('admin') }}"><span class="glyphicons glyphicons-headphones"></span>  Administrar Web</a></li>
-                                    @endif
-                                </ul>
-                            </li>
-                            @endif
-
-
+    <body>
+     
+        <div class="col-sm-3 col-lg-2">
+    <nav class="navbar navbar-inverse navbar-fixed-side">
+        <div class="container">
+            <div class="navbar-header">
+                <button class="navbar-toggle" data-target=".navbar-collapse" data-toggle="collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="./">Brand</a>
+            </div>
+            <div class="collapse navbar-collapse">
+                
+                <ul class="nav navbar-nav">
+                    
+                     
+                    <li id='usuarios' role='presentation' class="dropdown"><a class="dropdown-toggle" href="#">Usuarios</a>
+                    <ul class="dropdown-menu" role='menu'>
+                            <li><a href="{{url('admin/usuarios')}}">Listar Usuarios</a></li>
+                           
                         </ul>
-                    </div>
-                </div>
-            </nav>
-            </br>
-            </br>
-
-            </br>
-           <div class="container-fluid">
+                    
+                    </li>
+                   
+                    <li id='profesores' role="presentation" class="dropdown"> <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-haspopup="true" aria-expanded="false">Profesores<span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu" role='menu'>
+                            <li><a href="{{url('admin/profesores')}}">Lista de Profesores</a></li>
+                            <li id='profesores'><a href="{{url('admin/anadirprofesor')}}">Añadir Profesor</a></li>
+                        </ul>
+                    </li>
+                 
+                    <li id='clases' role="presentation" class="dropdown"> <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-haspopup="true" aria-expanded="false">Clases<span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="{{url('admin/clases')}}">Listar Clases</a></li>
+                            <li><a href="{{url('admin/anadirclase')}}">Añadir Clase</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="{{url('admin/tipoclases')}}">Listar Tipos de Clases</a></li>
+                            <li><a href="{{url('admin/anadirtipoclase')}}">Añadir Tipo de Clase</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="{{url('admin/reservas')}}">Listar Reservas</a></li>
+                        </ul>
+                    </li>
+                    <li id='tipos' role="presentation" class="dropdown"> <a class="dropdown-toggle " data-toggle="dropdown" href="#" aria-haspopup="true" aria-expanded="false" >Suscripciones<span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="{{url('admin/tipos')}}">Listar tipos de Suscripción</a></li>
+                            <li><a href="{{url('admin/anadirtipo')}}">Añadir Tipo de Suscripción</a></li>
+                        </ul>
+                    </li>
+                    <li id='noticias' role="presentation" class="dropdown"> <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-haspopup="true" aria-expanded="false">Noticias<span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="{{url('admin/noticias')}}">Listar Noticias</a></li>
+                            <li><a href="{{url('admin/anadirnoticia')}}">Añadir Noticia</a></li>
+                        </ul>
+                       
+                    </li>
+                    
+                     <li id='imagenes' role="presentation" class="dropdown"> <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Imágenes<span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="{{url('admin/imagenes')}}">Listar Imágenes</a></li>
+                            <li><a href="{{url('admin/anadirimagen')}}">Añadir Imagen</a></li>
+                        </ul>
+                       
+                    </li>
+                     <li id='config' role="presentation" class="dropdown"> <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" >Configuración<span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="{{url('admin/config')}}">Configuración</a></li>
+                            
+                        </ul>
+                       
+                    </li>
+                    
+                    
+                    
+                       
+                </ul>
+                
+            </div>
+            
+        </div>
+        
+    </nav>
+</div>
+        <div class=" container-fluid col-sm-9 col-lg-10">
 
             @yield('content')
 </div>
-             
-
-
-        </div>
-        
-        <!-- JavaScripts -->
-<!--        <script src="{{URL::asset('js/app.js')}}"></script>-->
-
-        <link rel="stylesheet" href="{{ URL::asset('css/Growl/css/growl.css') }}">
-        <link rel="stylesheet" href="{{ URL::asset('css/datedroppernuevo.css') }}">
-        <!-- Latest compiled and minified JavaScript -->
-    <!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-      <script src="//cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js"></script>-->
-    <!--   <script type="text/javascript" src="https://cdn.datatables.net/v/bs-3.3.7/dt-1.10.13/datatables.min.js"></script>-->
-        <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.13/datatables.min.js"></script>
-        <script src="{{URL::asset('js/datedroppernuevo.js')}}"></script>
-        <script src="{{URL::asset('js/principal.js')}}"></script>
-        <script src="{{URL::asset('css/Growl/js/growl.js')}}"></script>
-
+       
     </body>
 
 </html>

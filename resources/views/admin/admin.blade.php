@@ -1,77 +1,93 @@
 @extends('layouts.adminapp')
-    <link rel="stylesheet" href="{{ URL::asset('css/app.css') }}">
-<script src="{{URL::asset('js/app.js')}}"></script>
-<link rel="stylesheet" href="{{ URL::asset('css/Growl/css/growl.css') }}">
-<!--<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs-3.3.7/jq-2.2.4/dt-1.10.13/datatables.min.css" />-->
-<link rel="stylesheet" type="text/css" href="{{ URL::asset('js/editor/jquery-te-1.4.0.css')}}">
-<script src="{{ URL::asset('js/editor/jquery-te-1.4.0.min.js')}}"></script>
-<script src="{{ URL::asset('js/timedropper.js')}}"></script> @section('content')
+@section('content')
+<div class="container-fluid">
 
-<div id='paneladmin' class='container-fluid black'> 
-        <div class="panel panel-default">
-            <div class="panel-heading"><h3>ADMINISTRACIÓN</h3></div>
-            <div id='admin' class="container-fluid ">
-                <ul class="nav nav-pills">
-                    <li id='usuarios'><a href="{{url('admin/usuarios')}}">Usuarios</a></li>
-                    <li id='profesores' role="presentation" class="dropdown"> <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Profesores<span class="caret"></span>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a href="{{url('admin/profesores')}}">Lista de Profesores</a></li>
-                            <li id='profesores'><a href="{{url('admin/anadirprofesor')}}">Añadir Profesor</a></li>
-                        </ul>
-                    </li>
-                    <li id='clases' role="presentation" class="dropdown"> <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Clases<span class="caret"></span>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a href="{{url('admin/clases')}}">Listar Clases</a></li>
-                            <li><a href="{{url('admin/anadirclase')}}">Añadir Clase</a></li>
-                            <li role="separator" class="divider"></li>
-                            <li><a href="{{url('admin/tipoclases')}}">Listar Tipos de Clases</a></li>
-                            <li><a href="{{url('admin/anadirtipoclase')}}">Añadir Tipo de Clase</a></li>
-                            <li role="separator" class="divider"></li>
-                            <li><a href="{{url('admin/reservas')}}">Listar Reservas</a></li>
-                        </ul>
-                    </li>
-                    <li id='tipos' role="presentation" class="dropdown"> <a class="dropdown-toggle " data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Suscripciones<span class="caret"></span>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a href="{{url('admin/tipos')}}">Listar tipos de Suscripción</a></li>
-                            <li><a href="{{url('admin/anadirtipo')}}">Añadir Tipo de Suscripción</a></li>
-                        </ul>
-                    </li>
-                    <li id='noticias' role="presentation" class="dropdown"> <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Noticias<span class="caret"></span>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a href="{{url('admin/noticias')}}">Listar Noticias</a></li>
-                            <li><a href="{{url('admin/anadirnoticia')}}">Añadir Noticia</a></li>
-                        </ul>
-                       
-                    </li>
-                    
-                     <li id='imagenes' role="presentation" class="dropdown"> <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Imágenes<span class="caret"></span>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a href="{{url('admin/imagenes')}}">Listar Imágenes</a></li>
-                            <li><a href="{{url('admin/anadirimagen')}}">Añadir Imagen</a></li>
-                        </ul>
-                       
-                    </li>
-                     <li id='config' role="presentation" class="dropdown"> <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Configuración<span class="caret"></span>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a href="{{url('admin/config')}}">Configuración</a></li>
-                            
-                        </ul>
-                       
-                    </li>
-                    
-                    
-                    
-                       
-                </ul>
+    <div class="col-md-6">
+        <div class="widget-small btn-primary"><i class="icon fa fa-users fa-3x"></i>
+            <div class="info">
+                <h4>Usuarios Inscritos</h4>
+                <p> Inscritos <b>200</b></p>
+                <p> Activos <b>130</b></p>
+                {{130/200*100}}%
+                <div class="progress">
+                    <div class="progress-bar progress-bar-striped progress-bar-success active" role="progressbar" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100" style="width: 65%">
+                        <span class="sr-only">65% Complete</span>
+                    </div>
+                </div>
             </div>
         </div>
-        <div id='contenidoadmin' class='panel panel-default container-fluid'> @yield('contenido') @if(Request::is('*admin'))
-            <p>Desde esta sección podrás administrar las clases, usuarios, noticias y muchas cosas más.</p> @endif </div>
-    
-</div> @endsection
+        <div class="widget-small btn-danger"><i class="icon fa fa-edit fa-3x"></i>
+            <div class="info">
+                <h4>Noticias</h4>
+                <p> Creadas <b>20</b></p>
+                <p> Publicadas <b>19</b></p>
+                {{19/20*100}}%
+                <div class="progress">
+                    <div class="progress-bar progress-bar-striped progress-bar-success active" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100" style="width: 55%">
+                        <span class="sr-only">95% Complete</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6">
+
+        <div class="widget-small btn-info"><i class="icon fa fa-bicycle fa-3x"></i>
+            <div class="info">
+                <h4>Clases</h4>
+                <p> Creadas <b>20</b></p>
+                <p> Activas <b>19</b></p>
+                {{19/20*100}}%
+                <div class="progress">
+                    <div class="progress-bar progress-bar-striped progress-bar-success active" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100" style="width: 55%">
+                        <span class="sr-only">95% Complete</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="widget-small btn-warning"><i class="icon fa fa-comments-o fa-3x"></i>
+            <div class="info">
+                <h4>Imágenes del Slider</h4>
+                <p> Añadidas <b>20</b></p>
+                <p> Activas <b>19</b></p>
+                {{19/20*100}}%
+                <div class="progress">
+                    <div class="progress-bar progress-bar-striped progress-bar-success active" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100" style="width: 55%">
+                        <span class="sr-only">95% Complete</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+       
+      <div class="col-md-6">
+        
+        <div class="widget-small btn-info"><i class="icon fa fa-id-card-o fa-3x"></i>
+            <div class="info">
+                <h4>Profesores</h4>
+                <p> Profesor 1 </p>
+                  <p> Profesor 2</p>
+                    <p> Profesor 3</p>
+                
+            </div>
+        </div>
+      </div>
+             <div class="col-md-6">
+        <div class="widget-small  primary"><i class="icon fa fa-comments-o fa-3x"></i>
+            <div class="info">
+                <h4>Actividades</h4>
+                <p> Actividad 1</p>
+                <p> Actividad 2</p>
+                <p> Actividad 3</p>
+              
+            </div>
+        </div>
+    </div>
+   
+</div>
+
+
+
+
+@endsection

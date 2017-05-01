@@ -1,5 +1,5 @@
-@extends ('admin.admin')
-@section('contenido')
+@extends('layouts.adminapp')
+@section('content')
 <link rel="stylesheet" href="{{URL::asset('css/imprimirreservas.css')}}"/>
 <table class="display table table-striped table-hover" id="reservasusuarios-table">
     <h1 class="text-center">RESERVAS</h1>

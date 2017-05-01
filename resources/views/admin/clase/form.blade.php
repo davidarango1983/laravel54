@@ -1,5 +1,5 @@
-@extends ('admin.admin')
-@section('contenido')
+@extends('layouts.adminapp')
+@section('content')
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
@@ -154,9 +154,9 @@
                          <script>$( "#inicio" ).timeDropper();</script>
                                  <script>$( "#fin" ).timeDropper();</script>
 </div>
-
-@endsection
 <link rel="stylesheet" type="text/css" href="{{ URL::asset('css/timedropper.css')}}">
 
 <script src="{{ URL::asset('js/clases.js')}}"></script>
+@endsection
+
 

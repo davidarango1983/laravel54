@@ -1,5 +1,5 @@
-@extends ('admin.admin')
-@section('contenido')
+@extends('layouts.adminapp')
+@section('content')
 <table class="display table table-striped table-hover" id="profesor-table">
     <h1 class="text-center">PROFESORES</h1>
     <thead>
@@ -18,4 +18,5 @@
 <div id='modalprofesor' class="modal fade" tabindex="-1" role="dialog"></div>
 
 <script src="{{ URL::asset('js/profesores.js')}}"></script>
+
 @endsection

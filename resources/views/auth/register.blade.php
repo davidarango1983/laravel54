@@ -38,7 +38,8 @@
                     <div class="form-group{{ $errors->has('apellido') ? ' has-error' : '' }}">
 
                         <div class="">
-                            <input id="fecha"  type="text" class="form-control" name="fecha" value="{{ isset($profesor->fecha_nac) ? $profesor->fecha_nac: ''}}" data-default-set='false' data-init-set="false"  data-lang="es"   data-min-year="1940" >
+                            <input id="fecha"  type="text" class="form-control" name="fecha" value="{{ isset($profesor->fecha_nac) ? $profesor->fecha_nac: ''}}" placeholder="Fecha de nacimiento" data-init-set="false"
+ data-modal="true" data-large-default="true" data-large-mode="true"data-lang="es"   data-min-year="1940" >
 
                             @if ($errors->has('fecha'))
                             <span class="help-block">

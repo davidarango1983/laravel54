@@ -1,5 +1,5 @@
-@extends ('admin.admin')
-@section('contenido')
+@extends('layouts.adminapp')
+@section('content')
 <table class="display table table-striped table-hover" id="imagenes-table">
     <h1 class="text-center">Imágenes</h1>
     <thead>
