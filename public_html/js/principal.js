@@ -12,8 +12,8 @@ $(document).ready(function () {
                             lang:"es"});
     $('#fecha-user').dateDropper({format:"Y-m-d",
                             lang:"es"});
-                        
-                        
+    
+               
     
     
     

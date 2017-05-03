@@ -1,4 +1,4 @@
-@extends ('admin.admin')
+@extends ('layouts.adminapp')
 @section('content')
 <table class="display table table-striped table-hover" id="noticias-table">
     <h1 class="text-center">Noticias</h1>

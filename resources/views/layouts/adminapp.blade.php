@@ -19,8 +19,8 @@
 <link rel="stylesheet" type="text/css" href="{{ URL::asset('js/editor/jquery-te-1.4.0.css')}}">
 
          
-         <script src="{{URL::asset('js/app.js')}}"></script>
-            <script src="{{URL::asset('js/principal.js')}}"></script>
+<script src="{{URL::asset('js/app.js')}}"></script>
+<script src="{{URL::asset('js/principal.js')}}"></script>
 <script src="{{ URL::asset('js/editor/jquery-te-1.4.0.min.js')}}"></script>
 <script src="{{ URL::asset('js/timedropper.js')}}"></script>
   <script src="{{URL::asset('js/datedroppernuevo.js')}}"></script>
@@ -124,7 +124,7 @@
         
     </nav>
 </div>
-        <div class=" container-fluid col-sm-9 col-lg-10">
+        <div class="admin container-fluid col-sm-9 col-lg-10">
 
             @yield('content')
 </div>

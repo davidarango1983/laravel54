@@ -29,7 +29,7 @@ class UpdateImagenesRequest extends Request
         return [
             'title'=>'required',
             'alt'=>'required',
-               'imagen'=>'required|image|mimes:jpeg,jpg,png|max:2048|dimensions:width=900,height=506',
+               'imagen'=>'image|mimes:jpeg,jpg,png|max:2048|dimensions:width=900,height=506',
                    
                         
         ];

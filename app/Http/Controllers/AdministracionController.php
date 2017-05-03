@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use Faker\Provider\tr_TR\DateTime;
 use App\Http\Requests;
+use App\User;
 
 class AdministracionController extends Controller
 {
@@ -23,8 +24,31 @@ class AdministracionController extends Controller
     
     
     public function administrador(){        
+        $hoy= new \DateTime();
         
-        return view('admin.admin');
+        //Usuarios inscritos y activos
+        $usuarios=count(User::all()->where('id_rol',1));
+        $activos=count(User::all()->where('id_rol',1)->where('fecha_fin','<', $hoy ));
+        
+        //Noticias creadas y publicadas
+        
+        $noticias=count(\App\Noticias::all());
+        $notpub=count(\App\Noticias::all()->where('publicado','=',1));
+        
+        //Clases creadas y publicadas
+        
+        $clases=  count(\App\Clase::all());
+        $clasespub=count(\App\Clase::all()->where('publicado','=',1));
+        
+        //Imágenes subidas y publicadas
+        $img=count(\App\Imagenes::all());
+        $imgpub=count(\App\Imagenes::all()->where('publicado','=',1));
+        
+        $prof=  \App\Profesor::all();
+        $act= \App\TipoClase::all();
+       
+        return view('admin.admin',['users'=>$usuarios,'activos'=>$activos,'noticias'=>$noticias,'notpub'=>$notpub,'clases'=>$clases,'clasespub'=>$clasespub,'img'=>$img,'imgpub'=>$imgpub,
+            'prof'=>$prof,'act'=>$act]);
     }
     
     
