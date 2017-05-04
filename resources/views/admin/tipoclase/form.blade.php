@@ -23,7 +23,7 @@
                 
 
                 <div class="col-md-12 form-group{{ $errors->has('description') ? ' has-error' : '' }}">
-                    <label for="description" class="col-md-2 control-label">Descripción:</label><i> Utiliza el editor para crear un texto con estilo, puedres crear hypervínculos, darle formato al texto e incluso crear listas.</i>
+                    <label for="description" class="col-md-2 control-label">Descripción:</label>
 
                     <div class="col-md-10 col-md-offset-1">
 

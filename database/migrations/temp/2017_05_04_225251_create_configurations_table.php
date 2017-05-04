@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateImagenesTable extends Migration
+class CreateConfigurationsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,15 @@ class CreateImagenesTable extends Migration
      */
     public function up()
     {
-        Schema::create('imagenes', function (Blueprint $table) {
+        Schema::create('configurations', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
-            $table->string('title');
-            $table->string('alt');
-            $table->string('urlimg');
-            $table->boolean('publicado');
+            $table->boolean('allow_records');
+            $table->boolean('allow_reservations');
+            $table->boolean('booking_time');
+            $table->boolean('disable_mails');
+            $table->boolean('disable_news');
+            
         });
     }
 
@@ -30,6 +32,6 @@ class CreateImagenesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('imagenes');
+        Schema::dropIfExists('configurations');
     }
 }

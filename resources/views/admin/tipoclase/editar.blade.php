@@ -29,7 +29,7 @@
  
 
                 <div class="col-md-12 form-group{{ $errors->has('fin') ? ' has-error' : '' }}">
-                    <label for="description" class="col-md-2 control-label">Descripción:</label><i> Utiliza el editor para crear un texto con estilo, puedres crear hypervínculos, darle formato al texto e incluso crear listas.</i>
+                    <label for="description" class="col-md-2 control-label">Descripción:</label>
 
                     <div class="col-md-10 col-md-offset-1">
 
@@ -50,13 +50,13 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <div class="col-md-2 col-md-offset-1">
-                        <a href="{{url('admin/tipoclases')}}"class="btn btn-warning">Cancelar</a><span>  </span>
-                        <button type="submit" class="btn btn-primary">
-                            <i class="fa fa-check-circle-o"></i> Editar
-                        </button>
-                    </div>
-                </div>
+                            <div class="col-sm-6 col-sm-offset-1">
+                                <a href="{{url('admin/clases')}}"class="btn btn-warning">Cancelar</a><span>  </span>
+                                <button type="submit" class="btn btn-primary">
+                                    <i class="fa fa-check-circle-o"></i> Editar
+                                </button>
+                            </div>
+                        </div>
             </form>
         </div>
     </div>

@@ -90,7 +90,13 @@ class AdministracionController extends Controller
         
         return view('admin.reservas.reservas');
     }
-   
+    
+    public function config(){
+        
+         return view('admin.config.config');
+    }
+
+
     
     
     public function traduccionDatatable(){

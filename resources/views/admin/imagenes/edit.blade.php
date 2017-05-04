@@ -1,9 +1,13 @@
 @extends('layouts.adminapp')
 @section('content')
 
-<div class="container">
-
+<div class="container"> 
+    
+    <div class="col-sm-12"><img class="img-responsive img-rounded center-block"src="/images/{{$imagen->urlimg}}" ></img>
+                <p class="text text-center">Imagen actual en base de datos</p>
+    </div>
     <div class="panel panel-default col-sm-6 col-sm-offset-3">
+        
         <div class="panel-heading">Editar Imagen</div>
         <div class="panel-body">
 
@@ -50,8 +54,7 @@
                         @endif
                     </div>
                 </div>
-                <img class="img-rounded center-block"src="/images/{{$imagen->urlimg}}" width="100"></img>
-                <p class="text text-center">Imagen actual en base de datos</p>
+               
 
                 <div class="form-group{{ $errors->has('imagen') ? ' has-error' : '' }}">
 

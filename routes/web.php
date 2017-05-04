@@ -50,6 +50,7 @@ Route::get('admin/general', 'AdministracionController@general');
 Route::get('admin/reservas', 'AdministracionController@reservas');
 Route::get('admin/noticias', 'AdministracionController@noticias');
 Route::get('admin/imagenes', 'AdministracionController@imagenes');
+Route::get('admin/config', 'AdministracionController@config');
 
 //RUTA UTILIZADA POR CRON
 Route::get('admin/eliminarclases', 'AdministracionController@eliminarClases');
