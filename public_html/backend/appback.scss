@@ -333,7 +333,7 @@ div.dataTables_wrapper div {
 }
 
 table.dataTable thead {
-  > tr > {
+  tr > {
     th {
       &.sorting_asc, &.sorting_desc, &.sorting {
         padding-right: 30px;
