@@ -28,7 +28,7 @@ Route::get('/home', 'HomeController@index');
 Route::get('/perfil', 'HomeController@perfil');
 Route::post('update','UserController@update');
 Route::get('editar','UserController@editar');
-Route::get('loginadmin', 'AdministracionController@login');
+
 
 
 //RUTAS DE APP LAYOUT
@@ -50,7 +50,8 @@ Route::get('admin/general', 'AdministracionController@general');
 Route::get('admin/reservas', 'AdministracionController@reservas');
 Route::get('admin/noticias', 'AdministracionController@noticias');
 Route::get('admin/imagenes', 'AdministracionController@imagenes');
-Route::get('admin/config', 'AdministracionController@config');
+Route::get('admin/config', 'ConfigurationController@config');
+Route::post('admin/updateconfig', 'ConfigurationController@update');
 
 //RUTA UTILIZADA POR CRON
 Route::get('admin/eliminarclases', 'AdministracionController@eliminarClases');

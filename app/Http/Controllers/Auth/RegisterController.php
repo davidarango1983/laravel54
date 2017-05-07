@@ -9,6 +9,7 @@ use Illuminate\Foundation\Auth\RegistersUsers;
 use App\Jobs\Utiles;
 use App\TiposSuscripcion;
 use App\Suscripcion;
+use App\Configuration;
 
 class RegisterController extends Controller
 {
@@ -98,6 +99,11 @@ class RegisterController extends Controller
   
     public function showRegistrationForm() {
 
+          $config=Configuration::find(1);
+   if($config->disable_records==1){
+         \Session::flash('flash_message', 'Esta sección está inhabilitada temporalmente.');
+       return redirect()->action('HomeController@index');
+   }else{
         $datos = new \App\TiposSuscripcion();
         $tipos = $datos->all();
 
@@ -107,4 +113,6 @@ class RegisterController extends Controller
 
         return view('auth.register', array('datos' => $tipos));
     }
+    
+}
 }

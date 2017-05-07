@@ -7,6 +7,7 @@
             </h4> </div>
         <div class="modal-body">
             <div id="perfil">
+                
                 <div class="">
                     <label>
                         <legend>Datos Personales</legend>

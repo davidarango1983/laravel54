@@ -59,7 +59,7 @@
 
                         <div class="col-md-6">
                             <input id="fecha"  type="text" class="form-control" name="fecha" value="{{ ($usuario->fecha_nac)}}" placeholder="Fecha de nacimiento" data-init-set="false"
- data-modal="true" data-large-default="true" data-large-mode="true"data-lang="es"   data-min-year="1940">
+ data-modal="true" data-format="Y-m-d" data-large-default="true" data-large-mode="true"data-lang="es"   data-min-year="1940">
 
                             @if ($errors->has('fecha'))
                             <span class="help-block">

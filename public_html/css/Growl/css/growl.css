@@ -1,9 +1,9 @@
 #growlcontainer {
     position: fixed;
     align-items: center;
-    right: 30%;
-    left: 30%;
-    top: 30%;
+    right: 20%;
+    left: 20%;
+    top: 20%;
     z-index: 1000;
     font-size: 12px;
    
@@ -26,12 +26,12 @@
 }
 .eliminado{
   position: relative;
-  background-color: #1995dc; /*fallback for ie*/
-  background-color: #1995dc;
+
+  background-color: white;
   border: 1px #000 solid;
   border: 1px rgba(0, 0, 0, 0.8) solid;
   padding: 15px;
-  color: #fff;
+  color: black;
   margin-bottom: 5px;
   
   -moz-border-radius:10px;
@@ -55,7 +55,7 @@
   background: transparent url(images/growlclose.png) no-repeat;
 }
 .growlstatus:hover{
-  background-color: rgba(0, 0, 0, 0.9);
+  background-color: #3e5e85;
   border: 3px #fff solid;
 }
 .growlstatus:hover .growlstatusclose{
@@ -80,4 +80,7 @@
 }
 .growlicon_parachute{
   background-image: url(images/icons/parachute.png);
+}
+.growlicon_gymzone{
+  background-image: url(images/icons/gymzone.png);
 }

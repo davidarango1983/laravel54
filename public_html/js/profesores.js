@@ -33,15 +33,14 @@ $(document).ready(function () {
                 columns: [
                     {data: 'id', name: 'id'},
                         {data: 'dni', name: 'dni'},
-                    {data: 'name', name: 'name'},
-                    {data: 'last_name', name: 'last_name'},
-                    {data: 'telefono', name: 'telefono',
-                        "className": "visible-lg visible-md visible-sm"},
+                    {data: 'name', name: 'name',"className":"col-xs-1"},
+                    {data: 'last_name', name: 'last_name',"className":"col-xs-1"},
+                    {data: 'telefono', name: 'telefono',"className": "col-xs-1"},
                     {data: 'email', name: 'email',
-                        "className": "visible-lg visible-md visible-sm"},
+                        "className": "col-xs-1"},
                     {data: 'fecha_nac', name: 'fecha_nac',
-                        "className": "visible-lg visible-md visible-sm"},
-                    {'data': "id", "className": "visible-lg",
+                        "className":"col-xs-1"},
+                    {'data': "id", "className": "col-xs-2",
                         'render': function () {
                             /*añadimos las clases editarbtn y borrarbtn para procesar los eventos click de los botones. No lo hacemos mediante id ya que habrá más de un botón de edición o borrado*/
                             return "<a href='editarprofesor/"+arguments[0] +"' class='editar btn btn-sm btn-warning ' >Editar</a><span> </span><button class='borrarbtn btn btn-xs btn-danger'>Borrar</button>";
@@ -106,11 +105,11 @@ $(document).ready(function () {
 
 
                 var options = {
-                    "icon": true, //Icon class - false / string - see provided CSS
+                  "icon": 'gymzone', //Icon class - false / string - see provided CSS
                     "title": 'Administración', //Show title - false / string
                     "cls": "eliminado", //Additional container class
                     "speed": 200, //Fade-in / out animation speed
-                    "timeout": 2000 //Timeout before notification disappears    
+                    "timeout": 3000 //Timeout before notification disappears    
                 };
                 $.Growl.show(data, options);
             },

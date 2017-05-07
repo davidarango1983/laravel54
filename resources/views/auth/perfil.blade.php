@@ -8,7 +8,14 @@
                 @endif</div>
             <?php $sus = Auth::user()->suscripcion ?>
             <div class="panel-body">
+                 @if(Session::has('flash_message'))
+                        <div class="col-xs-12 text-center alert alert-success"><span></span><em> {!! session('flash_message') !!}</em></div>
+                        @endif
+                        @if(Session::has('flash_message_error'))
+                        <div class="col-xs-12  text-center alert alert-danger"><span></span><em> {!! session('flash_message_error') !!}</em></div>
+                        @endif
                 <div class='col-lg-6'id="perfil">
+                    
                     <label><legend>Datos Personales</legend>
                         <p>Nombre : <span> {{ Auth::user()->name }}</span> </p>
 

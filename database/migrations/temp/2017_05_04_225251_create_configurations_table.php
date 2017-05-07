@@ -16,9 +16,9 @@ class CreateConfigurationsTable extends Migration
         Schema::create('configurations', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
-            $table->boolean('allow_records');
-            $table->boolean('allow_reservations');
-            $table->boolean('booking_time');
+            $table->boolean('disable_records');
+            $table->boolean('disable_reservations');
+            $table->integer('booking_time');
             $table->boolean('disable_mails');
             $table->boolean('disable_news');
             

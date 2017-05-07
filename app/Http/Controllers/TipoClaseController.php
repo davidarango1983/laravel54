@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\TipoClase;
-use Storage;
+use Carbon;
+use Exception;
 
 class TipoClaseController extends Controller {
 
@@ -18,7 +19,6 @@ class TipoClaseController extends Controller {
         return Validator::make($data, [
                     'name' => 'required|max:255',
                     'description' => 'required|max:10000'
-                    
         ]);
     }
 
@@ -35,11 +35,9 @@ class TipoClaseController extends Controller {
         $tipoclase->description = $request->description;
 
         $tipoclase->save();
-
-
-
-
-
+        $mytime = Carbon\Carbon::now();
+        $format = $mytime->subDay()->format('h:i:s');
+        \Session::flash('flash_message', 'Se ha creado un registro nuevo correctamente. ' . $format);
         return redirect()->action('AdministracionController@tipoclases');
     }
 
@@ -75,14 +73,19 @@ class TipoClaseController extends Controller {
     }
 
     public function update(Request $request) {
+        $mytime = Carbon\Carbon::now();
+        $format = $mytime->subDay()->format('h:i:s');
 
-        $tipoclase = TipoClase::find($request['id']);
+        try {
+            $tipoclase = TipoClase::find($request['id']);
+        } catch (Exception $e) {
 
+            \Session::flash('flash_message_error', 'Ha ocurrido un error. ' . $format . ' error:' . $e);
+        }
         $tipoclase->name = $request->name;
         $tipoclase->description = $request->description;
-
-        
         $tipoclase->update();
+        \Session::flash('flash_message', 'Se ha creado un registro nuevo correctamente. ' . $format);
         return redirect()->action('AdministracionController@tipoclases');
     }
 

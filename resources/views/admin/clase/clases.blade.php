@@ -1,5 +1,6 @@
 @extends('layouts.adminapp')
 @section('content')
+
 <table class="display table table-striped table-hover" id="clase-table">
     <h1 class="text-center">CLASES</h1>
     <thead>

@@ -29,16 +29,16 @@ $(document).ready(function () {
                 'type': 'POST'
             },
             columns: [
-                {data: 'id', name: 'id'},
-                {data: 'title', name: 'title'},
-                {data: 'content', name: 'content',
+                {data: 'id', name: 'id', "className":"col-xs-1"},
+                {data: 'title', name: 'title',"className":"col-xs-1"},
+                {data: 'content', name: 'content',"className":"col-xs-1",
                     'render': function (data) {
                         return data.substring(0, 30) + "...";
                     }
                 },
-                {data: 'publicado', name: 'publicado'},
-                {data: 'urlimg', name: 'urlimg'},
-                {'data': "id", "className": "visible-lg",
+                {data: 'publicado', name: 'publicado',"className":"col-xs-1"},
+                {data: 'urlimg', name: 'urlimg',"className":"col-xs-1"},
+                {'data': "id", "className":"col-xs-2",
                     'render': function () {
                         /*añadimos las clases editarbtn y borrarbtn para procesar los eventos click de los botones. No lo hacemos mediante id ya que habrá más de un botón de edición o borrado*/
                         return "<a href='editarnoticia/" + arguments[0] + "' class='editar btn btn-sm btn-warning ' >Editar</a><span> </span><button class='borrarbtn btn btn-xs btn-danger'>Borrar</button>";
@@ -99,11 +99,11 @@ $(document).ready(function () {
 
 
                 var options = {
-                    "icon": true, //Icon class - false / string - see provided CSS
+                    "icon":'growlicon_heart', //Icon class - false / string - see provided CSS
                     "title": 'Administración', //Show title - false / string
                     "cls": "eliminado", //Additional container class
                     "speed": 200, //Fade-in / out animation speed
-                    "timeout": 2000 //Timeout before notification disappears    
+                    "timeout": 3000 //Timeout before notification disappears    
                 };
                 $.Growl.show(data, options);
             },

@@ -40,31 +40,29 @@ $(document).ready(function () {
                 "url": "listaclases",
                 'type': 'POST'
 
-
-
             },
             columns: [
                 {data: 'id', name: 'id'},
                 {data: 'hora_ini', name: 'hora_ini',
-                    "className": "visible-lg visible-md visible-sm"},            
+                    "className": "col-xs-1"},            
                 {data: 'hora_fin', name: 'hora_fin',
-                "className": "visible-lg visible-md visible-sm"},
+           "className": "col-xs-1"},        
                 {data: 'dia', name: 'dia'},
                 {data: 'limit', name: 'limit', 
-                 "className": "visible-lg "},
+             "className": "col-xs-1"},        
                 {data: 'publicado', name: 'publicado',
                     'render': function () {
                         return (arguments[0] === '1') ? 'SI' : 'NO';
                     },
-                 "className": "visible-lg visible-md"},
+               "className": "col-xs-1"},        
                 {data: 'profesor.name', name: 'profesor_id',
                     'render': function () {
 
                         return arguments[0] + ' ' + arguments[2]['profesor']['last_name'];
 
                     }},
-                {data: 'tipo.name', name: 'tipo', "className": "visible-lg visible-md visible-sm"},
-                {'data': "id",
+                {data: 'tipo.name', name: 'tipo', "className": "col-xs-2"},
+                {'data': "id", "className": "col-xs-1",
                     'render': function () {
                         /*añadimos las clases editarbtn y borrarbtn para procesar los eventos click de los botones. No lo hacemos mediante id ya que habrá más de un botón de edición o borrado*/
                         return "<a href='editarclase/" + arguments[0] + "' class='editar btn btn-sm btn-warning ' >Editar</a><span> </span><button class='borrarbtn btn btn-xs btn-danger'>Borrar</button>";
@@ -118,7 +116,7 @@ $(document).ready(function () {
 
 
                 var options = {
-                    "icon": true, //Icon class - false / string - see provided CSS
+                    "icon": 'gymzone', //Icon class - false / string - see provided CSS
                     "title": 'Administración', //Show title - false / string
                     "cls": "eliminado", //Additional container class
                     "speed": 200, //Fade-in / out animation speed
@@ -154,15 +152,15 @@ $(document).ready(function () {
                 'type': 'POST'
             },
             columns: [
-                {data: 'id', name: 'id'},
-                {data: 'name', name: 'name'},
-                 {data: 'description', name: 'description',
+                {data: 'id', name: 'id',"className": "col-xs-1"},    
+                {data: 'name', name: 'name',"className": "col-xs-1"},    
+                 {data: 'description', name: 'description',"className": "col-xs-1",
                     'render': function (data) {
                         return data.substring(0, 30) + "...";
                     }
                 },
              
-                {'data': "id",
+                {'data': "id","className": "col-xs-2",
                     'render': function () {
                         /*añadimos las clases editarbtn y borrarbtn para procesar los eventos click de los botones. No lo hacemos mediante id ya que habrá más de un botón de edición o borrado*/
                         return "<a href='editartipoclase/" + arguments[0] + "' class='editar btn btn-sm btn-warning ' >Editar</a><span> </span><button class='borrarbtn btn btn-xs btn-danger'>Borrar</button>";
@@ -217,11 +215,11 @@ $(document).ready(function () {
 
 
                 var options = {
-                    "icon": true, //Icon class - false / string - see provided CSS
+                  "icon": 'gymzone', //Icon class - false / string - see provided CSS
                     "title": 'Administración', //Show title - false / string
                     "cls": "eliminado", //Additional container class
                     "speed": 200, //Fade-in / out animation speed
-                    "timeout": 2000 //Timeout before notification disappears    
+                  "timeout": 3000 //Timeout before notification disappears    
                 };
                 $.Growl.show(data, options);
             },
@@ -255,14 +253,14 @@ $('.btnimprimir').click(function (){
             },
             columns: [
                 
-                {data: 'clase_id', name: 'clase_id'},
-                {data: 'clase.dia', name: 'clase.dia'},
-                {data: 'clase.hora_ini', name: 'clase.hora_ini'},
-                {data: 'clase.hora_fin', name: 'clase.hora_fin'},
-                {data: 'user_id', name: 'user_id'},
-                {data: 'user.name', name: 'user.name'},
-                {data: 'user.last_name', name: 'user.last_name'},
-                {data: 'user.telefono', name: 'user.telefono'}              
+                {data: 'clase_id', name: 'clase_id',"className": "col-xs-1"},
+                {data: 'clase.dia', name: 'clase.dia',"className": "col-xs-1"},
+                {data: 'clase.hora_ini', name: 'clase.hora_ini',"className": "col-xs-1"},
+                {data: 'clase.hora_fin', name: 'clase.hora_fin',"className": "col-xs-1"},
+                {data: 'user_id', name: 'user_id',"className": "col-xs-1"},
+                {data: 'user.name', name: 'user.name',"className": "col-xs-1"},
+                {data: 'user.last_name', name: 'user.last_name',"className": "col-xs-1"},
+                {data: 'user.telefono', name: 'user.telefono',"className": "col-xs-1"}              
                
 
             ],

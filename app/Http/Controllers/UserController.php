@@ -6,7 +6,7 @@ use App\Http\Requests\UserUpdateRequest;
 use App\Jobs\Utiles;
 use App\User;
 use Illuminate\Support\Facades\Auth;
-
+use Carbon;
 
 class UserController extends Controller {
 
@@ -16,11 +16,16 @@ class UserController extends Controller {
     }
 
     public function update(UserUpdateRequest $request) {
+        $mytime = Carbon\Carbon::now();
+        $format = $mytime->subDay()->format('h:i:s');
 
         $formatFecha = Utiles::formatearFecha($request['fecha']);
-        
-        $user = User::find($request['id']);
 
+        try {
+            $user = User::find($request['id']);
+        } catch (Exceptio $e) {
+            \Session::flash('flash_message_error', 'Ha ocurrido un error ' . $format . ' error: ' . $e);
+        }
         $user->fill([
             'name' => $request['name'],
             'last_name' => $request['apellido'],
@@ -30,15 +35,16 @@ class UserController extends Controller {
 
         $user->save();
 
+        \Session::flash('flash_message', 'Se ha actualizado tu información personal correctamente ' . $format);
         return view('auth.perfil');
     }
-    
+
     /*
      * Eliminar Usuario
      * @param $id identificador de usuario 
      * 
      */
-    
+
     public function destroy($id) {
         try {
             User::find($id);
@@ -48,9 +54,5 @@ class UserController extends Controller {
         User::destroy($id);
         return 'Se ha borrado correctamente al Usuario con id: ' . $id;
     }
-    
-
-     
-    
 
 }

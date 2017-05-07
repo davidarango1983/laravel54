@@ -13,5 +13,6 @@
         </tr>
     </thead>
 </table>
+
 <script src="{{ URL::asset('js/noticias.js')}}"></script>
 @endsection

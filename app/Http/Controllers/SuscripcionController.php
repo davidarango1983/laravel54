@@ -2,10 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-
-use App\Http\Requests;
-
 class SuscripcionController extends Controller
 {
   /**
@@ -34,6 +30,8 @@ class SuscripcionController extends Controller
    */
   protected function create(array $data)
   {
+      
+      
       return Suscripcion::create([
           'user_id' => $data['user_id'],
           'tipos_suscripcions' => $data['tipos_suscripcions'],

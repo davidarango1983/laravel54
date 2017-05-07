@@ -33,6 +33,7 @@
     </head>
 
     <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+        
 
         <!-- Navigation -->
         <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
@@ -113,6 +114,13 @@
             </div>
             <!-- /.container -->
         </nav>
+        <div  style=margin-top:70px;>
+             @if(Session::has('flash_message'))
+    <div class="col-xs-12 text-center alert  alert-danger"><span></span><em> {!! session('flash_message') !!}</em></div>
+@endif
+
+        </div>
+        
 
         @yield('content')
 

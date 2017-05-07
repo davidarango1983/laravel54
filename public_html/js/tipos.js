@@ -34,12 +34,12 @@ $(document).ready(function () {
                     'type': 'POST'
                 },
                 columns: [
-                    {data: 'id', name: 'id'},
+                    {data: 'id', name: 'id',"className":"col-xs-1"},
                 
-                    {data: 'name', name: 'name'},
-                    {data: 'precio', name: 'precio'},
-                    {data: 'duration', name: 'duration'},
-                     {'data': "id",
+                    {data: 'name', name: 'name',"className":"col-xs-1"},
+                    {data: 'precio', name: 'precio',"className":"col-xs-1"},
+                    {data: 'duration', name: 'duration',"className":"col-xs-1"},
+                     {'data': "id","className":"col-xs-3",
                         'render': function () {
                             /*añadimos las clases editarbtn y borrarbtn para procesar los eventos click de los botones. No lo hacemos mediante id ya que habrá más de un botón de edición o borrado*/
                             return "<a href='editartipo/"+arguments[0] +"' class='editar btn btn-sm btn-warning ' >Editar</a><span> </span><button class='borrarbtn btn btn-xs btn-danger'>Borrar</button>";
@@ -91,7 +91,7 @@ $(document).ready(function () {
             error: function (status, error) {
 
                 var options = {
-                    "icon": true, //Icon class - false / string - see provided CSS
+                 "icon": 'gymzone', //Icon class - false / string - see provided CSS
                     "title": 'Ha surgido el siguiente error', //Show title - false / string
                     "cls": "eliminado", //Additional container class
                     "speed": 200, //Fade-in / out animation speed
@@ -110,7 +110,7 @@ $(document).ready(function () {
 
 
                 var options = {
-                    "icon": true, //Icon class - false / string - see provided CSS
+                  "icon": 'gymzone', //Icon class - false / string - see provided CSS
                       "title": 'Mensaje de administración:', //Show title - false / string
                     "cls": "eliminado", //Additional container class
                     "speed": 200, //Fade-in / out animation speed

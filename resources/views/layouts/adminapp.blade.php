@@ -24,6 +24,7 @@
 <script src="{{ URL::asset('js/editor/jquery-te-1.4.0.min.js')}}"></script>
 <script src="{{ URL::asset('js/timedropper.js')}}"></script>
   <script src="{{URL::asset('js/datedroppernuevo.js')}}"></script>
+   <script src="{{URL::asset('css/Growl/js/growl.js')}}"></script>
 <link rel="stylesheet" href="{{ URL::asset('css/datedroppernuevo.css') }}">
 
 
@@ -125,7 +126,12 @@
     </nav>
 </div>
         <div class="admin container-fluid col-sm-9 col-lg-10">
-
+            @if(Session::has('flash_message'))
+    <div class="col-xs-12 text-center alert alert-success"><span></span><em> {!! session('flash_message') !!}</em></div>
+@endif
+@if(Session::has('flash_message_error'))
+    <div class="col-xs-12  text-center alert alert-danger"><span></span><em> {!! session('flash_message_error') !!}</em></div>
+@endif
             @yield('content')
 </div>
        

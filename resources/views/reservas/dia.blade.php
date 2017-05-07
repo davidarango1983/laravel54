@@ -40,7 +40,7 @@
                 
                  <button disabled class='btn btn-danger center-block'> Renueva tu suscripción </button>
                 @else
-                @if ($hoy==$clase->dia && $hora > $clase->hora_ini-1)
+                @if ($hoy==$clase->dia && $hora > $clase->hora_ini-$horalimite)
 
                 <button disabled class='btn btn-danger center-block'> Fuera de tiempo </button>
 
@@ -61,7 +61,7 @@
                 @endif
 
             </form>
-        </div>
+                </div>
     </div>
     @endif
     @endforeach

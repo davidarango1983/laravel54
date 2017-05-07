@@ -140,7 +140,7 @@ $(document).ready(function () {
             success: function (data) {
 
                 var options = {
-                    "icon": "heart", //Icon class - false / string - see provided CSS
+                    "icon": 'gymzone', //Icon class - false / string - see provided CSS
                     "title": 'Administración', //Show title - false / string
                     "cls": "eliminado", //Additional container class
                     "speed": 500, //Fade-in / out animation speed

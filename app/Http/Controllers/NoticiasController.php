@@ -1,11 +1,12 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Carbon;
 use App\Http\Requests\NoticiasRequest;
 use App\Noticias;
 use Storage;
 use Illuminate\Support\Facades\DB;
+use App\Configuration;
 
 class NoticiasController extends Controller {
     
@@ -22,7 +23,7 @@ class NoticiasController extends Controller {
             $noticia->urlimg = $rutaimg;
         }
         $noticia->save();
-
+         \Session::flash('flash_message', 'Es registro se ha creado Correctamente. ');
         return redirect()->action('AdministracionController@noticias');
     }
 
@@ -33,10 +34,14 @@ class NoticiasController extends Controller {
      */
 
     public function update(NoticiasRequest $request) {
+        $mytime = Carbon\Carbon::now();
+        $format = $mytime->subDay()->format('h:i:s');
+
         try {
             $noticia = Noticias::find($request['id']);
         } catch (Exception $e) {
-            return 'Se ha producdo el siguiente error: ' . $e;
+          \Session::flash('flash_message_error', 'Ha ocurrido un error: '.$format.' error: '.$e);
+        return redirect()->action('AdministracionController@noticias');
         }
 
 
@@ -52,7 +57,7 @@ class NoticiasController extends Controller {
         }
 
         $noticia->update();
-
+          \Session::flash('flash_message', 'Es registro se ha actualizado correctamente. '.$format);
         return redirect()->action('AdministracionController@noticias');
     }
 
@@ -67,15 +72,15 @@ class NoticiasController extends Controller {
     }
 
     public function destroy($id) {
-        $noticia;
+       
         try {
             $noticia = Noticias::find($id);
         } catch (Exception $e) {
             return 'Se ha producido el siguiente error: ' . $e;
         }
-        Storage::disk('public')->delete($$noticia->urlimg);
+        Storage::disk('public')->delete($noticia->urlimg);
         Noticias::destroy($id);
-        return 'Se ha borrado correctamente al Profesor con id: ' . $id;
+        return 'Se ha borrado correctamente la noticia id: ' . $id;
     }
 
     public function editar($id) {
@@ -95,9 +100,18 @@ class NoticiasController extends Controller {
     }
 
     public function vista() {
+        
+          $config=Configuration::find(1);
+   if($config->disable_news==1){
+         \Session::flash('flash_message', 'Esta sección está inhabilitada temporalmente.');
+       return redirect()->action('HomeController@index');
+   }else{
         $ruta = storage_path() . '/imgNoticias';
         $noticias = self::cargarNoticias();
         return view('news', ['noticia' => $noticias, 'ruta' => $ruta]);
+       
+   }
+        
     }
 
 }
