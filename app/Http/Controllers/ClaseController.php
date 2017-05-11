@@ -44,7 +44,7 @@ class ClaseController extends Controller {
     }
 
     public function update(ClaseRequest $request) {
-        $config=  \Psy\Configuration::find(1);
+        $config=  \App\Configuration::find(1);
         $mytime = Carbon\Carbon::now();
         $format = $mytime->subDay()->format('h:i:s');
         try {

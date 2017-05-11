@@ -59,7 +59,7 @@ class TiposSuscripcionController extends Controller {
             'duration' => $request['duration']]);
         $tipo->save();
 
-        \Session::flash('flash_message', 'Se ha creado un registro nuevo correctamente. ' . $format);
+        \Session::flash('flash_message', 'Se ha actualizado el registro correctamente. ' . $format);
         return redirect()->action('TiposSuscripcionController@tipos');
     }
 

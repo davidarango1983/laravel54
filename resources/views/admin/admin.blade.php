@@ -8,7 +8,10 @@
                 <h4>Usuarios Inscritos</h4>
                 <p> Inscritos <b>{{$users}}</b></p>
                 <p> Activos <b>{{$activos}}</b></p>
-                {{$percent=intval($activos/$users*100)}}%
+                @php if($activos > 0){
+                echo $percent=intval($activos/$users*100).'%';
+                }else{ echo $percent=0;}
+                @endphp
                 <div class="progress">
                     <div class="progress-bar progress-bar-striped progress-bar-success active" role="progressbar" aria-valuenow="{{$percent}}" aria-valuemin="0" aria-valuemax="100" style="width: {{$percent}}%">
                        
@@ -21,7 +24,10 @@
                 <h4>Noticias</h4>
                 <p> Creadas <b>{{$noticias}}</b></p>
                 <p> Publicadas <b>{{$notpub}}</b></p>
-                {{$percentNot=intval($notpub/$noticias*100)}}%
+                @php if($notpub>0){
+                echo $percentNot=intval($notpub/$noticias*100).'%';
+                }else{ echo $percentNot=0;}
+                @endphp
                 <div class="progress">
                     <div class="progress-bar progress-bar-striped progress-bar-success active" role="progressbar" aria-valuenow="{{$percentNot}}" aria-valuemin="0" aria-valuemax="100" style="width: {{$percentNot}}%">
                   
@@ -38,7 +44,10 @@
                 <h4>Clases</h4>
                 <p> Creadas <b>{{$clases}}</b></p>
                 <p> Activas <b>{{$clasespub}}</b></p>
-                {{$percentcla=intval($clasespub/$clases*100)}}%
+                @php if($clasespub>0){
+                echo $percentcla=intval($clasespub/$clases*100).'%';
+                }else{ echo $percentcla=0;}
+                @endphp
                 <div class="progress">
                     <div class="progress-bar progress-bar-striped progress-bar-success active" role="progressbar" aria-valuenow="{{$percentcla}}" aria-valuemin="0" aria-valuemax="100" style="width: {{$percentcla}}%">
                     </div>
@@ -50,7 +59,10 @@
                 <h4>Imágenes del Slider</h4>
                 <p> Añadidas <b>{{$img}}</b></p>
                 <p> Activas <b>{{$imgpub}}</b></p>
-                {{$percentimg=intval($imgpub/$img*100)}}%
+               @php if($imgpub>0){
+                echo $percentimg=intval($notpub/$img*100).'%';
+                }else{ echo $percentimg=0;}
+                @endphp
                 <div class="progress">
                     <div class="progress-bar progress-bar-striped progress-bar-success active" role="progressbar" aria-valuenow="{{$percentimg}}" aria-valuemin="0" aria-valuemax="100" style="width: {{$percentimg}}%">
                      </div>

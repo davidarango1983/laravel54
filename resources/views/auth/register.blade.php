@@ -39,7 +39,7 @@
 
                         <div class="">
                             <input id="fecha"  type="text" class="form-control" name="fecha" value="{{ isset($profesor->fecha_nac) ? $profesor->fecha_nac: ''}}" placeholder="Fecha de nacimiento" data-init-set="false"
- data-modal="true" data-large-default="true" data-large-mode="true"data-lang="es"   data-min-year="1940" >
+ data-modal="true" data-large-default="true" data-large-mode="true"data-lang="es"   data-format="Y-m-d" data-min-year="1940" >
 
                             @if ($errors->has('fecha'))
                             <span class="help-block">
@@ -121,12 +121,12 @@
 
                     <div class="form-group">
                         <div class="">
-                            <button type="submit" class="btn btn-primary col-lg-offset-3 col-md-offset-3 col-sm-offset-3 col-xs-offset-3">
-                                <i class="fa fa-btn fa-user"></i> Registrarse
+                            <button type="submit" class="btn btn-primary col-xs-offset-3">
+                                <i class="fa fa-btn fa-user"></i>Registrarse
                             </button>
                         </div>
                     </div>
-                    <a href="{{ url('/password/reset') }}" class="forgot-password">Has olvidado tu contraseña?</a></div>
+                    
             </form>
         </div>
     </div>

@@ -17,9 +17,11 @@ class CreateClasesTable extends Migration {
             $table->time('hora_fin');
             $table->string('dia');
             $table->integer('limit');
-            $table->boolean('publicado');     
-            $table->integer('profesor_id')->references('id')->on('profesors');
-            $table->string('tipo_id')->references('id')->on('tipo_clases');
+            $table->boolean('publicado'); 
+            $table->integer('profesor_id')->unsigned();             
+            $table->foreign('profesor_id')->references('id')->on('profesors');
+            $table->integer('tipo_id')->unsigned();
+            $table->foreign('tipo_id')->references('id')->on('tipo_clases');
             $table->timestamps();
         });
     }

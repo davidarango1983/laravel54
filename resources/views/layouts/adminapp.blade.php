@@ -46,7 +46,8 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="./">Brand</a>
+                <a class="navbar-brand" href="/admin">Administración <i class="fa fa-cog fa-1x" aria-hidden="true"></i></a>
+                <a class="navbar-brand" href="/">Ver Web <i class="fa fa-home fa-1x" aria-hidden="true"></i></a>
             </div>
             <div class="collapse navbar-collapse">
                 

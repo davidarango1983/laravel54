@@ -43,7 +43,7 @@
                         Menu <i class="fa fa-angle-double-down"></i> 
                     </button>
                     <a class="navbar-brand page-scroll" href="#page-top">
-                        <i class="fa fa-play-circle"></i> <span class="light">GYM</span>ZONE
+                        <i ></i> <span class="light">GYM</span>ZONE
                     </a>
                 </div>
 
@@ -114,12 +114,7 @@
             </div>
             <!-- /.container -->
         </nav>
-        <div  style=margin-top:70px;>
-             @if(Session::has('flash_message'))
-    <div class="col-xs-12 text-center alert  alert-danger"><span></span><em> {!! session('flash_message') !!}</em></div>
-@endif
-
-        </div>
+        
         
 
         @yield('content')

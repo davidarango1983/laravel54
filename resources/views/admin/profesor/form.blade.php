@@ -84,7 +84,7 @@
 
                             <div class="col-md-6">
                                 <input id="fecha"  type="text" class="form-control" name="fecha" value="{{ isset($profesor->fecha_nac) ? $profesor->fecha_nac: ''}}" 
-placeholder="Fecha de nacimiento" data-modal="true" data-large-default="true" data-large-mode="true" data-lang="es"   data-min-year="1940" >
+placeholder="Fecha de nacimiento" data-modal="true" data-large-default="true" data-large-mode="true" data-format="Y-m-d" data-lang="es"   data-min-year="1940" >
 
                                 
 
