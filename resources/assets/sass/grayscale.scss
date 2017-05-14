@@ -5,8 +5,7 @@ body {
     width: 100%;
     height: 100%;
     font-family: $font-body;
-    color: white;
-    background-color: black;
+   background-color: $code-bg;
     box-sizing: margin-box;
 }
 
@@ -82,7 +81,7 @@ a {
     .navbar-toggle {
         padding: 4px 6px;
         font-size: 16px;
-        color: white;
+        color: $primary;
         &:focus,
         &:active {
             outline: none;
@@ -95,7 +94,7 @@ a {
         }
     }
     a {
-        color: white;
+        color: $primary;
     }
     .nav {
         li {
@@ -104,7 +103,7 @@ a {
                 -moz-transition: background .3s ease-in-out;
                 transition: background .3s ease-in-out;
                 &:hover {
-                    color: $primary;
+                    color: $gray-lighter;
                     outline: none;
                     background-color: transparent;
                 }
@@ -129,7 +128,7 @@ a {
         padding: 20px 0;
         border-bottom: none;
       
-        background: transparent;
+        background: rgba(0, 0, 0, 0.02);
         -webkit-transition: background .5s ease-in-out,padding .5s ease-in-out;
         -moz-transition: background .5s ease-in-out,padding .5s ease-in-out;
         transition: background .5s ease-in-out,padding .5s ease-in-out;
@@ -252,7 +251,8 @@ a {
 }
 
 .content-section {
-    padding-top: 100px;
+   // padding-top: 100px;
+    min-height: 800px;
 }
 
 .download-section {
@@ -275,7 +275,7 @@ a {
 
 @media(min-width:767px) {
     .content-section {
-        padding-top: 250px;
+        padding-top: 100px;
     }
 
     .download-section {

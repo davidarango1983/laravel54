@@ -124,7 +124,7 @@
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2">
                     <h2>¿ Deseas más información ?</h2>
-                    <p>No dudes en escribirnos. Te daremos toda la información que necesites. Y si quieres visitarnos estamos <a class="page-scroll" href='#map'>aquí</a></p>
+                    <p>No dudes en escribirnos. Te daremos toda la información que necesites. Y si quieres visitarnos estamos en la calle Paseo de la Ribera Nº1</p>
                     <p><a href="mailto:gymzonezaragoza@gmail.com">gymzonezaragoza@gmail.com</a>
                     </p>
                     <ul class="list-inline banner-social-buttons">
@@ -139,13 +139,14 @@
                         </li>
                     </ul>
                 </div>
-            </div>
-        </section>
-
-        <!-- Map Section -->
+                  <!-- Map Section -->
         <div id="map">
         
         </div>
+            </div>
+        </section>
+
+      
 
         <!-- Footer -->
         <footer>

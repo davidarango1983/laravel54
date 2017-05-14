@@ -9,7 +9,7 @@
     <div class="intro-body">
         <div class="container">
             <div class="row">
-                <div class="col-lg-8 col-lg-offset-2">
+                <div class="col-sm-8 col-sm-offset-2">
                     <h1 class="brand-heading">GYM<img class='logo' src="{{ URL::asset('/images/logogymtrans10.png')}}"></img>ZONE</h1>
                     <p class="intro-text">El gimnasio done cumplirás tus objetivos.
                         <br>¿A qué esperas?</p>
@@ -29,12 +29,10 @@
 </header>
 
 
-<!-- ActivitiesSection -->
+<!-- Activities Section -->
 <section id="activities" class="content-section text-center">
-    <div id="myCarouselact" class="carousel slide" data-ride="carousel">
-        <!-- Indicators -->
-        <!-- Wrapper for slides -->
-        <div class="carousel-inner" role="listbox">
+    
+       
 
 
             @php $count=1;
@@ -43,7 +41,7 @@
             @foreach ($actividad as $act)
 
 
-            <div class="col-sm-8 col-sm-offset-2
+            <div class=col-sm-4
                  @if ($count==1){{'item active'}}
                  @else{{'item'}}
                  @endif
@@ -55,22 +53,12 @@
             </div>
             @php $count++;
             @endphp
-
+          
             @endforeach
+            
 
 
-        </div>
-
-        <!-- Left and right controls -->
-        <a class="left carousel-control" href="#myCarouselact" role="button" data-slide="prev">
-            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
-        </a>
-        <a class="right carousel-control" href="#myCarouselact" role="button" data-slide="next">
-            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
-        </a>
-    </div>
+    
 
 
 </section>
@@ -81,18 +69,18 @@
 <!-- About Section -->
 <section id="about" class=" content-section text-center">
     <div class="row">
-        <div class="col-lg-8 col-lg-offset-2">
+        <div class="col-sm-8 col-sm-offset-2">
             <h2>GYMZONE <img class='logo' src="{{ URL::asset('/images/logogymtrans10.png')}}"></img> ZARAGOZA </h2>
             <p>Somos un gimnasio nuevo en la ciudad, innovador, con las mejores instalaciones y los mejores profesionales dispuestos a ayudarte.</p>
             <p>Tenemos un sinfín de actividades y las mejores instalaciones de la ciudad. ¿Qué estás esperando? </p>
             <p>Registrate ya <a href="/register">aquí</a></p>
-            <p>Y sí deseas más información, ponte en contacto con nosotros por estos <a class="page-scroll" href="#contact">medios</a></p>
+            <p>¿Deseas más información?, ponte en contacto con nosotros por estos <a class="page-scroll" href="#contact">medios</a></p>
         </div>
     </div>
 </section>
 
 
-<!-- Download Section -->
+<!-- Galery Section -->
 <section id='galery' class="content-section">
     <div class="container">
         <div id="myCarousel" class="carousel slide" data-ride="carousel">
