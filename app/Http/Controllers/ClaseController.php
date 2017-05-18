@@ -52,7 +52,6 @@ class ClaseController extends Controller {
         } catch (Exception $e) {
             \Session::flash('flash_message_error', 'Ha ocurrido un error. ' . $format . ' error:' . $e);
         }
-
         $clase->fill([
             'hora_ini' => $request['inicio'],
             'hora_fin' => $request['fin'],
@@ -180,19 +179,16 @@ class ClaseController extends Controller {
        return redirect()->action('HomeController@index');
    }else{
          return view('reservas.reservas');
-       
    }
-      
-       // return view('reservas.reservas');
     }
 
     public function dia($dia) {
-        $hora=  Configuration::find(1);
-        $horaLimite=$hora->booking_time;
+        $horaL=  Configuration::find(1);
+        $horaLimite=$horaL->booking_time;
         $reservasUsuario = Reservas::all()->where('user_id', Auth::user()->id);
-        $clases = Clase::all()->where('dia', $dia);
-        $clasesR = DB::select("SELECT clases.id,count(reservas.clase_id) as count FROM reservas,clases where clases.id = reservas.clase_id and dia=:dia group by clase_id", ['dia' => $dia]);
-        $array = array($clasesR);
+        $clases = Clase::where('dia', $dia)->orderBy('hora_ini','asc')->get();
+        $Reservas = DB::select("SELECT clases.id,count(reservas.clase_id) as count FROM reservas,clases where clases.id = reservas.clase_id and dia=:dia group by clase_id", ['dia' => $dia]);
+        $array = array($Reservas);
 
         $hoy = Utiles::getDia(0);
         $hora = Utiles::getHora();

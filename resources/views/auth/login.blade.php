@@ -23,7 +23,7 @@
                             </span>
                             @endif
 
-                            <button class="btn btn-primary btn-block btn-lg col-lg-offset-3 col-md-offset-3 col-sm-offset-3 col-xs-offset-3" type="submit">Identificarse</button>
+                            <button class="btn btn-primary col-xs-offset-2 col-sm-offset-3" type="submit">Identificarse</button>
                         </form><a href="{{ url('/password/reset') }}" class="forgot-password">¿Has olvidado tu contraseña?</a></div>
          
         </div>

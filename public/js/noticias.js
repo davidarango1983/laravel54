@@ -31,9 +31,9 @@ $(document).ready(function () {
             columns: [
                 {data: 'id', name: 'id', "className":"col-xs-1"},
                 {data: 'title', name: 'title',"className":"col-xs-1"},
-                {data: 'content', name: 'content',"className":"col-xs-1",
+                {data: 'content', name: 'content',"className":"col-xs-3",
                     'render': function (data) {
-                        return data.substring(0, 30) + "...";
+                        return data.substring(0, 60) + "...";
                     }
                 },
                 {data: 'publicado', name: 'publicado',"className":"col-xs-1"},

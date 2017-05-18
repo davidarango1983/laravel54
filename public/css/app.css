@@ -3162,7 +3162,7 @@ tbody.collapse.in {
     clear: both;
     font-weight: normal;
     line-height: 1.428571429;
-    color: #333;
+    color: #E95420;
     white-space: nowrap; }
 
 .dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus {
@@ -5751,8 +5751,7 @@ html {
 .perfil {
   margin-top: 100px;
   max-width: 700px;
-  text-align: left;
-  opacity: .9; }
+  text-align: left; }
 
 .panel-heading {
   background-color: #E95420 !important;
@@ -5767,7 +5766,7 @@ h3,
 h4,
 h5,
 h6 {
-  margin: 0 0 35px;
+  margin: 0 0 20px;
   text-transform: uppercase;
   font-family: "Audiowide", cursive;
   font-weight: 600; }
@@ -5816,7 +5815,7 @@ a {
   .navbar-custom .nav li a {
     transition: background .3s ease-in-out; }
     .navbar-custom .nav li a:hover {
-      color: #eeeeee;
+      color: #ffffff;
       outline: none;
       background-color: transparent; }
     .navbar-custom .nav li a:focus, .navbar-custom .nav li a:active {
@@ -6034,7 +6033,6 @@ body {
   .login-card button {
     height: 44px;
     font-size: 16px;
-    width: 50%;
     display: block;
     margin-bottom: 10px;
     margin-bottom: 10px;
@@ -6075,9 +6073,6 @@ label {
 
 .help-block strong {
   color: #DF382C; }
-
-#panelreserva {
-  color: black; }
 
 /*
 * DATATABLES
@@ -6455,11 +6450,17 @@ table.dataTable td {
 *RESERVAS
 *
 */
+.black {
+  background-color: black; }
+
+#contClases {
+  margin-top: 75px; }
+
 .divRes {
   padding: 10px;
   border: 2px solid black; }
 
-.gray {
-  background-color: #AEA79F; }
+#clasesList {
+  padding: 20px; }
 
 /*# sourceMappingURL=app.css.map */

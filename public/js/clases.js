@@ -61,8 +61,8 @@ $(document).ready(function () {
                         return arguments[0] + ' ' + arguments[2]['profesor']['last_name'];
 
                     }},
-                {data: 'tipo.name', name: 'tipo', "className": "col-xs-2"},
-                {'data': "id", "className": "col-xs-1",
+                {data: 'tipo.name', name: 'tipo', "className": "col-xs-1"},
+                {'data': "id", "className": "col-xs-2",
                     'render': function () {
                         /*añadimos las clases editarbtn y borrarbtn para procesar los eventos click de los botones. No lo hacemos mediante id ya que habrá más de un botón de edición o borrado*/
                         return "<a href='editarclase/" + arguments[0] + "' class='editar btn btn-sm btn-warning ' >Editar</a><span> </span><button class='borrarbtn btn btn-xs btn-danger'>Borrar</button>";
@@ -153,10 +153,10 @@ $(document).ready(function () {
             },
             columns: [
                 {data: 'id', name: 'id',"className": "col-xs-1"},    
-                {data: 'name', name: 'name',"className": "col-xs-1"},    
-                 {data: 'description', name: 'description',"className": "col-xs-1",
+                {data: 'name', name: 'name',"className": "col-xs-2"},    
+                 {data: 'description', name: 'description',"className": "col-xs-7",
                     'render': function (data) {
-                        return data.substring(0, 30) + "...";
+                        return data.substring(0, 80) + "...";
                     }
                 },
              

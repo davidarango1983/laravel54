@@ -9,8 +9,8 @@
     @endphp
 
 
-    <div>
-        <div class="col-md-4 col-sm-4 center-block divRes "> 
+    <div >
+        <div class="col-xs-12 col-sm-4 col-md-3 center-block divRes "> 
             @foreach ($reservar as $rese)   
             @foreach ($rese as $res)    
             @if ($res->id==$clase->id)
@@ -20,9 +20,9 @@
             @endforeach
             @endforeach            
 
-            <h6 class="text-center">Plazas libres: {{ (isset($valor)) ? $clase->limit-$valor : $clase->limit }}</h6>
+            <p class="text-center">Plazas libres: {{ (isset($valor)) ? $clase->limit-$valor : $clase->limit }}</p>
             <h3 class='text-center'>{{$clase->tipo->name}}</h3>
-            <h5 class="text-center">{{ substr($clase->hora_ini, 0,5)}}<span> - </span>{{substr($clase->hora_fin, 0,5)}}</h5> 
+            <p class="text-center">{{ substr($clase->hora_ini, 0,5)}}<span> - </span>{{substr($clase->hora_fin, 0,5)}}</p> 
             <p class='h4 text-center text-capitalize'>{{$clase->profesor->name}}<span> </span>{{$clase->profesor->last_name }}</p> 
             <form class='formularioreserva' method='post'> 
                 {{ csrf_field() }}

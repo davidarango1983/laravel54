@@ -16,10 +16,9 @@ html {
 }
 .perfil{
     margin-top: 100px;
-        max-width: 700px;
+    max-width: 700px;
     text-align: left;
-    opacity: .9;
-    
+        
 }
 .panel-heading{
     background-color: $primary !important;
@@ -35,7 +34,7 @@ h3,
 h4,
 h5,
 h6 {
-    margin: 0 0 35px;
+    margin: 0 0 20px;
     text-transform: uppercase;
     font-family: $font-primary;
     font-weight: 600;
@@ -103,7 +102,7 @@ a {
                 -moz-transition: background .3s ease-in-out;
                 transition: background .3s ease-in-out;
                 &:hover {
-                    color: $gray-lighter;
+                    color: $code-bg;
                     outline: none;
                     background-color: transparent;
                 }

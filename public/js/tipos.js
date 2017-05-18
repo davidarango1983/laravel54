@@ -39,7 +39,7 @@ $(document).ready(function () {
                     {data: 'name', name: 'name',"className":"col-xs-1"},
                     {data: 'precio', name: 'precio',"className":"col-xs-1"},
                     {data: 'duration', name: 'duration',"className":"col-xs-1"},
-                     {'data': "id","className":"col-xs-3",
+                     {'data': "id","className":"col-xs-2",
                         'render': function () {
                             /*añadimos las clases editarbtn y borrarbtn para procesar los eventos click de los botones. No lo hacemos mediante id ya que habrá más de un botón de edición o borrado*/
                             return "<a href='editartipo/"+arguments[0] +"' class='editar btn btn-sm btn-warning ' >Editar</a><span> </span><button class='borrarbtn btn btn-xs btn-danger'>Borrar</button>";

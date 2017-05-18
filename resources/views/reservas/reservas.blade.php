@@ -1,15 +1,14 @@
 @extends('layouts.app')
 @section('content') 
 <section class="container content-section text-center">
-    <div id='panelreserva'>
-        <div class="col-md-10 col-md-offset-1">
-            <div class="gray panel panel-default">
-                <nav class="navbar navbar-custom ">             
+        <div id='contClases' class="col-xs-10 col-xs-offset-1">
+            <div class="panel panel-default">
+                <nav class="black navbar navbar-custom ">             
                    <div class="navbar-header">
                             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#app-navbar-dias">
                                 <i class="fa fa-bars"></i>
                             </button>
-                            <a class="navbar-brand page-scroll" href="/">
+                            <a class="navbar-brand page-scroll" href="#">
                                 <i class="fa fa-play-circle"></i> <span class="light">RESERVAS</span>
                             </a>
                         </div>
@@ -40,7 +39,7 @@
 
                 </nav>
             </div>
-            <div id='contenidoadmin' class='panel panel-default container-fluid'>
+            <div id='clasesList'class='panel panel-default container-fluid'>
                 @yield('contenido')
             </div>
 

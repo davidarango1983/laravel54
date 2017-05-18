@@ -11,30 +11,13 @@
 
         <title>GYMZONE </title>
 
-        <!-- Bootstrap Core CSS -->
-
         <link rel="stylesheet" href="{{ URL::asset('css/app.css') }}">
-              <link rel="stylesheet" href="{{ URL::asset('css/Growl/css/growl.css') }}">
-
-        <!-- Custom Fonts -->
-<!--        <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">-->
-<!--        <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
-        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">-->
-
+        <link rel="stylesheet" href="{{ URL::asset('css/Growl/css/growl.css') }}">
         <script src="{{URL::asset('js/app.js')}}"></script>
-
-        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-        <!--[if lt IE 9]>
-            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-        <![endif]-->
-
-    </head>
+   </head>
 
     <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
         
-
         <!-- Navigation -->
         <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
             <div class="container">
@@ -47,15 +30,12 @@
                     </a>
                 </div>
 
-                <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
                     <ul class="nav navbar-nav">
-                        <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
                         <li class="hidden">
                             <a href="#page-top"></a>
                         </li>
                        <?php $barra=(url()->current() == url('/'))? '#' : '/#'; ?>
-                      
                          <li>
                             <a class="page-scroll" href="/noticias">NOTICIAS</a>
                         </li>
@@ -65,8 +45,6 @@
                         <li>
                             <a class="page-scroll" href="{{$barra}}about">QUIÉNES SOMOS</a>
                         </li> 
-                         
-                            
                         <li>
                             <a class="page-scroll" href="{{$barra}}galery">GALERIA</a>
                         </li>
@@ -81,19 +59,19 @@
                             <li><a href="{{ url('/register') }}">REGISTRARSE</a></li>
                             @else
              
-                            <li class="dropdown">
+                            <li class=" dropdown">
                                 <button  class='btn btn-default page-scroll' data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                                     {{ Auth::user()->name }} <span class="caret"></span>
                                 </button>
 
-                                <ul class="dropdown-menu" role="menu" >
-                                    <li><a href="{{ url('/reservaclases') }}"><i class="fa fa-edit"></i> Reservar Clases</a></li>
-                                    <li><a href="{{ url('/perfil') }}"><i class="fa fa-edit"></i> Mi Perfil</a></li>
+                                <ul class=" black dropdown-menu" role="menu" >
+                                    <li><a href="{{ url('/reservaclases') }}"><span class="fa fa-bicycle"></span> Reservar Clases</a></li>
+                                    <li><a href="{{ url('/perfil') }}"><span class="fa fa-user-circle-o"></span> Mi Perfil</a></li>
                                     <li>
                                         <a href="{{ url('/logout') }}"
                                            onclick="event.preventDefault();
                                                    document.getElementById('logout-form').submit();">
-                                            Logout
+                                           <i class="fa fa-sign-out"></i> Cerrar Sesión
                                         </a>
 
                                         <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
@@ -102,7 +80,7 @@
                                     </li>
                                     @if(Auth::check() && Auth::user()->id_rol==2)
                                     <li role="separator" class="divider"></li>
-                                    <li><a href="{{ url('admin') }}"><span class="glyphicons glyphicons-headphones"></span>  Administrar Web</a></li>
+                                    <li><a href="{{ url('admin') }}"><span class="fa fa-lock"></span>  Administrar Web</a></li>
                                     @endif
                                 </ul>
                             </li>
