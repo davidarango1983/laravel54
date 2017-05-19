@@ -4,12 +4,13 @@
     <div class="intro-body">
         <div class="container panel panel-default perfil">
             <div class="panel-heading">Editar Usuario</div>
-            <div class="panel-body">
-                <div class='col-lg-8 col-lg-offset-2 black'>
-                    <p>Por seguridad, si deseas cambiar tu contraseña, ve a Iniciar sesión, he olvidado mi contraseña y te enviaremos un correo para que
+          
+                <div class='col-sm-8 col-sm-offset-2'>
+                    <label><p>Por seguridad, si deseas cambiar tu contraseña, ve a Iniciar sesión, he olvidado mi contraseña y te enviaremos un correo para que
                         cambies tu contraseña.</p>
                     <p>Si deseas cambiar tu suscripción deberás esperar a su vencimiento y activarla nuevamente.
                     </p>
+                    </label>
                 </div>
                 <form class="form-horizontal" role="form" method="POST" action="{{ url('/update') }}">
                     {{ csrf_field() }}

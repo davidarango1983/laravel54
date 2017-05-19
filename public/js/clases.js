@@ -55,13 +55,13 @@ $(document).ready(function () {
                         return (arguments[0] === '1') ? 'SI' : 'NO';
                     },
                "className": "col-xs-1"},        
-                {data: 'profesor.name', name: 'profesor_id',
+                {data: 'profesor.name', name: 'profesor.name',
                     'render': function () {
 
                         return arguments[0] + ' ' + arguments[2]['profesor']['last_name'];
 
                     }},
-                {data: 'tipo.name', name: 'tipo', "className": "col-xs-1"},
+                {data: 'tipo.name', name: 'tipo.name', "className": "col-xs-1"},
                 {'data': "id", "className": "col-xs-2",
                     'render': function () {
                         /*añadimos las clases editarbtn y borrarbtn para procesar los eventos click de los botones. No lo hacemos mediante id ya que habrá más de un botón de edición o borrado*/
@@ -120,7 +120,7 @@ $(document).ready(function () {
                     "title": 'Administración', //Show title - false / string
                     "cls": "eliminado", //Additional container class
                     "speed": 200, //Fade-in / out animation speed
-                    "timeout": 100000 //Timeout before notification disappears    
+                    "timeout": 3000 //Timeout before notification disappears    
                 };
                 $.Growl.show(data, options);
             },

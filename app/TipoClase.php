@@ -21,7 +21,8 @@ class TipoClase extends Model
     
 public function clase()
     {
-        return $this->belongTo('Clases');
+        return $this->hasMany('Clases');
     }   
+    
 
 }

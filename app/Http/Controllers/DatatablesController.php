@@ -95,7 +95,6 @@ class DatatablesController extends Controller {
 
     public function clases() {
         try {
-
             $clases = Clase::with('tipo', 'profesor');
         } catch (\Exception $e) {
 
