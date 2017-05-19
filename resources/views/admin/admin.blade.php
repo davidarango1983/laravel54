@@ -13,7 +13,7 @@
                 }else{ echo $percent=0;}
                 @endphp
                 <div class="progress">
-                    <div class="progress-bar progress-bar-striped progress-bar-success active" role="progressbar" aria-valuenow="{{$percent}}" aria-valuemin="0" aria-valuemax="100" style="width: {{$percent}}%">
+                    <div class="progress-bar progress-bar-striped progress-bar-success active" role="progressbar" aria-valuenow="{{$percent}}" aria-valuemin="0" aria-valuemax="100" style="width: {{$percent}}">
                        
                     </div>
                 </div>
@@ -29,7 +29,7 @@
                 }else{ echo $percentNot=0;}
                 @endphp
                 <div class="progress">
-                    <div class="progress-bar progress-bar-striped progress-bar-success active" role="progressbar" aria-valuenow="{{$percentNot}}" aria-valuemin="0" aria-valuemax="100" style="width: {{$percentNot}}%">
+                    <div class="progress-bar progress-bar-striped progress-bar-success active" role="progressbar" aria-valuenow="{{$percentNot}}" aria-valuemin="0" aria-valuemax="100" style="width: {{$percentNot}}">
                   
                     </div>
                 </div>
@@ -49,7 +49,7 @@
                 }else{ echo $percentcla=0;}
                 @endphp
                 <div class="progress">
-                    <div class="progress-bar progress-bar-striped progress-bar-success active" role="progressbar" aria-valuenow="{{$percentcla}}" aria-valuemin="0" aria-valuemax="100" style="width: {{$percentcla}}%">
+                    <div class="progress-bar progress-bar-striped progress-bar-success active" role="progressbar" aria-valuenow="{{$percentcla}}" aria-valuemin="0" aria-valuemax="100" style="width: {{$percentcla}}">
                     </div>
                 </div>
             </div>
@@ -60,11 +60,11 @@
                 <p> Añadidas <b>{{$img}}</b></p>
                 <p> Activas <b>{{$imgpub}}</b></p>
                @php if($imgpub>0){
-                echo $percentimg=intval($notpub/$img*100).'%';
+                echo $percentimg=intval($imgpub/$img*100).'%';
                 }else{ echo $percentimg=0;}
                 @endphp
                 <div class="progress">
-                    <div class="progress-bar progress-bar-striped progress-bar-success active" role="progressbar" aria-valuenow="{{$percentimg}}" aria-valuemin="0" aria-valuemax="100" style="width: {{$percentimg}}%">
+                    <div class="progress-bar progress-bar-striped progress-bar-success active" role="progressbar" aria-valuenow="{{$percentimg}}" aria-valuemin="0" aria-valuemax="100" style="width: {{$percentimg}}">
                      </div>
                 </div>
             </div>
