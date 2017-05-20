@@ -206,10 +206,12 @@
         </div>
     </div>
     
-                         <script>$( "#inicio" ).timeDropper();</script>
-                                 <script>$( "#fin" ).timeDropper();</script>
 </div>
 <link rel="stylesheet" type="text/css" href="{{ URL::asset('css/timedropper.css')}}">
+<script src="{{ URL::asset('js/timedropper.js')}}"></script>
 
 <script src="{{ URL::asset('js/clases.js')}}"></script>
+
+                         <script>$( "#inicio" ).timeDropper();</script>
+                                 <script>$( "#fin" ).timeDropper();</script>
 @endsection

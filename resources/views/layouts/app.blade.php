@@ -13,7 +13,7 @@
 
         <link rel="stylesheet" href="{{ URL::asset('css/app.css') }}">
         <link rel="stylesheet" href="{{ URL::asset('css/Growl/css/growl.css') }}">
-        <script src="{{URL::asset('js/app.js')}}"></script>
+        
    </head>
 
     <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
@@ -138,24 +138,25 @@
 
 
 
-
+        <script src="{{URL::asset('js/app.js')}}"></script>
 
         <!-- Plugin JavaScript para transiciones -->
+   
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
 
         <!-- Google Maps API Key - Use your own API key to enable the map feature. More information on the Google Maps API can be found at https://developers.google.com/maps/ -->
         <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA9hllqRn8l_ER1ON-3bAAKjc8uv4hZaZA"></script>
 
         <!-- Theme JavaScript -->
-       <script src="{{URL::asset('js/estilos.js')}}"></script>
+
 
         <!--JavaScript -->
         <script src="{{URL::asset('js/principal.js')}}"></script>
     
-        <script src="{{URL::asset('css/Growl/js/growl.js')}}"></script>
+<!--        <script src="{{URL::asset('css/Growl/js/growl.js')}}"></script>-->
    
-        <script src="{{URL::asset('js/datedroppernuevo.js')}}"></script>
-<link rel="stylesheet" href="{{ URL::asset('css/datedroppernuevo.css') }}">
+<!--        <script src="{{URL::asset('js/datedroppernuevo.js')}}"></script>-->
+
     </body>
 
 </html>

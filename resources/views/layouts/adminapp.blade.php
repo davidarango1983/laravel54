@@ -21,13 +21,12 @@
 
          
 <script src="{{URL::asset('js/app.js')}}"></script>
-<script src="{{URL::asset('js/principal.js')}}"></script>
+<!--<script src="{{URL::asset('js/principal.js')}}"></script>-->
 <script src="{{ URL::asset('js/editor/jquery-te-1.4.0.min.js')}}"></script>
-<script src="{{ URL::asset('js/timedropper.js')}}"></script>
   <script src="{{URL::asset('js/datedroppernuevo.js')}}"></script>
    <script src="{{URL::asset('css/Growl/js/growl.js')}}"></script>
  
-<link rel="stylesheet" href="{{ URL::asset('css/datedroppernuevo.css') }}">
+
 
 
 <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.13/datatables.min.js"></script>
