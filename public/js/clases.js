@@ -120,7 +120,7 @@ $(document).ready(function () {
                     "title": 'Administración', //Show title - false / string
                     "cls": "eliminado", //Additional container class
                     "speed": 200, //Fade-in / out animation speed
-                    "timeout": 3000 //Timeout before notification disappears    
+                    "timeout": 8000 //Timeout before notification disappears    
                 };
                 $.Growl.show(data, options);
             },
@@ -219,7 +219,7 @@ $(document).ready(function () {
                     "title": 'Administración', //Show title - false / string
                     "cls": "eliminado", //Additional container class
                     "speed": 200, //Fade-in / out animation speed
-                  "timeout": 3000 //Timeout before notification disappears    
+                  "timeout": 5000 //Timeout before notification disappears    
                 };
                 $.Growl.show(data, options);
             },
@@ -234,10 +234,7 @@ $(document).ready(function () {
  * 
  */
 
-$('.btnimprimir').click(function (){
-   window.print(); 
-    
-});     
+   
 
     $(function () {
        $('#reservasusuarios-table').DataTable({
@@ -251,6 +248,27 @@ $('.btnimprimir').click(function (){
                 "url": "reservasusuarios",
                 'type': 'POST'
             },
+           dom: 'Bfrtip',
+        buttons: [
+            {
+                
+                text: 'Imprimir',
+                extend: 'print',
+                className:'btn btn-info',
+                customize: function ( win ) {
+                    $(win.document.body)
+                        .css( 'font-size', '10pt' ),
+                        
+ 
+                    $(win.document.body).find( 'table' )
+                        .addClass( 'compact' )
+                        .css( 'font-size', 'inherit' );
+                },
+             
+                orientation: 'landscape'
+               
+            }
+        ],           
             columns: [
                 
                 {data: 'clase_id', name: 'clase_id',"className": "col-xs-1"},

@@ -12,7 +12,7 @@
                     <form class="form-horizontal" role="form" method="POST" enctype='multipart/form-data' action="{{ url('/admin/createimagen') }}">
                         {{ csrf_field() }}
 
-                        <div class="form-group{{ $errors->has('titulo') ? ' has-error' : '' }}">
+                        <div class="form-group{{ $errors->has('title') ? ' has-error' : '' }}">
                             <label for="titulo" class="col-sm-2 control-label">Atributo 'Tittle'</label>
 
                             <div class="col-sm-10">
@@ -25,7 +25,7 @@
                             </div>
                         </div>
 
-                        <div class="form-group{{ $errors->has('titulo') ? ' has-error' : '' }}">
+                        <div class="form-group{{ $errors->has('alt') ? ' has-error' : '' }}">
                             <label for="titulo" class="col-sm-2 control-label">Atributo 'Alt'</label>
 
                             <div class="col-sm-10">
@@ -37,7 +37,7 @@
                                 @endif
                             </div>
                         </div>
-
+                        <span>La imagen no debe pesar mas de 2mb y debe tener un ancho de 900px y una altura 506px.</span>
                         <div class="form-group{{ $errors->has('imagen') ? ' has-error' : '' }}">
                             <label for="imagen" class="col-sm-2 control-label">Imagen</label>
 

@@ -59,7 +59,7 @@
                 <div class="form-group{{ $errors->has('imagen') ? ' has-error' : '' }}">
 
                     <label for="imagen" class="col-sm-2 control-label">Imagen</label>                             
-
+  <span>La imagen no debe pesar mas de 2mb y debe tener un ancho de 900px y una altura 506px.</span>
                     <div class="col-sm-10">
                         <input id="imagen" type="file" class="form-control" name="imagen">
                         <i>Por motivos de seguridad debe insertar la imagen manualmente.</i>

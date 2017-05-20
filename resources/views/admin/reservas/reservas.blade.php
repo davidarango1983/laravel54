@@ -1,6 +1,5 @@
 @extends('layouts.adminapp')
 @section('content')
-<link rel="stylesheet" href="{{URL::asset('css/imprimirreservas.css')}}"/>
 <table class="display table table-striped table-hover" id="reservasusuarios-table">
     <h1 class="text-center">RESERVAS</h1>
 <i>Está habilitada la búsqueda por Id Clase. Filtra tu búsqueda e imprime tu lista de usuarios para una clase</i>   
@@ -19,6 +18,11 @@
         </tr>
     </thead>
 </table>
-<button class="btn btn-info btnimprimir glyphicon glyphicon-print"> Imprimir</button>
+
+<script src="https://cdn.datatables.net/buttons/1.3.1/js/dataTables.buttons.min.js"></script>
+<script src="//cdn.datatables.net/buttons/1.3.1/js/buttons.print.min.js"></script>
+
 <script src="{{ URL::asset('js/clases.js')}}"></script>
+
+
 @endsection

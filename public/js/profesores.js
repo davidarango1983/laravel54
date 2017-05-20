@@ -92,7 +92,15 @@ $(document).ready(function () {
             },
             error: function (status, error) {
                 //mostraríamos alguna ventana de alerta con el error
-                alert(status, error);
+              
+                var options = {
+                 "icon": 'gymzone', //Icon class - false / string - see provided CSS
+                    "title": 'Ha surgido el siguiente error', //Show title - false / string
+                    "cls": "eliminado", //Additional container class
+                    "speed": 200, //Fade-in / out animation speed
+                    "timeout": 3000 //Timeout before notification disappears    
+                };
+                $.Growl.show(error);
             },
             success: function (data) {
                 //obtenemos el mensaje del servidor, es un array!!!
@@ -104,14 +112,14 @@ $(document).ready(function () {
                 miTabla.draw();
 
 
-                var options = {
+                 var options = {
                   "icon": 'gymzone', //Icon class - false / string - see provided CSS
-                    "title": 'Administración', //Show title - false / string
+                      "title": 'Mensaje de administración:', //Show title - false / string
                     "cls": "eliminado", //Additional container class
                     "speed": 200, //Fade-in / out animation speed
-                    "timeout": 3000 //Timeout before notification disappears    
+                    "timeout": 10000 //Timeout before notification disappears
                 };
-                $.Growl.show(data, options);
+                $.Growl.show(data,options);
             },
             complete: {
             }

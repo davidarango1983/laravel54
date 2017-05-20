@@ -9,7 +9,8 @@
             <th title="Ordenar">Titulo</th>
             <th title="Ordenar">Alt</th>       
             <th title="Ordenar">Publicado</th>
-                 <th title="Ordenar">Url Imagen</th>
+            <th>Previsualización</th>
+            <th title="Ordenar">Url Imagen</th>
             <th>Editar</th>
         </tr>
     </thead>

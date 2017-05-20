@@ -95,7 +95,7 @@ $(document).ready(function () {
                     "title": 'Ha surgido el siguiente error', //Show title - false / string
                     "cls": "eliminado", //Additional container class
                     "speed": 200, //Fade-in / out animation speed
-                    "timeout": 10000 //Timeout before notification disappears    
+                    "timeout": 3000 //Timeout before notification disappears    
                 };
                 $.Growl.show(error);
             },

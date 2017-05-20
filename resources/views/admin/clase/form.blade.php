@@ -15,7 +15,10 @@
                             <div class="col-md-2">
                                 <input id="inicio" type="text" format=' h:mm'  class="form-control" required name="inicio" value="{{ old('inicio') }}">
 
-                                @if ($errors->has('inicio'))
+                               
+                            </div>
+                            <div>
+                             @if ($errors->has('fin'))
                                 <span class="help-block">
                                     <strong><i>{{ $errors->first('inicio') }}</i></strong>
                                 </span>
@@ -28,7 +31,10 @@
                             <div class="col-md-2">
                                 <input id="fin" type="text" format=' HH:mm' class="form-control" name="fin" value="{{ old('fin') }}">
 
-                                @if ($errors->has('fin'))
+                               
+                            </div>
+                            <div class='col-md-6'>
+                             @if ($errors->has('fin'))
                                 <span class="help-block">
                                     <strong><i>{{ $errors->first('fin') }}</i></strong>
                                 </span>

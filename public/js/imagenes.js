@@ -3,7 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
+href=window.location.href;
+href2= href.substring(0,href.length-14);
 
 $(document).ready(function () {
 
@@ -37,6 +38,12 @@ $(document).ready(function () {
                         return (arguments[0] === '1') ? 'SI' : 'NO';
                     }
                  },
+                 {data: 'urlimg', name: 'urlimg',"className":"col-xs-1",
+                 'render': function () {
+                        /*añadimos las clases editarbtn y borrarbtn para procesar los eventos click de los botones. No lo hacemos mediante id ya que habrá más de un botón de edición o borrado*/
+                        return "<img width='200' src='" +href2+'/images/'+arguments[0] +"' <img>";
+
+                    }},
                 {data: 'urlimg', name: 'urlimg',"className":"col-xs-1"},
                 {'data': "id","className":"col-xs-2", 
                     'render': function () {

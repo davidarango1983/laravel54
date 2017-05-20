@@ -53,9 +53,6 @@ class TipoClaseController extends Controller {
 
     public function destroy($id) {
 
-       
-        
-        
         try {
             TipoClase::find($id);
              TipoClase::destroy($id);

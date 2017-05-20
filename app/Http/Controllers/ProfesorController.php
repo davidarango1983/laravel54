@@ -60,14 +60,18 @@ class ProfesorController extends Controller {
     }
 
     public function destroy($id) {
-
+        
         try {
-            Profesor::find($id);
-        } catch (Exception $e) {
-            return 'Se ha producido el siguiente error: ' . $e;
+            Profesor::destroy($id);
+            return 'Se ha eliminido correctamente el tipo con id: ' . $id;
+        } catch (\Exception $e) {
+            if ($e->getCode() == '23000') {
+                return ("Error " . $e->getCode() . ". No se puede eliminar un profesor asociado a una clase.");
+            } else {
+                return "Error :" . $e->getCode();
+            }
         }
-        Profesor::destroy($id);
-        return 'Se ha borrado correctamente al Profesor con id: ' . $id;
+        
     }
 
     public function editar($id) {
@@ -84,15 +88,14 @@ class ProfesorController extends Controller {
 
         $formatFecha = Utiles::formatearFecha($request['fecha']);
 
-         $mytime = Carbon\Carbon::now();
+        $mytime = Carbon\Carbon::now();
         $format = $mytime->subDay()->format('h:i:s');
-       
-        try{
+
+        try {
             $profesor = Profesor::find($request['id']);
-        }  catch (Exception $e){
-    
-        \Session::flash('flash_message_error', 'Ha ocurrido un error. ' . $format.' error: '.$e);
-            
+        } catch (Exception $e) {
+
+            \Session::flash('flash_message_error', 'Ha ocurrido un error. ' . $format . ' error: ' . $e);
         }
 
         $profesor->fill([
