@@ -108,7 +108,8 @@ abstract class Utiles {
         return $interval->format('%a');
     }
     
-    public static function cuentaActiva($user){   
+    public static function cuentaActiva($user){ 
+        
       $fecha = new DateTime($user->suscripcion->fecha_fin);
       $fecha->modify('+1 day');
       return ($fecha > new Datetime() ) ? true : false ;

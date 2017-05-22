@@ -82,16 +82,15 @@ class RegisterController extends Controller
                     'telefono' => $data['telefono'],
                     'email' => $data['email'],
                     'fecha_nac' => $formatFecha,
-                    'id_suscripcion' => $data['suscripcion'],
                     'password' => bcrypt($data['password']),
                     'id_rol' => 1,]);
         $datos = $create['original'];
         $fechaini = Date('Y-m-d');
-        $tipo = TiposSuscripcion::find($datos['id_suscripcion']);
+        $tipo = TiposSuscripcion::find( $data['suscripcion']);
         $fechafin = Utiles::sumarFecha($fechaini, $tipo['duration']);
         $suscripcion = ([
-            'user_id' => $datos['id'], 'tipos_suscripcions_id' => $datos['id_suscripcion'],
-            'fecha_ini' => $fechaini, 'fecha_fin' => $fechafin, 'active' => true,]);
+            'user_id' => $datos['id'], 'tipos_suscripcions_id' =>  $data['suscripcion'],
+            'fecha_ini' => $fechaini, 'fecha_fin' => $fechafin]);
         Suscripcion::create($suscripcion);
         return $create;
     }

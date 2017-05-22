@@ -183,6 +183,7 @@ class ClaseController extends Controller {
     }
 
     public function dia($dia) {
+        
         $horaL=  Configuration::find(1);
         $horaLimite=$horaL->booking_time;
         $reservasUsuario = Reservas::all()->where('user_id', Auth::user()->id);
