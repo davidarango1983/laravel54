@@ -6,10 +6,11 @@
                 <nav class="black navbar navbar-custom ">             
                    <div class="navbar-header">
                             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#app-navbar-dias">
-                                <i class="fa fa-bars"></i>
+                               DÍA <i class="fa fa-angle-double-down"></i> 
                             </button>
                             <a class="navbar-brand page-scroll" href="#">
-                                <i class="fa fa-play-circle"></i> <span class="light">RESERVAS</span>
+                                <i class=""></i> <span class="light">RESERVAS</span>
+                                     
                             </a>
                         </div>
                         <div class="collapse navbar-collapse" id="app-navbar-dias">

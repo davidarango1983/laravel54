@@ -15,7 +15,7 @@
         <link rel="stylesheet" href="{{ URL::asset('css/Growl/css/growl.css') }}">
         
    </head>
-
+<?php $barra=(url()->current() == url('/'))? '#' : '/#'; ?>
     <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
         
         <!-- Navigation -->
@@ -25,9 +25,15 @@
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
                         Menu <i class="fa fa-angle-double-down"></i> 
                     </button>
+                    @if(url()->current() == url('/'))
                     <a class="navbar-brand page-scroll" href="#page-top">
-                        <i ></i> <span class="light">GYM</span>ZONE
+                        <i></i> <span class="light">GYMZONE</span>
                     </a>
+                    @else
+                     <a class="navbar-brand page-scroll" href="/">
+                        <i></i> <span class="light">GYMZONE</span>
+                    </a>
+                    @endif
                 </div>
 
                 <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
@@ -35,7 +41,7 @@
                         <li class="hidden">
                             <a href="#page-top"></a>
                         </li>
-                       <?php $barra=(url()->current() == url('/'))? '#' : '/#'; ?>
+                       
                          <li>
                             <a class="page-scroll" href="/noticias">NOTICIAS</a>
                         </li>

@@ -1,1 +1,2645 @@
-function collapseNavbar(){$(".navbar").offset().top>50?$(".navbar-fixed-top").addClass("top-nav-collapse"):$(".navbar-fixed-top").removeClass("top-nav-collapse")}function init(){var e={zoom:18,center:new google.maps.LatLng(41.658516,(-.876254)),disableDefaultUI:!0,scrollwheel:!0,draggable:!0,styles:[{featureType:"water",elementType:"geometry",stylers:[{color:"#000000"},{lightness:17}]},{featureType:"landscape",elementType:"geometry",stylers:[{color:"#000000"},{lightness:20}]},{featureType:"road.highway",elementType:"geometry.fill",stylers:[{color:"#000000"},{lightness:17}]},{featureType:"road.highway",elementType:"geometry.stroke",stylers:[{color:"#000000"},{lightness:29},{weight:.2}]},{featureType:"road.arterial",elementType:"geometry",stylers:[{color:"#000000"},{lightness:18}]},{featureType:"road.local",elementType:"geometry",stylers:[{color:"#000000"},{lightness:16}]},{featureType:"poi",elementType:"geometry",stylers:[{color:"#000000"},{lightness:21}]},{elementType:"labels.text.stroke",stylers:[{visibility:"on"},{color:"#000000"},{lightness:16}]},{elementType:"labels.text.fill",stylers:[{saturation:36},{color:"#000000"},{lightness:40}]},{elementType:"labels.icon",stylers:[{visibility:"off"}]},{featureType:"transit",elementType:"geometry",stylers:[{color:"#000000"},{lightness:19}]},{featureType:"administrative",elementType:"geometry.fill",stylers:[{color:"#000000"},{lightness:20}]},{featureType:"administrative",elementType:"geometry.stroke",stylers:[{color:"#000000"},{lightness:17},{weight:1.2}]}]},a=document.getElementById("map");map=new google.maps.Map(a,e);var i="/images/map-marker.png",t=new google.maps.LatLng(41.658516,(-.876254));new google.maps.Marker({position:t,map:map,icon:i})}$(document).ready(function(){$("#fecha").dateDropper({format:"Y-m-d",lang:"es"}),$("#fecha-user").dateDropper({format:"Y-m-d",lang:"es"}),$("#editar").click(function(){$.ajax({type:"get",url:"editarusuario",data:{},error:function(e,a){alert("Se ha producido el siguiente error: "+a)},success:function(e){$("#modaleditar").html(e)},complete:function(){$("#modaleditar").modal("show")}})}),$("#limitClase").on("input",function(){$("#infoLimit").html(this.value)}),$("#limitClase").on("change",function(){$("#infoLimit").html(this.value)}),$(".btnreserva").prop("disabled",!1);var e=new Date,a=e.getDay(),i=window.location;if(i.href.endsWith("reservaclases"))switch(a){case 0:window.location.href=i+"/domingo";case 0:window.location.href=i+"/domingo";break;case 1:window.location.href=i+"/lunes";break;case 2:window.location.href=i+"/martes";break;case 3:window.location.href=i+"/miercoles";break;case 4:window.location.href=i+"/jueves";break;case 5:window.location.href=i+"/viernes";break;case 6:window.location.href=i+"/sabado"}$(".formularioreserva").on("click",function(e){e.preventDefault(),$(".btnreserva").prop("disabled",!0),"cancelar"===this[3].name?$url="anulareserva":$url="reserva",$.ajax({type:"post",url:$url,data:$(this).serialize(),error:function(e,a){alert("Se ha producido el siguiente error: "+a)},success:function(e){function a(){window.location.reload()}var i={icon:"gymzone",title:"Administración",cls:"eliminado",speed:500,timeout:4e3};$.Growl.show(e,i),setTimeout(a,2e3)},complete:function(){}})})}),$(window).scroll(collapseNavbar),$(document).ready(collapseNavbar),$(function(){$("a.page-scroll").bind("click",function(e){var a=$(this);$("html, body").stop().animate({scrollTop:$(a.attr("href")).offset().top},1500,"easeInOutExpo"),e.preventDefault()})}),$(".navbar-collapse ul li a").click(function(){$(".navbar-collapse").collapse("hide")});var map=null;google.maps.event.addDomListener(window,"load",init),google.maps.event.addDomListener(window,"resize",function(){map.setCenter(new google.maps.LatLng(41.658516,(-.876254)))}),function(e){var a={t:"transitionend webkitTransitionEnd oTransitionEnd otransitionend MSTransitionEnd",a:"webkitAnimationEnd mozAnimationEnd oAnimationEnd oanimationend animationend"},t={en:{name:"English",gregorian:!1,months:{"short":["Jan","Feb","Mar","Apr","May","June","July","Aug","Sept","Oct","Nov","Dec"],full:["January","February","March","April","May","June","July","August","September","October","November","December"]},weekdays:{"short":["S","M","T","W","T","F","S"],full:["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]}},ka:{name:"Georgian",gregorian:!1,months:{"short":["იან","თებ","მარტ","აპრ","მაი","ივნ","ივლ","აგვ","სექტ","ოქტ","ნოემბ","დეკ"],full:["იანვარი","თებერვალი","მარტი","აპრილი","მაისი","ივნისი","ივლისი","აგვისტო","სექტემბერი","ოქტომბერი","ნოემბერი","დეკემბერი"]},weekdays:{"short":["კვ","ორ","სამ","ოთხ","ხუთ","პარ","შაბ"],full:["კვირა","ორშაბათი","სამშაბათი","ოთხშაბათი","ხუთშაბათი","პარასკევი","შაბათი"]}},it:{name:"Italiano",gregorian:!0,months:{"short":["Gen","Feb","Mar","Apr","Mag","Giu","Lug","Ago","Set","Ott","Nov","Dic"],full:["Gennaio","Febbraio","Marzo","Aprile","Maggio","Giugno","Luglio","Agosto","Settembre","Ottobre","Novembre","Dicembre"]},weekdays:{"short":["D","L","M","M","G","V","S"],full:["Domenica","Lunedì","Martedì","Mercoledì","Giovedì","Venerdì","Sabato"]}},fr:{name:"Français",gregorian:!0,months:{"short":["Jan","Fév","Mar","Avr","Mai","Jui","Jui","Aoû","Sep","Oct","Nov","Déc"],full:["Janvier","Février","Mars","Avril","Mai","Juin","Juillet","Août","Septembre","Octobre","Novembre","Décembre"]},weekdays:{"short":["D","L","M","M","J","V","S"],full:["Dimanche","Lundi","Mardi","Mercredi","Jeudi","Vendredi","Samedi"]}},zh:{name:"中文",gregorian:!0,months:{"short":["一月","二月","三月","四月","五月","六月","七月","八月","九月","十月","十一月","十二月"],full:["一月","二月","三月","四月","五月","六月","七月","八月","九月","十月","十一月","十二月"]},weekdays:{"short":["天","一","二","三","四","五","六"],full:["星期天","星期一","星期二","星期三","星期四","星期五","星期六"]}},ar:{name:"العَرَبِيَّة",gregorian:!1,months:{"short":["جانفي","فيفري","مارس","أفريل","ماي","جوان","جويلية","أوت","سبتمبر","أكتوبر","نوفمبر","ديسمبر"],full:["جانفي","فيفري","مارس","أفريل","ماي","جوان","جويلية","أوت","سبتمبر","أكتوبر","نوفمبر","ديسمبر"]},weekdays:{"short":["S","M","T","W","T","F","S"],full:["الأحد","الإثنين","الثلثاء","الأربعاء","الخميس","الجمعة","السبت"]}},fa:{name:"فارسی",gregorian:!1,months:{"short":["ژانویه","فووریه","مارچ","آپریل","می","جون","جولای","آگوست","سپتامبر","اکتبر","نوامبر","دسامبر"],full:["ژانویه","فووریه","مارچ","آپریل","می","جون","جولای","آگوست","سپتامبر","اکتبر","نوامبر","دسامبر"]},weekdays:{"short":["S","M","T","W","T","F","S"],full:["یکشنبه","دوشنبه","سه شنبه","چهارشنبه","پنج شنبه","جمعه","شنبه"]}},hu:{name:"Hungarian",gregorian:!0,months:{"short":["jan","feb","már","ápr","máj","jún","júl","aug","sze","okt","nov","dec"],full:["január","február","március","április","május","június","július","augusztus","szeptember","október","november","december"]},weekdays:{"short":["v","h","k","s","c","p","s"],full:["vasárnap","hétfő","kedd","szerda","csütörtök","péntek","szombat"]}},gr:{name:"Ελληνικά",gregorian:!0,months:{"short":["Ιαν","Φεβ","Μάρ","Απρ","Μάι","Ιούν","Ιούλ","Αύγ","Σεπ","Οκτ","Νοέ","Δεκ"],full:["Ιανουάριος","Φεβρουάριος","Μάρτιος","Απρίλιος","Μάιος","Ιούνιος","Ιούλιος","Αύγουστος","Σεπτέμβριος","Οκτώβριος","Νοέμβριος","Δεκέμβριος"]},weekdays:{"short":["Κ","Δ","Τ","Τ","Π","Π","Σ"],full:["Κυριακή","Δευτέρα","Τρίτη","Τετάρτη","Πέμπτη","Παρασκευή","Σάββατο"]}},es:{name:"Español",gregorian:!0,months:{"short":["Ene","Feb","Mar","Abr","May","Jun","Jul","Ago","Sep","Oct","Nov","Dic"],full:["Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"]},weekdays:{"short":["D","L","M","X","J","V","S"],full:["Domingo","Lunes","Martes","Miércoles","Jueves","Viernes","Sábado"]}},da:{name:"Dansk",gregorian:!0,months:{"short":["jan","feb","mar","apr","maj","jun","jul","aug","sep","okt","nov","dec"],full:["januar","februar","marts","april","maj","juni","juli","august","september","oktober","november","december"]},weekdays:{"short":["s","m","t","o","t","f","l"],full:["søndag","mandag","tirsdag","onsdag","torsdag","fredag","lørdag"]}},de:{name:"Deutsch",gregorian:!0,months:{"short":["Jan","Feb","Mär","Apr","Mai","Jun","Jul","Aug","Sep","Okt","Nov","Dez"],full:["Januar","Februar","März","April","Mai","Juni","Juli","August","September","Oktober","November","Dezember"]},weekdays:{"short":["S","M","D","M","D","F","S"],full:["Sonntag","Montag","Dienstag","Mittwoch","Donnerstag","Freitag","Samstag"]}},nl:{name:"Nederlands",gregorian:!0,months:{"short":["jan","feb","maa","apr","mei","jun","jul","aug","sep","okt","nov","dec"],full:["januari","februari","maart","april","mei","juni","juli","augustus","september","oktober","november","december"]},weekdays:{"short":["z","m","d","w","d","v","z"],full:["zondag","maandag","dinsdag","woensdag","donderdag","vrijdag","zaterdag"]}},pl:{name:"język polski",gregorian:!0,months:{"short":["sty","lut","mar","kwi","maj","cze","lip","sie","wrz","paź","lis","gru"],full:["styczeń","luty","marzec","kwiecień","maj","czerwiec","lipiec","sierpień","wrzesień","październik","listopad","grudzień"]},weekdays:{"short":["n","p","w","ś","c","p","s"],full:["niedziela","poniedziałek","wtorek","środa","czwartek","piątek","sobota"]}},pt:{name:"Português",gregorian:!0,months:{"short":["Janeiro","Fevereiro","Março","Abril","Maio","Junho","Julho","Agosto","Setembro","Outubro","Novembro","Dezembro"],full:["Janeiro","Fevereiro","Março","Abril","Maio","Junho","Julho","Agosto","Setembro","Outubro","Novembro","Dezembro"]},weekdays:{"short":["D","S","T","Q","Q","S","S"],full:["Domingo","Segunda","Terça","Quarta","Quinta","Sexta","Sábado"]}},si:{name:"Slovenščina",gregorian:!0,months:{"short":["jan","feb","mar","apr","maj","jun","jul","avg","sep","okt","nov","dec"],full:["januar","februar","marec","april","maj","junij","julij","avgust","september","oktober","november","december"]},weekdays:{"short":["n","p","t","s","č","p","s"],full:["nedelja","ponedeljek","torek","sreda","četrtek","petek","sobota"]}},uk:{name:"українська мова",gregorian:!0,months:{"short":["січень","лютий","березень","квітень","травень","червень","липень","серпень","вересень","жовтень","листопад","грудень"],full:["січень","лютий","березень","квітень","травень","червень","липень","серпень","вересень","жовтень","листопад","грудень"]},weekdays:{"short":["н","п","в","с","ч","п","с"],full:["неділя","понеділок","вівторок","середа","четвер","п'ятниця","субота"]}},ru:{name:"русский язык",gregorian:!0,months:{"short":["январь","февраль","март","апрель","май","июнь","июль","август","сентябрь","октябрь","ноябрь","декабрь"],full:["январь","февраль","март","апрель","май","июнь","июль","август","сентябрь","октябрь","ноябрь","декабрь"]},weekdays:{"short":["в","п","в","с","ч","п","с"],full:["воскресенье","понедельник","вторник","среда","четверг","пятница","суббота"]}},tr:{name:"Türkçe",gregorian:!0,months:{"short":["Oca","Şub","Mar","Nis","May","Haz","Tem","Ağu","Eyl","Eki","Kas","Ara"],full:["Ocak","Şubat","Mart","Nisan","Mayıs","Haziran","Temmuz","Ağustos","Eylül","Ekim","Kasım","Aralık"]},weekdays:{"short":["P","P","S","Ç","P","C","C"],full:["Pazar","Pazartesi","Sali","Çarşamba","Perşembe","Cuma","Cumartesi"]}},ko:{name:"조선말",gregorian:!0,months:{"short":["1월","2월","3월","4월","5월","6월","7월","8월","9월","10월","11월","12월"],full:["1월","2월","3월","4월","5월","6월","7월","8월","9월","10월","11월","12월"]},weekdays:{"short":["일","월","화","수","목","금","토"],full:["일요일","월요일","화요일","수요일","목요일","금요일","토요일"]}},fi:{name:"suomen kieli",gregorian:!0,months:{"short":["Tam","Hel","Maa","Huh","Tou","Kes","Hei","Elo","Syy","Lok","Mar","Jou"],full:["Tammikuu","Helmikuu","Maaliskuu","Huhtikuu","Toukokuu","Kesäkuu","Heinäkuu","Elokuu","Syyskuu","Lokakuu","Marraskuu","Joulukuu"]},weekdays:{"short":["S","M","T","K","T","P","L"],full:["Sunnuntai","Maanantai","Tiistai","Keskiviikko","Torstai","Perjantai","Lauantai"]}},vi:{name:"Tiếng việt",gregorian:!1,months:{"short":["Th.01","Th.02","Th.03","Th.04","Th.05","Th.06","Th.07","Th.08","Th.09","Th.10","Th.11","Th.12"],full:["Tháng 01","Tháng 02","Tháng 03","Tháng 04","Tháng 05","Tháng 06","Tháng 07","Tháng 08","Tháng 09","Tháng 10","Tháng 11","Tháng 12"]},weekdays:{"short":["CN","T2","T3","T4","T5","T6","T7"],full:["Chủ nhật","Thứ hai","Thứ ba","Thứ tư","Thứ năm","Thứ sáu","Thứ bảy"]}}},n={},r=null,l=!1,s=null,d=null,c=null,u=!1,p=function(){return!!/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)},m=function(){r&&n[r.id].fx&&!n[r.id].fxmobile&&(e(window).width()<480?r.element.removeClass("picker-fxs"):r.element.addClass("picker-fxs"))},k=function(){return!(n[r.id].jump>=n[r.id].key.y.max-n[r.id].key.y.min)},g=function(){var e=z(w()),a=z(b());if(n[r.id].lock){if("from"==n[r.id].lock)return e<a?(K(),r.element.addClass("picker-lkd"),!0):(r.element.removeClass("picker-lkd"),!1);if("to"==n[r.id].lock)return e>a?(K(),r.element.addClass("picker-lkd"),!0):(r.element.removeClass("picker-lkd"),!1)}if(n[r.id].disabledays)return n[r.id].disabledays.indexOf(e)!=-1?(K(),r.element.addClass("picker-lkd"),!0):(r.element.removeClass("picker-lkd"),!1)},f=function(e){return e%1===0},h=function(e){var a=/(^\d{1,4}[\.|\\/|-]\d{1,2}[\.|\\/|-]\d{1,4})(\s*(?:0?[1-9]:[0-5]|1(?=[012])\d:[0-5])\d\s*[ap]m)?$/;return a.test(e)},y=function(e){return parseInt(n[r.id].key[e].current)},v=function(e){return parseInt(n[r.id].key[e].today)},b=function(){return v("m")+"/"+v("d")+"/"+v("y")},w=function(){return y("m")+"/"+y("d")+"/"+y("y")},T=function(e,a){for(var i=[],t=n[r.id].key[e],l=t.min;l<=t.max;l++)l%a==0&&i.push(l);return i},C=function(e,a){for(var i=a[0],t=Math.abs(e-i),n=0;n<a.length;n++){var r=Math.abs(e-a[n]);r<t&&(t=r,i=a[n])}return i},M=function(e,a){var i=n[r.id].key[e];return a>i.max?M(e,a-i.max+(i.min-1)):a<i.min?M(e,a+1+(i.max-i.min)):a},D=function(){return t[n[r.id].lang].gregorian?[1,2,3,4,5,6,0]:[0,1,2,3,4,5,6]},j=function(e){return x('ul.pick[data-k="'+e+'"]')},S=function(a,i){ul=j(a);var t=[];return ul.find("li").each(function(){t.push(e(this).attr("value"))}),"last"==i?t[t.length-1]:t[0]},x=function(e){if(r)return r.element.find(e)},z=function(e){return Date.parse(e)/1e3},A=function(){n[r.id].large&&(r.element.toggleClass("picker-lg"),Y())},J=function(){x("ul.pick.pick-l").toggleClass("visible")},$=function(){if(!r.element.hasClass("picker-modal")){var e=r.input,a=e.offset().left+e.outerWidth()/2,i=e.offset().top+e.outerHeight();r.element.css({left:a,top:i})}},F=function(e){n[r.id].lang=Object.keys(t)[e],L(),P()},L=function(){var a=D();x(".pick-lg .pick-lg-h li").each(function(i){e(this).html(t[n[r.id].lang].weekdays["short"][a[i]])}),x("ul.pick.pick-m li").each(function(){e(this).html(t[n[r.id].lang].months["short"][e(this).attr("value")-1])})},O=function(){r.element.addClass("picker-focus")},E=function(){g()||(r.element.removeClass("picker-focus"),r.element.hasClass("picker-modal")&&e(".picker-modal-overlay").addClass("tohide"),r=null),l=!1},N=function(a){var l=j(a),o=n[r.id].key[a];for(n[r.id].key[a].current=o.today<o.min&&o.min||o.today,i=o.min;i<=o.max;i++){var s=i;"m"==a&&(s=t[n[r.id].lang].months["short"][i-1]),"l"==a&&(s=t[Object.keys(t)[i]].name),s+="d"==a?"<span></span>":"",e("<li>",{value:i,html:s}).appendTo(l)}e("<div>",{"class":"pick-arw pick-arw-s1 pick-arw-l",html:e("<i>",{"class":"pick-i-l"})}).appendTo(l),e("<div>",{"class":"pick-arw pick-arw-s1 pick-arw-r",html:e("<i>",{"class":"pick-i-r"})}).appendTo(l),"y"==a&&(e("<div>",{"class":"pick-arw pick-arw-s2 pick-arw-l",html:e("<i>",{"class":"pick-i-l"})}).appendTo(l),e("<div>",{"class":"pick-arw pick-arw-s2 pick-arw-r",html:e("<i>",{"class":"pick-i-r"})}).appendTo(l)),H(a,y(a))},Y=function(){var a=0,i=x(".pick-lg-b");i.find("li").empty().removeClass("pick-n pick-b pick-a pick-v pick-lk pick-sl pick-h").attr("data-value","");var l=(new Date(w()),new Date(w())),o=new Date(w()),s=function(e){var a=e.getMonth(),i=e.getFullYear(),t=i%4==0&&(i%100!=0||i%400==0);return[31,t?29:28,31,30,31,30,31,31,30,31,30,31][a]};o.setMonth(o.getMonth()-1),l.setDate(1);var d=l.getDay()-1;d<0&&(d=6),t[n[r.id].lang].gregorian&&(d--,d<0&&(d=6));for(var c=s(o)-d;c<=s(o);c++)i.find("li").eq(a).html(c).addClass("pick-b pick-n pick-h"),a++;for(var c=1;c<=s(l);c++)i.find("li").eq(a).html(c).addClass("pick-n pick-v").attr("data-value",c),a++;if(i.find("li.pick-n").length<42)for(var u=42-i.find("li.pick-n").length,c=1;c<=u;c++)i.find("li").eq(a).html(c).addClass("pick-a pick-n pick-h"),a++;n[r.id].lock&&("from"===n[r.id].lock?y("y")<=v("y")&&(y("m")==v("m")?x('.pick-lg .pick-lg-b li.pick-v[data-value="'+v("d")+'"]').prevAll("li").addClass("pick-lk"):y("m")<v("m")?x(".pick-lg .pick-lg-b li").addClass("pick-lk"):y("m")>v("m")&&y("y")<v("y")&&x(".pick-lg .pick-lg-b li").addClass("pick-lk")):y("y")>=v("y")&&(y("m")==v("m")?x('.pick-lg .pick-lg-b li.pick-v[data-value="'+v("d")+'"]').nextAll("li").addClass("pick-lk"):y("m")>v("m")?x(".pick-lg .pick-lg-b li").addClass("pick-lk"):y("m")<v("m")&&y("y")>v("y")&&x(".pick-lg .pick-lg-b li").addClass("pick-lk"))),n[r.id].disabledays&&e.each(n[r.id].disabledays,function(e,a){if(a&&h(a)){var i=new Date(1e3*a);i.getMonth()+1==y("m")&&i.getFullYear()==y("y")&&x('.pick-lg .pick-lg-b li.pick-v[data-value="'+i.getDate()+'"]').addClass("pick-lk")}}),x(".pick-lg-b li.pick-v[data-value="+y("d")+"]").addClass("pick-sl")},G=function(){var a=y("m"),i=y("y"),l=i%4==0&&(i%100!=0||i%400==0);n[r.id].key.d.max=[31,l?29:28,31,30,31,30,31,31,30,31,30,31][a-1],y("d")>n[r.id].key.d.max&&(n[r.id].key.d.current=n[r.id].key.d.max,H("d",y("d"))),x(".pick-d li").removeClass("pick-wke").each(function(){var l=new Date(a+"/"+e(this).attr("value")+"/"+i).getDay();e(this).find("span").html(t[n[r.id].lang].weekdays.full[l]),0!=l&&6!=l||e(this).addClass("pick-wke")}),r.element.hasClass("picker-lg")&&(x(".pick-lg-b li").removeClass("pick-wke"),x(".pick-lg-b li.pick-v").each(function(){var t=new Date(a+"/"+e(this).attr("data-value")+"/"+i).getDay();0!=t&&6!=t||e(this).addClass("pick-wke")}))},P=function(){r.element.hasClass("picker-lg")&&Y(),G(),W()},H=function(e,a){var i=j(e);if(i.find("li").removeClass("pick-sl pick-bfr pick-afr"),a==S(e,"last")){var t=i.find('li[value="'+S(e,"first")+'"]');t.clone().insertAfter(i.find("li[value="+a+"]")),t.remove()}if(a==S(e,"first")){var t=i.find('li[value="'+S(e,"last")+'"]');t.clone().insertBefore(i.find("li[value="+a+"]")),t.remove()}i.find("li[value="+a+"]").addClass("pick-sl"),i.find("li.pick-sl").nextAll("li").addClass("pick-afr"),i.find("li.pick-sl").prevAll("li").addClass("pick-bfr")},_=function(e,a){var i=n[r.id].key[e];a>i.max&&("d"==e&&I("m","right"),"m"==e&&I("y","right"),a=i.min),a<i.min&&("d"==e&&I("m","left"),"m"==e&&I("y","left"),a=i.max),n[r.id].key[e].current=a,H(e,a)},I=function(e,a){var i=y(e);"right"==a?i++:i--,_(e,i)},K=function(){r.element.addClass("picker-rmbl")},Q=function(e){return e<10?"0"+e:e},V=function(e){var a=["th","st","nd","rd"],i=e%100;return e+(a[(i-20)%10]||a[i]||a[0])},W=function(){if(!g()&&l){var e=y("d"),a=y("m"),i=y("y"),o=new Date(a+"/"+e+"/"+i).getDay(),s=n[r.id].format.replace(/\b(d)\b/g,Q(e)).replace(/\b(m)\b/g,Q(a)).replace(/\b(S)\b/g,V(e)).replace(/\b(Y)\b/g,i).replace(/\b(U)\b/g,z(w())).replace(/\b(D)\b/g,t[n[r.id].lang].weekdays["short"][o]).replace(/\b(l)\b/g,t[n[r.id].lang].weekdays.full[o]).replace(/\b(F)\b/g,t[n[r.id].lang].months.full[a-1]).replace(/\b(M)\b/g,t[n[r.id].lang].months["short"][a-1]).replace(/\b(n)\b/g,a).replace(/\b(j)\b/g,e);r.input.val(s).change(),l=!1}};if(p())var B={i:"touchstart",m:"touchmove",e:"touchend"};else var B={i:"mousedown",m:"mousemove",e:"mouseup"};var q="div.datedropper.picker-focus";e(document).on("click",function(e){r&&(r.input.is(e.target)||r.element.is(e.target)||0!==r.element.has(e.target).length||(E(),s=null))}).on(a.a,q+".picker-rmbl",function(){r.element.hasClass("picker-rmbl")&&e(this).removeClass("picker-rmbl")}).on(a.t,".picker-modal-overlay",function(){e(this).remove()}).on(B.i,q+" .pick-lg li.pick-v",function(){x(".pick-lg-b li").removeClass("pick-sl"),e(this).addClass("pick-sl"),n[r.id].key.d.current=e(this).attr("data-value"),H("d",e(this).attr("data-value")),l=!0}).on("click",q+" .pick-btn-sz",function(){A()}).on("click",q+" .pick-btn-lng",function(){J()}).on(B.i,q+" .pick-arw.pick-arw-s2",function(a){a.preventDefault(),s=null;var i,t=(e(this).closest("ul").data("k"),n[r.id].jump);i=e(this).hasClass("pick-arw-r")?y("y")+t:y("y")-t;var o=T("y",t);i>o[o.length-1]&&(i=o[0]),i<o[0]&&(i=o[o.length-1]),n[r.id].key.y.current=i,H("y",y("y")),l=!0}).on(B.i,q+" .pick-arw.pick-arw-s1",function(a){a.preventDefault(),s=null;var i=e(this).closest("ul").data("k");e(this).hasClass("pick-arw-r")?I(i,"right"):I(i,"left"),l=!0}).on(B.i,q+" ul.pick.pick-y li",function(){u=!0}).on(B.e,q+" ul.pick.pick-y li",function(){if(u&&k()){e(this).closest("ul").toggleClass("pick-jump");var a=C(y("y"),T("y",n[r.id].jump));n[r.id].key.y.current=a,H("y",y("y")),u=!1}}).on(B.i,q+" ul.pick.pick-d li",function(){u=!0}).on(B.e,q+" ul.pick.pick-d li",function(){u&&(A(),u=!1)}).on(B.i,q+" ul.pick.pick-l li",function(){u=!0}).on(B.e,q+" ul.pick.pick-l li",function(){u&&(J(),F(e(this).val()),u=!1)}).on(B.i,q+" ul.pick",function(a){if(s=e(this)){var i=s.data("k");d=p()?a.originalEvent.touches[0].pageY:a.pageY,c=y(i)}}).on(B.m,function(e){if(u=!1,s){e.preventDefault();var a=s.data("k");o=p()?e.originalEvent.touches[0].pageY:e.pageY,o=d-o,o=Math.round(.026*o),i=c+o;var t=M(a,i);t!=n[r.id].key[a].current&&_(a,t),l=!0}}).on(B.e,function(e){s&&(s=null,d=null,c=null),r&&P()}).on(B.i,q+" .pick-submit",function(){E()}),e(window).resize(function(){r&&($(),m())}),e.fn.dateDropper=function(a){return e(this).each(function(){if(e(this).is("input")&&!e(this).hasClass("picker-input")){var a=e(this),i="datedropper-"+Object.keys(n).length;a.attr("data-id",i).addClass("picker-input").prop({type:"text",readonly:!0});var o=a.data("default-date")&&h(a.data("default-date"))?a.data("default-date"):null,s=a.data("disabled-days")?a.data("disabled-days").split(","):null,d=a.data("format")||"m/d/Y",c=a.data("fx")!==!1||a.data("fx"),u=a.data("fx")===!1?"":"picker-fxs",p=a.data("fx-mobile")!==!1||a.data("fx-mobile"),m=a.data("init-set")!==!1,k=a.data("lang")&&a.data("lang")in t?a.data("lang"):"en",g=a.data("large-mode")===!0,y=a.data("large-default")===!0&&g===!0?"picker-lg":"",v=("from"==a.data("lock")||"to"==a.data("lock"))&&a.data("lock"),b=a.data("jump")&&f(a.data("jump"))?a.data("jump"):10,w=a.data("max-year")&&f(a.data("max-year"))?a.data("max-year"):(new Date).getFullYear(),T=a.data("min-year")&&f(a.data("min-year"))?a.data("min-year"):1970,C=a.data("modal")===!0?"picker-modal":"",M=a.data("theme")||"primary",j=a.data("translate-mode")===!0;if(s&&e.each(s,function(e,a){a&&h(a)&&(s[e]=z(a))}),n[i]={disabledays:s,format:d,fx:c,fxmobile:p,lang:k,large:g,lock:v,jump:b,key:{m:{min:1,max:12,current:1,today:(new Date).getMonth()+1},d:{min:1,max:31,current:1,today:(new Date).getDate()},y:{min:T,max:w,current:T,today:(new Date).getFullYear()},l:{min:0,max:Object.keys(t).length-1,current:0,today:0}},translate:j},o){var S=/\d+/g,A=o,J=A.match(S);e.each(J,function(e,a){J[e]=parseInt(a)}),n[i].key.m.today=J[0]&&J[0]<=12?J[0]:n[i].key.m.today,n[i].key.d.today=J[1]&&J[1]<=31?J[1]:n[i].key.d.today,n[i].key.y.today=J[2]?J[2]:n[i].key.y.today,n[i].key.y.today>n[i].key.y.max&&(n[i].key.y.max=n[i].key.y.today),n[i].key.y.today<n[i].key.y.min&&(n[i].key.y.min=n[i].key.y.today)}e("<div>",{"class":"datedropper "+C+" "+M+" "+u+" "+y,id:i,html:e("<div>",{"class":"picker"})}).appendTo("body"),r={id:i,input:a,element:e("#"+i)};for(var $ in n[i].key)e("<ul>",{"class":"pick pick-"+$,"data-k":$}).appendTo(x(".picker")),N($);if(n[i].large){e("<div>",{"class":"pick-lg"}).insertBefore(x(".pick-d")),e('<ul class="pick-lg-h"></ul><ul class="pick-lg-b"></ul>').appendTo(x(".pick-lg"));for(var F=D(),L=0;L<7;L++)e("<li>",{html:t[n[r.id].lang].weekdays["short"][F[L]]}).appendTo(x(".pick-lg .pick-lg-h"));for(var L=0;L<42;L++)e("<li>").appendTo(x(".pick-lg .pick-lg-b"))}e("<div>",{"class":"pick-btns"}).appendTo(x(".picker")),e("<div>",{"class":"pick-submit"}).appendTo(x(".pick-btns")),n[r.id].translate&&e("<div>",{"class":"pick-btn pick-btn-lng"}).appendTo(x(".pick-btns")),n[r.id].large&&e("<div>",{"class":"pick-btn pick-btn-sz"}).appendTo(x(".pick-btns")),"Y"!=d&&"m"!=d||(x(".pick-d,.pick-btn-sz").hide(),r.element.addClass("picker-tiny"),"Y"==d&&x(".pick-m,.pick-btn-lng").hide(),"m"==d&&x(".pick-y").hide()),m&&(l=!0,W()),r=null}}).focus(function(a){a.preventDefault(),e(this).blur(),r&&E(),r={id:e(this).data("id"),input:e(this),element:e("#"+e(this).data("id"))},m(),$(),P(),O(),r.element.hasClass("picker-modal")&&e("body").append('<div class="picker-modal-overlay"></div>')})}}(jQuery),function(e){e.Growl={_growlContainer:null,_statsCount:0,show:function(a,i){var t=e.extend({id:"gs"+e.Growl._statsCount++,icon:!1,title:!1,message:a,cls:"",speed:500,timeout:3e3},i);e("#"+t.id).remove(),this._getContainer().prepend('<div id="'+t.id+'" class="growlstatus '+t.cls+'" style="display:none;"><div class="growlstatusclose"></div>'+t.message+"</div>");var n=e("#"+t.id);return n.find(".growlstatusclose").bind("click",function(){e.Growl.close(t.id,!0,t.speed)}),t.title!==!1&&n.prepend('<div class="growltitle">'+t.title+"</div>"),t.icon!==!1&&n.addClass("growlwithicon").addClass("growlicon_"+t.icon),n.hover(function(){},function(){n.removeClass("growlhover"),t.timeout!==!1&&window.setTimeout(function(){e.Growl.close(t.id)},t.timeout)}).fadeIn(t.speed,function(){t.timeout!==!1&&window.setTimeout(function(){e.Growl.close(t.id)},t.timeout)}),t.id},close:function(a,i,t){if(0==arguments.length)e(".growlstatus",this._getContainer()).hide().remove();else{var n=e("#"+a);n.hasClass("growlhover")&&!i||n.animate({opacity:"0.0"},t).slideUp(function(){n.remove()})}},_getContainer:function(){return this._growlContainer||(this._growlContainer=e('<div id="growlcontainer"></div>').appendTo("body")),this._growlContainer}}}(jQuery);
+/* 
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+
+$(document).ready(function () {
+
+
+  $('#fecha').dateDropper({format:"Y-m-d",
+                            lang:"es"});
+    $('#fecha-user').dateDropper({format:"Y-m-d",
+                            lang:"es"});
+    
+               
+    
+    
+    
+    /*Edición del perfil
+     * Botón Editar en perfil
+     * 
+     */
+    $('#editar').click(function () {
+        /*
+         * Hacemos una petición ajax para recuperar la información del usuario desde la bbdd
+         *  
+         */
+        $.ajax({
+            /*si ponemos como type delete no lo recogeríamos en $_REQUEST, así que queda como POST*/
+            type: 'get',
+            url: 'editarusuario',
+            //estos son los datos que queremos actualizar, en json:
+            data: {
+            },
+            error: function (status, error) {
+                //mostraríamos alguna ventana de alerta con el error
+                alert('Se ha producido el siguiente error: ' + error);
+            },
+            success: function (data) {
+                $('#modaleditar').html(data);
+            },
+            complete: function () {
+
+                $('#modaleditar').modal('show');
+            }
+        });
+    });
+    
+    
+    /*
+     * ZONA ADMINISTRATIVA
+     * 
+     * 
+     */
+
+    $('#limitClase').on('input', function () {
+        $('#infoLimit').html(this.value);
+    });
+    $('#limitClase').on('change', function () {
+        $('#infoLimit').html(this.value);
+    });
+    /*
+     * FIN ZONA ADMINISTRATIVA
+     * 
+     */
+
+
+    /*
+     * ZONA RESERVA DE CLASES
+     * 
+     */
+
+    $('.btnreserva').prop('disabled', false);
+
+    /*
+     * Redireccionamos al día actual.
+     * 
+     * 
+     */
+    var d = new Date();
+    var n = d.getDay();
+    var urlActual = window.location;
+    if (urlActual.href.endsWith('reservaclases')) {
+
+
+
+        switch (n) {
+            case 0:
+                window.location.href = urlActual + '/domingo';
+            case 0:
+                window.location.href = urlActual + '/domingo';
+                break;
+            case 1:
+                window.location.href = urlActual + '/lunes';
+                break;
+            case 2:
+                window.location.href = urlActual + '/martes';
+                break;
+                ;
+            case 3:
+                window.location.href = urlActual + '/miercoles';
+                break;
+            case 4:
+                window.location.href = urlActual + '/jueves';
+                break;
+            case 5:
+                window.location.href = urlActual + '/viernes';
+                break;
+            case 6:
+                window.location.href = urlActual + '/sabado';
+                break;
+        }
+    }
+
+    /*
+     * 
+     * Botón Reservar Clase
+     */
+    $('.formularioreserva').on('click', function (event) {
+
+        event.preventDefault();
+        $('.btnreserva').prop('disabled', true);
+        if (this[3].name === 'cancelar') {
+            $url = 'anulareserva';
+        } else {
+            $url = 'reserva';
+        }
+
+        $.ajax({
+            type: 'post',
+            url: $url,
+            //estos son los datos que queremos actualizar, en json:
+            data: $(this).serialize()
+            ,
+            error: function (status, error) {
+                //mostraríamos alguna ventana de alerta con el error
+                alert('Se ha producido el siguiente error: ' + error);
+            },
+            success: function (data) {
+
+                var options = {
+                    "icon": 'gymzone', //Icon class - false / string - see provided CSS
+                    "title": 'Administración', //Show title - false / string
+                    "cls": "eliminado", //Additional container class
+                    "speed": 500, //Fade-in / out animation speed
+                    "timeout": 4000 //Timeout before notification disappears    
+                };
+                $.Growl.show(data, options);
+                setTimeout(reiniciar, 2000);
+               
+                function reiniciar() {
+                    window.location.reload();
+                }
+
+            },
+            complete: function () {
+
+
+
+
+            }
+        });
+    });
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+});
+/*
+ * FIN ZONA RESERVA DE CLASES
+ * 
+ */
+
+
+
+
+
+
+// jQuery to collapse the navbar on scroll
+function collapseNavbar() {
+    if ($(".navbar").offset().top > 50) {
+        $(".navbar-fixed-top").addClass("top-nav-collapse");
+    } else {
+        $(".navbar-fixed-top").removeClass("top-nav-collapse");
+    }
+}
+
+$(window).scroll(collapseNavbar);
+$(document).ready(collapseNavbar);
+
+// jQuery for page scrolling feature - requires jQuery Easing plugin
+$(function() {
+    $('a.page-scroll').bind('click', function(event) {
+        var $anchor = $(this);
+        $('html, body').stop().animate({
+            scrollTop: $($anchor.attr('href')).offset().top
+        }, 1500, 'easeInOutExpo');
+        event.preventDefault();
+    });
+});
+
+// Closes the Responsive Menu on Menu Item Click
+$('.navbar-collapse ul li a').click(function() {
+    $(".navbar-collapse").collapse('hide');
+});
+
+// Google Maps Scripts
+var map = null;
+// When the window has finished loading create our google map below
+google.maps.event.addDomListener(window, 'load', init);
+google.maps.event.addDomListener(window, 'resize', function() {
+    map.setCenter(new google.maps.LatLng(41.658516, -0.876254));
+});
+
+function init() {
+    // Basic options for a simple Google Map
+    // For more options see: https://developers.google.com/maps/documentation/javascript/reference#MapOptions
+    var mapOptions = {
+        // How zoomed in you want the map to start at (always required)
+        zoom: 18,
+
+        // The latitude and longitude to center the map (always required)
+        center: new google.maps.LatLng(41.658516, -0.876254), 
+
+        // Disables the default Google Maps UI components
+        disableDefaultUI: true,
+        scrollwheel: true,
+        draggable: true,
+        
+
+        // How you would like to style the map.
+        // This is where you would paste any style found on Snazzy Maps.
+        styles: [{
+            "featureType": "water",
+            "elementType": "geometry",
+            "stylers": [{
+                "color": "#000000"
+            }, {
+                "lightness": 17
+            }]
+        }, {
+            "featureType": "landscape",
+            "elementType": "geometry",
+            "stylers": [{
+                "color": "#000000"
+            }, {
+                "lightness": 20
+            }]
+        }, {
+            "featureType": "road.highway",
+            "elementType": "geometry.fill",
+            "stylers": [{
+                "color": "#000000"
+            }, {
+                "lightness": 17
+            }]
+        }, {
+            "featureType": "road.highway",
+            "elementType": "geometry.stroke",
+            "stylers": [{
+                "color": "#000000"
+            }, {
+                "lightness": 29
+            }, {
+                "weight": 0.2
+            }]
+        }, {
+            "featureType": "road.arterial",
+            "elementType": "geometry",
+            "stylers": [{
+                "color": "#000000"
+            }, {
+                "lightness": 18
+            }]
+        }, {
+            "featureType": "road.local",
+            "elementType": "geometry",
+            "stylers": [{
+                "color": "#000000"
+            }, {
+                "lightness": 16
+            }]
+        }, {
+            "featureType": "poi",
+            "elementType": "geometry",
+            "stylers": [{
+                "color": "#000000"
+            }, {
+                "lightness": 21
+            }]
+        }, {
+            "elementType": "labels.text.stroke",
+            "stylers": [{
+                "visibility": "on"
+            }, {
+                "color": "#000000"
+            }, {
+                "lightness": 16
+            }]
+        }, {
+            "elementType": "labels.text.fill",
+            "stylers": [{
+                "saturation": 36
+            }, {
+                "color": "#000000"
+            }, {
+                "lightness": 40
+            }]
+        }, {
+            "elementType": "labels.icon",
+            "stylers": [{
+                "visibility": "off"
+            }]
+        }, {
+            "featureType": "transit",
+            "elementType": "geometry",
+            "stylers": [{
+                "color": "#000000"
+            }, {
+                "lightness": 19
+            }]
+        }, {
+            "featureType": "administrative",
+            "elementType": "geometry.fill",
+            "stylers": [{
+                "color": "#000000"
+            }, {
+                "lightness": 20
+            }]
+        }, {
+            "featureType": "administrative",
+            "elementType": "geometry.stroke",
+            "stylers": [{
+                "color": "#000000"
+            }, {
+                "lightness": 17
+            }, {
+                "weight": 1.2
+            }]
+        }]
+    };
+
+    // Get the HTML DOM element that will contain your map
+    // We are using a div with id="map" seen below in the <body>
+    var mapElement = document.getElementById('map');
+
+    // Create the Google Map using out element and options defined above
+    map = new google.maps.Map(mapElement, mapOptions);
+
+    // Custom Map Marker Icon - Customize the map-marker.png file to customize your icon
+    var image = '/images/map-marker.png';
+    var myLatLng = new google.maps.LatLng(41.658516, -0.876254);
+    var beachMarker = new google.maps.Marker({
+        position: myLatLng,
+        map: map,
+        icon: image,
+       
+    });
+}
+
+
+(function($) {
+	var
+		// CSS EVENT DETECT
+		csse = {
+			t : 'transitionend webkitTransitionEnd oTransitionEnd otransitionend MSTransitionEnd',
+			a : 'webkitAnimationEnd mozAnimationEnd oAnimationEnd oanimationend animationend'
+		},
+		// I18N
+		i18n = {
+			'en' : {
+				name : 'English',
+				gregorian : false,
+				months : {
+					short: [
+						'Jan',
+						'Feb',
+						'Mar',
+						'Apr',
+						'May',
+						'June',
+						'July',
+						'Aug',
+						'Sept',
+						'Oct',
+						'Nov',
+						'Dec'
+					],
+					full : [
+						'January',
+						'February',
+						'March',
+						'April',
+						'May',
+						'June',
+						'July',
+						'August',
+						'September',
+						'October',
+						'November',
+						'December'
+					]
+				},
+				weekdays : {
+					short : [
+						'S',
+						'M',
+						'T',
+						'W',
+						'T',
+						'F',
+						'S'
+					],
+					full : [
+						'Sunday',
+						'Monday',
+						'Tuesday',
+						'Wednesday',
+						'Thursday',
+						'Friday',
+						'Saturday'
+					]
+				}
+			},
+			'ka' : {
+				name : 'Georgian',
+				gregorian : false,
+				months : {
+					short: [
+						'იან',
+						'თებ',
+						'მარტ',
+						'აპრ',
+						'მაი',
+						'ივნ',
+						'ივლ',
+						'აგვ',
+						'სექტ',
+						'ოქტ',
+						'ნოემბ',
+						'დეკ'
+					],
+					full : [
+						'იანვარი',
+						'თებერვალი',
+						'მარტი',
+						'აპრილი',
+						'მაისი',
+						'ივნისი',
+						'ივლისი',
+						'აგვისტო',
+						'სექტემბერი',
+						'ოქტომბერი',
+						'ნოემბერი',
+						'დეკემბერი'
+					]
+				},
+				weekdays : {
+					short : [
+						'კვ',
+						'ორ',
+						'სამ',
+						'ოთხ',
+						'ხუთ',
+						'პარ',
+						'შაბ'
+					],
+					full : [
+						'კვირა',
+						'ორშაბათი',
+						'სამშაბათი',
+						'ოთხშაბათი',
+						'ხუთშაბათი',
+						'პარასკევი',
+						'შაბათი'
+					]
+				}
+			},//
+			'it' : {
+				name : 'Italiano',
+				gregorian : true,
+				months : {
+					short: [
+						'Gen',
+						'Feb',
+						'Mar',
+						'Apr',
+						'Mag',
+						'Giu',
+						'Lug',
+						'Ago',
+						'Set',
+						'Ott',
+						'Nov',
+						'Dic'
+					],
+					full : [
+						'Gennaio',
+						'Febbraio',
+						'Marzo',
+						'Aprile',
+						'Maggio',
+						'Giugno',
+						'Luglio',
+						'Agosto',
+						'Settembre',
+						'Ottobre',
+						'Novembre',
+						'Dicembre'
+					]
+				},
+				weekdays : {
+					short : [
+						'D',
+						'L',
+						'M',
+						'M',
+						'G',
+						'V',
+						'S'
+					],
+					full : [
+						'Domenica',
+						'Lunedì',
+						'Martedì',
+						'Mercoledì',
+						'Giovedì',
+						'Venerdì',
+						'Sabato'
+					]
+				}
+			},
+			'fr' : {
+				name : 'Français',
+				gregorian : true,
+				months : {
+					short: [
+						'Jan',
+						'Fév',
+						'Mar',
+						'Avr',
+						'Mai',
+						'Jui',
+						'Jui',
+						'Aoû',
+						'Sep',
+						'Oct',
+						'Nov',
+						'Déc'
+					],
+					full : [
+						'Janvier',
+						'Février',
+						'Mars',
+						'Avril',
+						'Mai',
+						'Juin',
+						'Juillet',
+						'Août',
+						'Septembre',
+						'Octobre',
+						'Novembre',
+						'Décembre'
+					]
+				},
+				weekdays : {
+					short : [
+						'D',
+						'L',
+						'M',
+						'M',
+						'J',
+						'V',
+						'S'
+					],
+					full : [
+						'Dimanche',
+						'Lundi',
+						'Mardi',
+						'Mercredi',
+						'Jeudi',
+						'Vendredi',
+						'Samedi'
+					]
+				}
+			},
+			'zh' : {
+				name : '中文',
+				gregorian : true,
+				months : {
+					short: [
+						'一月',
+						'二月',
+						'三月',
+						'四月',
+						'五月',
+						'六月',
+						'七月',
+						'八月',
+						'九月',
+						'十月',
+						'十一月',
+						'十二月'
+					],
+					full : [
+						'一月',
+						'二月',
+						'三月',
+						'四月',
+						'五月',
+						'六月',
+						'七月',
+						'八月',
+						'九月',
+						'十月',
+						'十一月',
+						'十二月'
+					]
+				},
+				weekdays : {
+					short : [
+						'天',
+						'一',
+						'二',
+						'三',
+						'四',
+						'五',
+						'六'
+					],
+					full : [
+						'星期天',
+						'星期一',
+						'星期二',
+						'星期三',
+						'星期四',
+						'星期五',
+						'星期六'
+					]
+				}
+			},
+			'ar' : {
+				name : 'العَرَبِيَّة',
+				gregorian : false,
+				months : {
+					short: [
+						'جانفي',
+						'فيفري',
+						'مارس',
+						'أفريل',
+						'ماي',
+						'جوان',
+						'جويلية',
+						'أوت',
+						'سبتمبر',
+						'أكتوبر',
+						'نوفمبر',
+						'ديسمبر'
+					],
+					full : [
+						'جانفي',
+						'فيفري',
+						'مارس',
+						'أفريل',
+						'ماي',
+						'جوان',
+						'جويلية',
+						'أوت',
+						'سبتمبر',
+						'أكتوبر',
+						'نوفمبر',
+						'ديسمبر'
+					]
+				},
+				weekdays : {
+					short : [
+						'S',
+						'M',
+						'T',
+						'W',
+						'T',
+						'F',
+						'S'
+					],
+					full : [
+						'الأحد',
+						'الإثنين',
+						'الثلثاء',
+						'الأربعاء',
+						'الخميس',
+						'الجمعة',
+						'السبت'
+					]
+				}
+			},
+			'fa' : {
+				name : 'فارسی',
+				gregorian : false,
+				months : {
+					short: [
+						'ژانویه',
+						'فووریه',
+						'مارچ',
+						'آپریل',
+						'می',
+						'جون',
+						'جولای',
+						'آگوست',
+						'سپتامبر',
+						'اکتبر',
+						'نوامبر',
+						'دسامبر'
+					],
+					full : [
+						'ژانویه',
+						'فووریه',
+						'مارچ',
+						'آپریل',
+						'می',
+						'جون',
+						'جولای',
+						'آگوست',
+						'سپتامبر',
+						'اکتبر',
+						'نوامبر',
+						'دسامبر'
+					]
+				},
+				weekdays : {
+					short : [
+						'S',
+						'M',
+						'T',
+						'W',
+						'T',
+						'F',
+						'S'
+					],
+					full : [
+						'یکشنبه',
+						'دوشنبه',
+						'سه شنبه',
+						'چهارشنبه',
+						'پنج شنبه',
+						'جمعه',
+						'شنبه'
+					]
+				}
+			},
+			'hu' : {
+				name : 'Hungarian',
+				gregorian : true,
+				months : {
+					short: [
+						"jan",
+						"feb",
+						"már",
+						"ápr",
+						"máj",
+						"jún",
+						"júl",
+						"aug",
+						"sze",
+						"okt",
+						"nov",
+						"dec"
+					],
+					full : [
+						"január",
+						"február",
+						"március",
+						"április",
+						"május",
+						"június",
+						"július",
+						"augusztus",
+						"szeptember",
+						"október",
+						"november",
+						"december"
+					]
+				},
+				weekdays : {
+					short : [
+						'v',
+						'h',
+						'k',
+						's',
+						'c',
+						'p',
+						's'
+					],
+					full : [
+						'vasárnap',
+						'hétfő',
+						'kedd',
+						'szerda',
+						'csütörtök',
+						'péntek',
+						'szombat'
+					]
+				}
+			},
+			'gr' : {
+				name : 'Ελληνικά',
+				gregorian : true,
+				months : {
+					short: [
+						"Ιαν",
+						"Φεβ",
+						"Μάρ",
+						"Απρ",
+						"Μάι",
+						"Ιούν",
+						"Ιούλ",
+						"Αύγ",
+						"Σεπ",
+						"Οκτ",
+						"Νοέ",
+						"Δεκ"
+					],
+					full : [
+						"Ιανουάριος",
+						"Φεβρουάριος",
+						"Μάρτιος",
+						"Απρίλιος",
+						"Μάιος",
+						"Ιούνιος",
+						"Ιούλιος",
+						"Αύγουστος",
+						"Σεπτέμβριος",
+						"Οκτώβριος",
+						"Νοέμβριος",
+						"Δεκέμβριος"
+					]
+				},
+				weekdays : {
+					short : [
+						'Κ',
+						'Δ',
+						'Τ',
+						'Τ',
+						'Π',
+						'Π',
+						'Σ'
+					],
+					full : [
+						'Κυριακή',
+						'Δευτέρα',
+						'Τρίτη',
+						'Τετάρτη',
+						'Πέμπτη',
+						'Παρασκευή',
+						'Σάββατο'
+					]
+				}
+			},
+			'es' : {
+				name : 'Español',
+				gregorian : true,
+				months : {
+					short: [
+						"Ene",
+						"Feb",
+						"Mar",
+						"Abr",
+						"May",
+						"Jun",
+						"Jul",
+						"Ago",
+						"Sep",
+						"Oct",
+						"Nov",
+						"Dic"
+					],
+					full : [
+						"Enero",
+						"Febrero",
+						"Marzo",
+						"Abril",
+						"Mayo",
+						"Junio",
+						"Julio",
+						"Agosto",
+						"Septiembre",
+						"Octubre",
+						"Noviembre",
+						"Diciembre"
+					]
+				},
+				weekdays : {
+					short : [
+						'D',
+						'L',
+						'M',
+						'X',
+						'J',
+						'V',
+						'S'
+					],
+					full : [
+						'Domingo',
+						'Lunes',
+						'Martes',
+						'Miércoles',
+						'Jueves',
+						'Viernes',
+						'Sábado'
+					]
+				}
+			},
+			'da' : {
+				name : 'Dansk',
+				gregorian : true,
+				months : {
+					short: [
+						"jan",
+						"feb",
+						"mar",
+						"apr",
+						"maj",
+						"jun",
+						"jul",
+						"aug",
+						"sep",
+						"okt",
+						"nov",
+						"dec"
+					],
+					full : [
+						"januar",
+						"februar",
+						"marts",
+						"april",
+						"maj",
+						"juni",
+						"juli",
+						"august",
+						"september",
+						"oktober",
+						"november",
+						"december"
+					]
+				},
+				weekdays : {
+					short : [
+						's',
+						'm',
+						't',
+						'o',
+						't',
+						'f',
+						'l'
+					],
+					full : [
+						'søndag',
+						'mandag',
+						'tirsdag',
+						'onsdag',
+						'torsdag',
+						'fredag',
+						'lørdag'
+					]
+				}
+			},
+			'de' : {
+				name : 'Deutsch',
+				gregorian : true,
+				months : {
+					short: [
+						"Jan",
+						"Feb",
+						"Mär",
+						"Apr",
+						"Mai",
+						"Jun",
+						"Jul",
+						"Aug",
+						"Sep",
+						"Okt",
+						"Nov",
+						"Dez"
+					],
+					full : [
+						"Januar",
+						"Februar",
+						"März",
+						"April",
+						"Mai",
+						"Juni",
+						"Juli",
+						"August",
+						"September",
+						"Oktober",
+						"November",
+						"Dezember"
+					]
+				},
+				weekdays : {
+					short : [
+						'S',
+						'M',
+						'D',
+						'M',
+						'D',
+						'F',
+						'S'
+					],
+					full : [
+						'Sonntag',
+						'Montag',
+						'Dienstag',
+						'Mittwoch',
+						'Donnerstag',
+						'Freitag',
+						'Samstag'
+					]
+				}
+			},
+			'nl' : {
+				name : 'Nederlands',
+				gregorian : true,
+				months : {
+					short: [
+						"jan",
+						"feb",
+						"maa",
+						"apr",
+						"mei",
+						"jun",
+						"jul",
+						"aug",
+						"sep",
+						"okt",
+						"nov",
+						"dec"
+					],
+					full : [
+						"januari",
+						"februari",
+						"maart",
+						"april",
+						"mei",
+						"juni",
+						"juli",
+						"augustus",
+						"september",
+						"oktober",
+						"november",
+						"december"
+					]
+				},
+				weekdays : {
+					short : [
+						'z',
+						'm',
+						'd',
+						'w',
+						'd',
+						'v',
+						'z'
+					],
+					full : [
+						'zondag',
+						'maandag',
+						'dinsdag',
+						'woensdag',
+						'donderdag',
+						'vrijdag',
+						'zaterdag'
+					]
+				}
+			},
+			'pl' : {
+				name : 'język polski',
+				gregorian : true,
+				months : {
+					short: [
+						"sty",
+						"lut",
+						"mar",
+						"kwi",
+						"maj",
+						"cze",
+						"lip",
+						"sie",
+						"wrz",
+						"paź",
+						"lis",
+						"gru"
+					],
+					full : [
+						"styczeń",
+						"luty",
+						"marzec",
+						"kwiecień",
+						"maj",
+						"czerwiec",
+						"lipiec",
+						"sierpień",
+						"wrzesień",
+						"październik",
+						"listopad",
+						"grudzień"
+					]
+				},
+				weekdays : {
+					short : [
+						'n',
+						'p',
+						'w',
+						'ś',
+						'c',
+						'p',
+						's'
+					],
+					full : [
+						'niedziela',
+						'poniedziałek',
+						'wtorek',
+						'środa',
+						'czwartek',
+						'piątek',
+						'sobota'
+					]
+				}
+			},
+			'pt' : {
+				name : 'Português',
+				gregorian : true,
+				months : {
+					short: [
+						"Janeiro",
+						"Fevereiro",
+						"Março",
+						"Abril",
+						"Maio",
+						"Junho",
+						"Julho",
+						"Agosto",
+						"Setembro",
+						"Outubro",
+						"Novembro",
+						"Dezembro"
+					],
+					full : [
+						"Janeiro",
+						"Fevereiro",
+						"Março",
+						"Abril",
+						"Maio",
+						"Junho",
+						"Julho",
+						"Agosto",
+						"Setembro",
+						"Outubro",
+						"Novembro",
+						"Dezembro"
+					]
+				},
+				weekdays : {
+					short : [
+						"D",
+						"S",
+						"T",
+						"Q",
+						"Q",
+						"S",
+						"S"
+					],
+					full : [
+						"Domingo",
+						"Segunda",
+						"Terça",
+						"Quarta",
+						"Quinta",
+						"Sexta",
+						"Sábado"
+					]
+				}
+			},
+			'si' : {
+				name : 'Slovenščina',
+				gregorian : true,
+				months : {
+					short: [
+						"jan",
+						"feb",
+						"mar",
+						"apr",
+						"maj",
+						"jun",
+						"jul",
+						"avg",
+						"sep",
+						"okt",
+						"nov",
+						"dec"
+					],
+					full : [
+						"januar",
+						"februar",
+						"marec",
+						"april",
+						"maj",
+						"junij",
+						"julij",
+						"avgust",
+						"september",
+						"oktober",
+						"november",
+						"december"
+					]
+				},
+				weekdays : {
+					short : [
+						'n',
+						'p',
+						't',
+						's',
+						'č',
+						'p',
+						's'
+					],
+					full : [
+						'nedelja',
+						'ponedeljek',
+						'torek',
+						'sreda',
+						'četrtek',
+						'petek',
+						'sobota'
+					]
+				}
+			},
+			'uk' : {
+				name : 'українська мова',
+				gregorian : true,
+				months : {
+					short: [
+						"січень",
+						"лютий",
+						"березень",
+						"квітень",
+						"травень",
+						"червень",
+						"липень",
+						"серпень",
+						"вересень",
+						"жовтень",
+						"листопад",
+						"грудень"
+					],
+					full : [
+						"січень",
+						"лютий",
+						"березень",
+						"квітень",
+						"травень",
+						"червень",
+						"липень",
+						"серпень",
+						"вересень",
+						"жовтень",
+						"листопад",
+						"грудень"
+					]
+				},
+				weekdays : {
+					short : [
+						'н',
+						'п',
+						'в',
+						'с',
+						'ч',
+						'п',
+						'с'
+					],
+					full : [
+						'неділя',
+						'понеділок',
+						'вівторок',
+						'середа',
+						'четвер',
+						'п\'ятниця',
+						'субота'
+					]
+				}
+			},
+			'ru' : {
+				name : 'русский язык',
+				gregorian : true,
+				months : {
+					short: [
+						"январь",
+						"февраль",
+						"март",
+						"апрель",
+						"май",
+						"июнь",
+						"июль",
+						"август",
+						"сентябрь",
+						"октябрь",
+						"ноябрь",
+						"декабрь"
+					],
+					full : [
+						"январь",
+						"февраль",
+						"март",
+						"апрель",
+						"май",
+						"июнь",
+						"июль",
+						"август",
+						"сентябрь",
+						"октябрь",
+						"ноябрь",
+						"декабрь"
+					]
+				},
+				weekdays : {
+					short : [
+						'в',
+						'п',
+						'в',
+						'с',
+						'ч',
+						'п',
+						'с'
+					],
+					full : [
+						'воскресенье',
+						'понедельник',
+						'вторник',
+						'среда',
+						'четверг',
+						'пятница',
+						'суббота'
+					]
+				}
+			},
+			'tr' : {
+				name : 'Türkçe',
+				gregorian : true,
+				months : {
+					short: [
+						"Oca",
+						"Şub",
+						"Mar",
+						"Nis",
+						"May",
+						"Haz",
+						"Tem",
+						"Ağu",
+						"Eyl",
+						"Eki",
+						"Kas",
+						"Ara"
+					],
+					full : [
+						"Ocak",
+						"Şubat",
+						"Mart",
+						"Nisan",
+						"Mayıs",
+						"Haziran",
+						"Temmuz",
+						"Ağustos",
+						"Eylül",
+						"Ekim",
+						"Kasım",
+						"Aralık"
+					]
+				},
+				weekdays : {
+					short : [
+						'P',
+						'P',
+						'S',
+						'Ç',
+						'P',
+						'C',
+						'C'
+					],
+					full : [
+						'Pazar',
+						'Pazartesi',
+						'Sali',
+						'Çarşamba',
+						'Perşembe',
+						'Cuma',
+						'Cumartesi'
+					]
+				}
+			},
+			'ko' : {
+				name : '조선말',
+				gregorian : true,
+				months : {
+					short: [
+						"1월",
+						"2월",
+						"3월",
+						"4월",
+						"5월",
+						"6월",
+						"7월",
+						"8월",
+						"9월",
+						"10월",
+						"11월",
+						"12월"
+					],
+					full : [
+						"1월",
+						"2월",
+						"3월",
+						"4월",
+						"5월",
+						"6월",
+						"7월",
+						"8월",
+						"9월",
+						"10월",
+						"11월",
+						"12월"
+					]
+				},
+				weekdays : {
+					short : [
+						'일',
+						'월',
+						'화',
+						'수',
+						'목',
+						'금',
+						'토'
+					],
+					full : [
+						'일요일',
+						'월요일',
+						'화요일',
+						'수요일',
+						'목요일',
+						'금요일',
+						'토요일'
+					]
+				}
+			},
+			'fi' : {
+				name : 'suomen kieli',
+				gregorian : true,
+				months : {
+					short: [
+						"Tam",
+						"Hel",
+						"Maa",
+						"Huh",
+						"Tou",
+						"Kes",
+						"Hei",
+						"Elo",
+						"Syy",
+						"Lok",
+						"Mar",
+						"Jou"
+					],
+					full : [
+						"Tammikuu",
+						"Helmikuu",
+						"Maaliskuu",
+						"Huhtikuu",
+						"Toukokuu",
+						"Kesäkuu",
+						"Heinäkuu",
+						"Elokuu",
+						"Syyskuu",
+						"Lokakuu",
+						"Marraskuu",
+						"Joulukuu"
+					]
+				},
+				weekdays : {
+					short : [
+						'S',
+						'M',
+						'T',
+						'K',
+						'T',
+						'P',
+						'L'
+					],
+					full : [
+						'Sunnuntai',
+						'Maanantai',
+						'Tiistai',
+						'Keskiviikko',
+						'Torstai',
+						'Perjantai',
+						'Lauantai'
+					]
+				}
+			},
+			'vi':{
+				name:'Tiếng việt',
+				gregorian:false,
+				months:{
+					short:[
+						'Th.01',
+						'Th.02',
+						'Th.03',
+						'Th.04',
+						'Th.05',
+						'Th.06',
+						'Th.07',
+						'Th.08',
+						'Th.09',
+						'Th.10',
+						'Th.11',
+						'Th.12'
+					],
+					full:[
+						'Tháng 01',
+						'Tháng 02',
+						'Tháng 03',
+						'Tháng 04',
+						'Tháng 05',
+						'Tháng 06',
+						'Tháng 07',
+						'Tháng 08',
+						'Tháng 09',
+						'Tháng 10',
+						'Tháng 11',
+						'Tháng 12'
+					]
+				},
+				weekdays:{
+					short:[
+						'CN',
+						'T2',
+						'T3',
+						'T4',
+						'T5',
+						'T6',
+						'T7'
+					],
+					full:[
+						'Chủ nhật',
+						'Thứ hai',
+						'Thứ ba',
+						'Thứ tư',
+						'Thứ năm',
+						'Thứ sáu',
+						'Thứ bảy'
+					]
+				}
+			}
+		},
+
+		// MAIN VARS
+
+		pickers = {},
+		picker = null,
+		picker_ctrl = false,
+		pick_dragged = null,
+		pick_drag_offset = null,
+		pick_drag_temp = null,
+
+		// CHECK FUNCTIONS
+
+		is_click = false,
+		is_ie = function() {
+			var
+				n = navigator.userAgent.toLowerCase();
+			return (n.indexOf('msie') != -1) ? parseInt(n.split('msie')[1]) : false;
+		},
+		is_touch = function() {
+			if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent))
+				return true;
+			else
+				return false;
+		},
+		is_fx_mobile = function() {
+			if(picker&&pickers[picker.id].fx&&!pickers[picker.id].fxmobile) {
+				if($(window).width()<480)
+					picker.element.removeClass('picker-fxs');
+				else
+					picker.element.addClass('picker-fxs')
+			}
+		},
+		is_jumpable = function() {
+			if( pickers[picker.id].jump >= pickers[picker.id].key.y.max - pickers[picker.id].key.y.min )
+				return false;
+			else
+				return true;
+		},
+		is_locked = function() {
+			var
+				unix_current = get_unix(get_current_full()),
+				unix_today = get_unix(get_today_full());
+
+			if(pickers[picker.id].lock) {
+				if(pickers[picker.id].lock=='from') {
+					if(unix_current<unix_today) {
+						picker_alrt();
+						picker.element.addClass('picker-lkd');
+						return true;
+					}
+					else {
+						picker.element.removeClass('picker-lkd');
+						return false;
+					}
+				}
+				if(pickers[picker.id].lock=='to') {
+					if(unix_current>unix_today) {
+						picker_alrt();
+						picker.element.addClass('picker-lkd');
+						return true;
+					}
+					else {
+						picker.element.removeClass('picker-lkd');
+						return false;
+					}
+				}
+			}
+
+			if(pickers[picker.id].disabledays) {
+				if(pickers[picker.id].disabledays.indexOf(unix_current) != -1) {
+					picker_alrt();
+					picker.element.addClass('picker-lkd');
+					return true;
+				}
+				else {
+					picker.element.removeClass('picker-lkd');
+					return false;
+				}
+			}
+		},
+		is_int = function(n) {
+			return n % 1 === 0;
+		},
+		is_date = function(value) {
+			var
+				format = /(^\d{1,4}[\.|\\/|-]\d{1,2}[\.|\\/|-]\d{1,4})(\s*(?:0?[1-9]:[0-5]|1(?=[012])\d:[0-5])\d\s*[ap]m)?$/;
+			return format.test(value);
+		},
+
+		// REST FUNCTIONS
+
+		get_current = function(k){
+			return parseInt(pickers[picker.id].key[k].current);
+		},
+		get_today = function(k){
+			return parseInt(pickers[picker.id].key[k].today);
+		},
+		get_today_full = function() {
+			return get_today('m')+'/'+get_today('d')+'/'+get_today('y');
+		},
+		get_current_full = function() {
+			return get_current('m')+'/'+get_current('d')+'/'+get_current('y');
+		},
+		get_jumped = function(k,val) {
+			var
+				a = [],
+				key_values = pickers[picker.id].key[k];
+			for (var i = key_values.min; i <= key_values.max; i++)
+				if (i%val == 0)
+					a.push(i);
+			return a;
+		},
+		get_closest_jumped = function(int,arr) {
+			var c = arr[0];
+			var d = Math.abs (int - c);
+			for (var i = 0; i < arr.length; i++) {
+				var n = Math.abs (int - arr[i]);
+				if (n < d) {
+					d = n;
+					c = arr[i];
+				}
+			}
+			return c;
+		},
+		get_clear = function(k,n){
+			var
+				key_values = pickers[picker.id].key[k];
+			if( n > key_values.max )
+				return get_clear( k , (n-key_values.max)+(key_values.min-1) );
+			else if( n < key_values.min )
+				return get_clear( k , (n+1) + (key_values.max - key_values.min));
+			else
+				return n;
+		},
+		get_days_array = function() {
+			if(i18n[pickers[picker.id].lang].gregorian)
+				return [1,2,3,4,5,6,0];
+			else
+				return [0,1,2,3,4,5,6];
+		},
+		get_ul = function(k) {
+			return get_picker_els('ul.pick[data-k="'+k+'"]');
+		},
+		get_eq = function(k,d) {
+			ul = get_ul(k);
+			var
+				o = [];
+
+			ul.find('li').each(function(){
+				o.push($(this).attr('value'));
+			});
+
+			if(d=='last')
+				return o[o.length-1];
+			else
+				return o[0];
+
+		},
+		get_picker_els = function(el) {
+			if(picker)
+				return picker.element.find(el);
+		},
+		get_unix = function(d) {
+			return Date.parse(d) / 1000;
+		},
+
+		// RENDER FUNCTIONS
+
+		picker_large_onoff = function() {
+			if(pickers[picker.id].large) {
+				picker.element.toggleClass('picker-lg');
+				picker_render_calendar();
+			}
+		},
+		picker_translate_onoff = function() {
+			get_picker_els('ul.pick.pick-l').toggleClass('visible');
+		},
+		picker_offset = function(){
+			if(!picker.element.hasClass('picker-modal')){
+				var
+					input = picker.input,
+					left = input.offset().left + input.outerWidth()/2,
+					top = input.offset().top + input.outerHeight();
+				picker.element.css({
+					'left' : left,
+					'top' : top
+				});
+			}
+		},
+		picker_translate = function(v) {
+			pickers[picker.id].lang = Object.keys(i18n)[v];
+			picker_set_lang();
+			picker_set();
+		},
+		picker_set_lang = function() {
+			var
+				picker_day_offset = get_days_array();
+			get_picker_els('.pick-lg .pick-lg-h li').each(function(i){
+				$(this).html(i18n[pickers[picker.id].lang].weekdays.short[picker_day_offset[i]]);
+			});
+			get_picker_els('ul.pick.pick-m li').each(function(){
+				$(this).html(i18n[pickers[picker.id].lang].months.short[$(this).attr('value')-1]);
+			});
+		},
+		picker_show = function() {
+			picker.element.addClass('picker-focus');
+		},
+		picker_hide = function() {
+			if(!is_locked()) {
+				picker.element.removeClass('picker-focus');
+				if(picker.element.hasClass('picker-modal'))
+					$('.picker-modal-overlay').addClass('tohide');
+				picker = null;
+			}
+			picker_ctrl = false;
+		},
+		picker_render_ul = function(k){
+			var
+				ul = get_ul(k),
+				key_values = pickers[picker.id].key[k];
+
+			//CURRENT VALUE
+			pickers[picker.id].key[k].current = key_values.today < key_values.min && key_values.min || key_values.today;
+
+			for (i = key_values.min; i <= key_values.max; i++) {
+				var
+					html = i;
+
+				if(k=='m')
+					html = i18n[pickers[picker.id].lang].months.short[i-1];
+				if(k=='l')
+					html = i18n[Object.keys(i18n)[i]].name;
+
+				html += k=='d' ? '<span></span>' : '';
+
+				$('<li>', {
+					value: i,
+					html: html
+				})
+				.appendTo(ul)
+			}
+
+			//PREV BUTTON
+			$('<div>', {
+				class: 'pick-arw pick-arw-s1 pick-arw-l',
+				html: $('<i>', {
+					class: 'pick-i-l'
+				})
+			})
+			.appendTo(ul);
+
+			//NEXT BUTTON
+			$('<div>', {
+				class: 'pick-arw pick-arw-s1 pick-arw-r',
+				html: $('<i>', {
+					class: 'pick-i-r'
+				})
+			})
+			.appendTo(ul);
+
+			if(k=='y') {
+
+				//PREV BUTTON
+				$('<div>', {
+					class: 'pick-arw pick-arw-s2 pick-arw-l',
+					html: $('<i>', {
+						class: 'pick-i-l'
+					})
+				})
+				.appendTo(ul);
+
+				//NEXT BUTTON
+				$('<div>', {
+					class: 'pick-arw pick-arw-s2 pick-arw-r',
+					html: $('<i>', {
+						class: 'pick-i-r'
+					})
+				})
+				.appendTo(ul);
+
+			}
+
+			picker_ul_transition(k,get_current(k));
+
+		},
+		picker_render_calendar = function() {
+
+			var
+				index = 0,
+				w = get_picker_els('.pick-lg-b');
+
+			w.find('li')
+			.empty()
+			.removeClass('pick-n pick-b pick-a pick-v pick-lk pick-sl pick-h')
+			.attr('data-value','');
+
+			var
+				_C = new Date(get_current_full()),
+				_S = new Date(get_current_full()),
+				_L = new Date(get_current_full()),
+				_NUM = function(d){
+					var
+						m = d.getMonth(),
+						y = d.getFullYear();
+					var l = ((y % 4) == 0 && ((y % 100) != 0 || (y % 400) == 0));
+					return [31, (l ? 29 : 28), 31, 30, 31, 30, 31, 31, 30, 31, 30, 31][m];
+				};
+
+			_L.setMonth(_L.getMonth()-1);
+			_S.setDate(1);
+
+			var
+				o = _S.getDay()-1;
+				if(o<0)
+					o = 6;
+				if(i18n[pickers[picker.id].lang].gregorian) {
+					o--;
+					if(o<0)
+						o=6;
+				}
+
+			//before
+			for(var i = _NUM(_L)-o ; i <= _NUM(_L) ; i++) {
+				w.find('li').eq(index)
+				.html(i)
+				.addClass('pick-b pick-n pick-h');
+				index++;
+			}
+			//current
+			for(var i = 1 ; i <= _NUM(_S) ; i++) {
+				w.find('li').eq(index)
+				.html(i)
+				.addClass('pick-n pick-v')
+				.attr('data-value',i);
+				index++;
+			}
+			//after
+			if(w.find('li.pick-n').length < 42) {
+				var
+					e = 42 - w.find('li.pick-n').length;
+				for(var i = 1 ; i <= e; i++) {
+					w.find('li').eq(index).html(i)
+					.addClass('pick-a pick-n pick-h');
+					index++;
+				}
+			}
+			if(pickers[picker.id].lock) {
+				if(pickers[picker.id].lock==='from') {
+					if(get_current('y')<=get_today('y')) {
+						if(get_current('m')==get_today('m')) {
+							get_picker_els('.pick-lg .pick-lg-b li.pick-v[data-value="'+get_today('d')+'"]')
+							.prevAll('li')
+							.addClass('pick-lk')
+						}
+						else {
+							if(get_current('m')<get_today('m')) {
+								get_picker_els('.pick-lg .pick-lg-b li')
+								.addClass('pick-lk')
+							}
+							else if(get_current('m')>get_today('m')&&get_current('y')<get_today('y')) {
+								get_picker_els('.pick-lg .pick-lg-b li')
+								.addClass('pick-lk')
+							}
+						}
+					}
+				}
+				else {
+					if(get_current('y')>=get_today('y')) {
+						if(get_current('m')==get_today('m')) {
+							get_picker_els('.pick-lg .pick-lg-b li.pick-v[data-value="'+get_today('d')+'"]')
+							.nextAll('li')
+							.addClass('pick-lk')
+						}
+						else {
+							if(get_current('m')>get_today('m')) {
+								get_picker_els('.pick-lg .pick-lg-b li')
+								.addClass('pick-lk')
+							}
+							else if(get_current('m')<get_today('m')&&get_current('y')>get_today('y')) {
+								get_picker_els('.pick-lg .pick-lg-b li')
+								.addClass('pick-lk')
+							}
+						}
+					}
+				}
+			}
+			if(pickers[picker.id].disabledays) {
+				$.each(pickers[picker.id].disabledays, function( i, v ) {
+					if(v&&is_date(v)) {
+						var
+							d = new Date(v*1000);
+						if(d.getMonth()+1==get_current('m')&&d.getFullYear()==get_current('y'))
+							get_picker_els('.pick-lg .pick-lg-b li.pick-v[data-value="'+d.getDate()+'"]')
+							.addClass('pick-lk');
+					}
+				});
+			}
+
+			get_picker_els('.pick-lg-b li.pick-v[data-value='+get_current('d')+']').addClass('pick-sl');
+
+		},
+		picker_fills = function() {
+
+			var
+				m = get_current('m'),
+				y = get_current('y'),
+				l = ((y % 4) == 0 && ((y % 100) != 0 || (y % 400) == 0));
+
+			pickers[picker.id].key['d'].max =  [31, (l ? 29 : 28), 31, 30, 31, 30, 31, 31, 30, 31, 30, 31][m-1];
+
+			if(get_current('d')>pickers[picker.id].key['d'].max) {
+				pickers[picker.id].key['d'].current = pickers[picker.id].key['d'].max;
+				picker_ul_transition('d',get_current('d'));
+			}
+
+			get_picker_els('.pick-d li')
+			.removeClass('pick-wke')
+			.each(function() {
+				var
+					d = new Date(m+"/"+$(this).attr('value')+"/"+y).getDay();
+
+				$(this)
+				.find('span')
+				.html(i18n[pickers[picker.id].lang].weekdays.full[d]);
+
+				if(d==0||d==6)
+					$(this).addClass('pick-wke');
+
+			});
+
+			if(picker.element.hasClass('picker-lg')) {
+				get_picker_els('.pick-lg-b li').removeClass('pick-wke');
+				get_picker_els('.pick-lg-b li.pick-v')
+				.each(function() {
+					var
+						d = new Date(m+"/"+$(this).attr('data-value')+"/"+y).getDay();
+					if(d==0||d==6)
+						$(this).addClass('pick-wke');
+
+				});
+			}
+
+		},
+		picker_set = function() {
+			if(picker.element.hasClass('picker-lg'))
+				picker_render_calendar();
+			picker_fills();
+			input_change_value();
+		},
+
+		// ACTION FUNCTIONS
+
+		picker_ul_transition = function(k,i) {
+
+			var
+				ul = get_ul(k);
+
+			ul.find('li').removeClass('pick-sl pick-bfr pick-afr');
+
+			if(i==get_eq(k,'last')) {
+				var li = ul.find('li[value="'+get_eq(k,'first')+'"]');
+				li.clone().insertAfter(ul.find('li[value='+i+']'));
+				li.remove();
+			}
+			if(i==get_eq(k,'first')) {
+				var li = ul.find('li[value="'+get_eq(k,'last')+'"]');
+				li.clone().insertBefore(ul.find('li[value='+i+']'));
+				li.remove();
+			}
+
+			ul.find('li[value='+i+']').addClass('pick-sl');
+			ul.find('li.pick-sl').nextAll('li').addClass('pick-afr');
+			ul.find('li.pick-sl').prevAll('li').addClass('pick-bfr');
+
+		},
+		picker_values_increase = function(k,v) {
+
+			var
+				key_values = pickers[picker.id].key[k];
+
+			if(v>key_values.max) {
+				if(k=='d')
+					picker_ul_turn('m','right');
+				if(k=='m')
+					picker_ul_turn('y','right');
+				v = key_values.min;
+			}
+			if(v<key_values.min) {
+				if(k=='d')
+					picker_ul_turn('m','left');
+				if(k=='m')
+					picker_ul_turn('y','left');
+				v = key_values.max;
+			}
+			pickers[picker.id].key[k].current = v;
+			picker_ul_transition(k,v);
+
+		},
+		picker_ul_turn = function(k,d) {
+			var
+				v = get_current(k);
+			if(d=='right')
+				v++;
+			else
+				v--;
+			picker_values_increase(k,v);
+		},
+		picker_alrt = function() {
+			picker.element
+			.addClass('picker-rmbl');
+		},
+
+		/* INPUT FUNCTIONS */
+
+		input_fill = function(n) {
+			return n < 10 ? '0' + n : n
+		},
+		input_ordinal_suffix = function(n) {
+			var
+				s=["th","st","nd","rd"],
+				v=n%100;
+			return n+(s[(v-20)%10]||s[v]||s[0]);
+		},
+		input_change_value = function() {
+
+			if(!is_locked()&&picker_ctrl) {
+
+				var
+					d = get_current('d'),
+					m = get_current('m'),
+					y = get_current('y'),
+					get_day = new Date(m+"/"+d+"/"+y).getDay(),
+
+					str =
+					pickers[picker.id].format
+					.replace(/\b(d)\b/g, input_fill(d))
+					.replace(/\b(m)\b/g, input_fill(m))
+					.replace(/\b(S)\b/g, input_ordinal_suffix(d)) //new
+					.replace(/\b(Y)\b/g, y)
+					.replace(/\b(U)\b/g, get_unix(get_current_full())) //new
+					.replace(/\b(D)\b/g, i18n[pickers[picker.id].lang].weekdays.short[get_day])
+					.replace(/\b(l)\b/g, i18n[pickers[picker.id].lang].weekdays.full[get_day])
+					.replace(/\b(F)\b/g, i18n[pickers[picker.id].lang].months.full[m-1])
+					.replace(/\b(M)\b/g, i18n[pickers[picker.id].lang].months.short[m-1])
+					.replace(/\b(n)\b/g, m)
+					.replace(/\b(j)\b/g, d);
+
+				picker
+				.input
+				.val(str)
+				.change();
+
+				picker_ctrl = false;
+
+			}
+
+		};
+
+	// GET UI EVENT
+
+	if(is_touch())
+		var
+			ui_event = {
+				i : 'touchstart',
+				m	: 'touchmove',
+				e : 'touchend'
+			}
+	else
+		var
+			ui_event = {
+				i : 'mousedown',
+				m	: 'mousemove',
+				e : 'mouseup'
+			}
+
+
+	var
+		picker_node_el = 'div.datedropper.picker-focus';
+
+	$(document)
+
+
+	//CLOSE PICKER
+	.on('click',function(e) {
+		if(picker) {
+			if(!picker.input.is(e.target) && !picker.element.is(e.target) && picker.element.has(e.target).length === 0) {
+				picker_hide();
+				pick_dragged = null;
+			}
+		}
+	})
+
+	//LOCK ANIMATION
+	.on(csse.a,picker_node_el + '.picker-rmbl',function(){
+		if(picker.element.hasClass('picker-rmbl'))
+			$(this).removeClass('picker-rmbl');
+	})
+
+	//HIDE MODAL OVERLAY
+	.on(csse.t,'.picker-modal-overlay',function(){
+		$(this).remove();
+	})
+
+
+	//LARGE-MODE DAY CLICK
+	.on(ui_event.i,picker_node_el+' .pick-lg li.pick-v',function(){
+		get_picker_els('.pick-lg-b li').removeClass('pick-sl');
+		$(this).addClass('pick-sl');
+		pickers[picker.id].key['d'].current = $(this).attr('data-value');
+		picker_ul_transition('d',$(this).attr('data-value'));
+		picker_ctrl = true;
+	})
+
+	//BUTTON LARGE-MODE
+	.on('click',picker_node_el+' .pick-btn-sz',function(){
+		picker_large_onoff();
+	})
+
+	//BUTTON TRANSLATE-MODE
+	.on('click',picker_node_el+' .pick-btn-lng',function(){
+		picker_translate_onoff();
+	})
+
+	//JUMP
+	.on(ui_event.i,picker_node_el+' .pick-arw.pick-arw-s2',function(e){
+
+		e.preventDefault();
+		pick_dragged = null;
+
+		var
+			i,
+			k = $(this).closest('ul').data('k'),
+			jump = pickers[picker.id].jump;
+
+		if($(this).hasClass('pick-arw-r'))
+			i = get_current('y') + jump;
+		else
+			i = get_current('y') - jump;
+
+		var
+			jumped_array = get_jumped('y',jump);
+
+		if(i>jumped_array[jumped_array.length-1])
+			i = jumped_array[0];
+		if(i<jumped_array[0])
+			i = jumped_array[jumped_array.length-1];
+
+		pickers[picker.id].key['y'].current = i;
+		picker_ul_transition('y',get_current('y'));
+
+		picker_ctrl = true;
+
+	})
+
+	//DEFAULT ARROW
+	.on(ui_event.i,picker_node_el+' .pick-arw.pick-arw-s1',function(e){
+		e.preventDefault();
+		pick_dragged = null;
+		var
+			k = $(this).closest('ul').data('k');
+		if($(this).hasClass('pick-arw-r'))
+			picker_ul_turn(k,'right');
+		else
+			picker_ul_turn(k,'left');
+
+		picker_ctrl = true;
+
+	})
+
+	// JUMP
+	.on(ui_event.i,picker_node_el+' ul.pick.pick-y li',function(){
+		is_click = true;
+	})
+	.on(ui_event.e,picker_node_el+' ul.pick.pick-y li',function(){
+		if(is_click&&is_jumpable()) {
+			$(this).closest('ul').toggleClass('pick-jump');
+			var
+				jumped = get_closest_jumped(get_current('y'),get_jumped('y',pickers[picker.id].jump));
+			pickers[picker.id].key['y'].current = jumped;
+			picker_ul_transition('y',get_current('y'));
+			is_click = false;
+		}
+	})
+
+	//TOGGLE CALENDAR
+	.on(ui_event.i,picker_node_el+' ul.pick.pick-d li',function(){
+		is_click = true;
+	})
+	.on(ui_event.e,picker_node_el+' ul.pick.pick-d li',function(){
+		if(is_click) {
+			picker_large_onoff();
+			is_click = false;
+		}
+	})
+
+	//TOGGLE TRANSLATE MODE
+	.on(ui_event.i,picker_node_el+' ul.pick.pick-l li',function(){
+		is_click = true;
+	})
+	.on(ui_event.e,picker_node_el+' ul.pick.pick-l li',function(){
+		if(is_click) {
+			picker_translate_onoff();
+			picker_translate($(this).val());
+			is_click = false;
+		}
+	})
+
+	//MOUSEDOWN ON UL
+	.on(ui_event.i,picker_node_el+' ul.pick',function(e){
+		pick_dragged = $(this);
+		if(pick_dragged) {
+			var
+				k = pick_dragged.data('k');
+			pick_drag_offset = is_touch() ? e.originalEvent.touches[0].pageY : e.pageY;
+			pick_drag_temp = get_current(k);
+		}
+	})
+
+	//MOUSEMOVE ON UL
+	.on(ui_event.m,function(e){
+
+		is_click = false;
+
+		if(pick_dragged) {
+			e.preventDefault();
+			var
+				k = pick_dragged.data('k');
+				o = is_touch() ? e.originalEvent.touches[0].pageY : e.pageY;
+			o = pick_drag_offset - o;
+			o = Math.round(o * .026);
+			i = pick_drag_temp + o;
+			var
+				int = get_clear(k,i);
+			if(int!=pickers[picker.id].key[k].current)
+				picker_values_increase(k,int);
+
+			picker_ctrl = true;
+		}
+	})
+
+	//MOUSEUP ON UL
+	.on(ui_event.e,function(e){
+		if( pick_dragged )
+			pick_dragged = null,
+			pick_drag_offset = null,
+			pick_drag_temp = null;
+		if(picker)
+			picker_set();
+	})
+
+	//CLICK SUBMIT
+	.on(ui_event.i,picker_node_el+' .pick-submit',function(){
+		picker_hide();
+	});
+
+	$(window).resize(function(){
+		if(picker) {
+			picker_offset();
+			is_fx_mobile();
+		}
+	});
+
+	$.fn.dateDropper = function(options) {
+		return $(this).each(function(){
+			if($(this).is('input')&&!$(this).hasClass('picker-input')) {
+
+				var
+					input = $(this),
+					id = 'datedropper-' + Object.keys(pickers).length;
+
+				input
+				.attr('data-id',id)
+				.addClass('picker-input')
+				.prop({
+					'type':'text',
+					'readonly' : true
+				});
+
+				var
+					picker_default_date = (input.data('default-date')&&is_date(input.data('default-date'))) ? input.data('default-date') : null,
+					picker_disabled_days = (input.data('disabled-days')) ? input.data('disabled-days').split(',') : null,
+					picker_format = input.data('format') || 'm/d/Y',
+					picker_fx = (input.data('fx')===false) ? input.data('fx') : true,
+					picker_fx_class = (input.data('fx')===false) ? '' : 'picker-fxs',
+					picker_fx_mobile = (input.data('fx-mobile')===false) ? input.data('fx-mobile') : true,
+					picker_init_set = (input.data('init-set')===false) ? false : true,
+					picker_lang = (input.data('lang')&&(input.data('lang') in i18n)) ? input.data('lang') : 'en',
+					picker_large = (input.data('large-mode')===true) ? true : false,
+					picker_large_class = (input.data('large-default')===true && picker_large===true) ? 'picker-lg' : '',
+					picker_lock = (input.data('lock')=='from'||input.data('lock')=='to') ? input.data('lock') : false,
+					picker_jump = (input.data('jump')&&is_int(input.data('jump'))) ? input.data('jump') : 10,
+					picker_max_year = (input.data('max-year')&&is_int(input.data('max-year'))) ? input.data('max-year') : new Date().getFullYear(),
+					picker_min_year = (input.data('min-year')&&is_int(input.data('min-year'))) ? input.data('min-year') : 1970,
+
+					picker_modal = (input.data('modal')===true) ? 'picker-modal' : '',
+					picker_theme = input.data('theme') || 'primary',
+					picker_translate_mode = (input.data('translate-mode')===true) ? true : false;
+
+				if(picker_disabled_days) {
+					$.each(picker_disabled_days, function( index, value ) {
+						if(value&&is_date(value))
+							picker_disabled_days[index] = get_unix(value);
+					});
+				}
+
+				pickers[id] = {
+					disabledays : picker_disabled_days,
+					format : picker_format,
+					fx : picker_fx,
+					fxmobile : picker_fx_mobile,
+					lang : picker_lang,
+					large : picker_large,
+					lock : picker_lock,
+					jump : picker_jump,
+					key : {
+						m : {
+							min : 1,
+							max : 12,
+							current : 1,
+							today : (new Date().getMonth()+1)
+						},
+						d : {
+							min : 1,
+							max : 31,
+							current : 1,
+							today : new Date().getDate()
+						},
+						y : {
+							min : picker_min_year,
+							max : picker_max_year,
+							current : picker_min_year,
+							today : new Date().getFullYear()
+						},
+						l : {
+							min : 0,
+							max : Object.keys(i18n).length-1,
+							current : 0,
+							today : 0
+						}
+					},
+					translate : picker_translate_mode
+				};
+
+				if(picker_default_date) {
+
+					var regex = /\d+/g;
+					var string = picker_default_date;
+					var matches = string.match(regex);
+
+					$.each(matches, function( index, value ) {
+						matches[index] = parseInt(value);
+					});
+
+					pickers[id].key.m.today = (matches[0]&&matches[0]<=12) ? matches[0] : pickers[id].key.m.today;
+					pickers[id].key.d.today = (matches[1]&&matches[1]<=31) ? matches[1] : pickers[id].key.d.today;
+					pickers[id].key.y.today = (matches[2]) ? matches[2] : pickers[id].key.y.today;
+
+					if(pickers[id].key.y.today>pickers[id].key.y.max)
+						pickers[id].key.y.max = pickers[id].key.y.today;
+					if(pickers[id].key.y.today<pickers[id].key.y.min)
+						pickers[id].key.y.min = pickers[id].key.y.today;
+
+				}
+
+				$('<div>', {
+					class: 'datedropper ' + picker_modal + ' ' + picker_theme + ' ' + picker_fx_class + ' ' + picker_large_class,
+					id: id,
+					html: $('<div>', {
+						class: 'picker'
+					})
+				})
+				.appendTo('body');
+
+				picker = {
+					id : id,
+					input : input,
+					element : $('#' + id)
+				};
+
+				for( var k in pickers[id].key ) {
+					$('<ul>', {
+						class: 'pick pick-' + k,
+						'data-k' : k
+					})
+					.appendTo(get_picker_els('.picker'));
+					picker_render_ul(k);
+				}
+
+				if(pickers[id].large) {
+
+					//calendar
+					$('<div>', {
+						class: 'pick-lg'
+					})
+					.insertBefore(get_picker_els('.pick-d'));
+
+					$('<ul class="pick-lg-h"></ul><ul class="pick-lg-b"></ul>')
+					.appendTo(get_picker_els('.pick-lg'));
+
+					var
+						picker_day_offset = get_days_array();
+
+					for(var i = 0; i < 7 ; i++) {
+						$('<li>', {
+							html: i18n[pickers[picker.id].lang].weekdays.short[picker_day_offset[i]]
+						})
+						.appendTo(get_picker_els('.pick-lg .pick-lg-h'))
+					}
+					for(var i = 0; i < 42 ; i++) {
+						$('<li>')
+						.appendTo(get_picker_els('.pick-lg .pick-lg-b'))
+					}
+				}
+
+				//buttons
+				$('<div>', {
+					class: 'pick-btns'
+				})
+				.appendTo(get_picker_els('.picker'));
+
+				$('<div>', {
+					class: 'pick-submit'
+				})
+				.appendTo(get_picker_els('.pick-btns'));
+
+				if(pickers[picker.id].translate) {
+					$('<div>', {
+						class: 'pick-btn pick-btn-lng'
+					})
+					.appendTo(get_picker_els('.pick-btns'));
+				}
+				if(pickers[picker.id].large) {
+					$('<div>', {
+						class: 'pick-btn pick-btn-sz'
+					})
+					.appendTo(get_picker_els('.pick-btns'));
+				}
+
+				if(picker_format=='Y'||picker_format=='m') {
+					get_picker_els('.pick-d,.pick-btn-sz').hide();
+					picker.element.addClass('picker-tiny');
+					if(picker_format=='Y')
+						get_picker_els('.pick-m,.pick-btn-lng').hide();
+					if(picker_format=='m')
+						get_picker_els('.pick-y').hide();
+				}
+
+				if(picker_init_set) {
+					picker_ctrl = true;
+					input_change_value();
+				}
+
+				picker = null;
+
+			}
+
+		})
+		.focus(function(e){
+
+			e.preventDefault();
+			$(this).blur();
+
+			if(picker)
+				picker_hide();
+
+			picker = {
+				id : $(this).data('id'),
+				input : $(this),
+				element : $('#'+$(this).data('id'))
+			};
+
+			is_fx_mobile();
+			picker_offset();
+			picker_set();
+			picker_show();
+
+			if(picker.element.hasClass('picker-modal'))
+				$('body').append('<div class="picker-modal-overlay"></div>')
+
+		});
+	};
+}(jQuery));
+
+
+(function($){
+  
+  //GROWL OBJECT
+  //--------------------------------------------------------------------
+  
+  $.Growl = {
+
+    _growlContainer: null,
+    _statsCount: 0,
+    
+    show: function(message, options){
+    
+      var settings = $.extend({
+        "id": ("gs"+$.Growl._statsCount++),
+        "icon": false,
+        "title": false,
+        "message": message,
+        "cls": "",
+        "speed": 500,
+        "timeout": 3000
+      },options);
+      
+      $("#"+settings.id).remove();
+      
+      //append status
+      this._getContainer().prepend(
+        '<div id="'+settings.id+'" class="growlstatus '+settings.cls+'" style="display:none;"><div class="growlstatusclose"></div>'+settings.message+'</div>'
+      );
+      
+      var status = $("#"+settings.id);
+      
+      //bind close button
+      status.find(".growlstatusclose").bind('click',function(){
+        $.Growl.close(settings.id,true,settings.speed);
+      });
+      
+      //show title
+      if(settings.title!==false){
+        status.prepend('<div class="growltitle">'+settings.title+'</div>');
+      }
+      
+      //show icon
+      if(settings.icon!==false){
+        status.addClass("growlwithicon").addClass("growlicon_"+settings.icon);
+      }
+      
+      status
+      //do not hide on hover
+      .hover(
+        function(){
+         
+         //status.addClass("growlhover");
+        },
+        function(){
+          status.removeClass("growlhover");
+          if(settings.timeout!==false){
+            window.setTimeout(function(){$.Growl.close(settings.id);}, settings.timeout);
+          }
+        }
+      )      
+      //show status+handle timeout
+      .fadeIn(settings.speed,function(){
+        if(settings.timeout!==false){
+          window.setTimeout(function(){$.Growl.close(settings.id);}, settings.timeout);
+        }
+      });
+      
+      return settings.id;
+    },
+    
+    close: function(id,force,speed){
+    
+      if(arguments.length==0){
+        $(".growlstatus",this._getContainer()).hide().remove();
+      }else{
+          var status = $("#"+id);
+
+          if(!status.hasClass("growlhover") || force){
+            status.animate({opacity:"0.0"}, speed).slideUp(function(){
+                  status.remove();
+            })
+          }
+      }
+    },
+    
+    _getContainer: function(){
+      
+      if(!this._growlContainer) {
+        this._growlContainer = $('<div id="growlcontainer"></div>').appendTo("body");
+      }
+      return this._growlContainer;
+    }
+  };
+})(jQuery);
+//# sourceMappingURL=principal.js.map

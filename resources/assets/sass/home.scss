@@ -146,7 +146,7 @@ a {
     padding: 100px 0;
     text-align: center;
     color: white;
-    background: url(/images/intro-bg.jpg) no-repeat bottom center scroll;
+    background: url(/images/intro-bg-little.jpg) no-repeat center scroll;
     background-color: black;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -163,6 +163,7 @@ a {
         }
     }
     @media(min-width:768px) {
+        background: url(/images/intro-bg.jpg) no-repeat bottom center scroll;
         height: 100%;
         padding: 0;
         .intro-body {
