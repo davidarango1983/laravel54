@@ -20,17 +20,11 @@
                         @endif
                     </div>
                 </div>
-                
 
                 <div class="col-md-12 form-group{{ $errors->has('description') ? ' has-error' : '' }}">
                     <label for="description" class="col-md-2 control-label">Descripción:</label>
-
                     <div class="col-md-10 col-md-offset-1">
-
                         <textarea name="description" cols="100" rows="10" maxlength="200">Describe la actividad a realizar</textarea>
-
-
-
                         @if ($errors->has('fin'))
                         <span class="help-block">
                             <strong><i>{{ $errors->first('description') }}</i></strong>
@@ -38,15 +32,15 @@
                         @endif
                     </div>
                 </div>
-                
+
                 <div class="form-group">
-                            <div class="col-md-6 col-md-offset-1">
-                                <a href="{{url('admin/clases')}}"class="btn btn-warning">Cancelar</a><span>  </span>
-                                <button type="submit" class="btn btn-primary">
-                                    <i class="fa fa-check-circle-o"></i> Añadir
-                                </button>
-                            </div>
-                        </div>
+                    <div class="col-md-6 col-md-offset-1">
+                        <a href="{{url('admin/clases')}}"class="btn btn-warning">Cancelar</a><span>  </span>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fa fa-check-circle-o"></i> Añadir
+                        </button>
+                    </div>
+                </div>
             </form>
         </div>
     </div>

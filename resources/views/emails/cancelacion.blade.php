@@ -1,17 +1,7 @@
-<!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title></title>
-    </head>
-    <body>
-        <?php
-        // put your code here
-        ?>
-    </body>
-</html>
+@extends('emails.template')
+@section('content')
+<p> Hola {{ $user->name}} !!<p>
+<p>Lamentamos informarte que tu clase de {{$clase->tipo->name}} prevista para el día {{$clase->dia}} a las {{$clase->hora_ini}} horas </p>
+<p>ha sido cancelada.</p>
+<p>Esperamos que nos disculpes y te recordamos que hay un montón de actividades que puedes hacer en nuestro centro</p>
+  @endsection

@@ -2,15 +2,12 @@
 @section('content')
 
 <div class="container"> 
-    
     <div class="col-sm-12"><img class="img-responsive img-rounded center-block"src="/images/{{$imagen->urlimg}}" ></img>
-                <p class="text text-center">Imagen actual en base de datos</p>
+        <p class="text text-center">Imagen actual en base de datos</p>
     </div>
     <div class="panel panel-default col-sm-6 col-sm-offset-3">
-        
         <div class="panel-heading">Editar Imagen</div>
         <div class="panel-body">
-
             <form class="form-horizontal" role="form" method="POST" enctype='multipart/form-data' action="{{ url('/admin/updateimagen') }}">
                 {{ csrf_field() }}
                 <input id="id" type="hidden" class="form-control" name="id"  value="{{$imagen->id}}"/>
@@ -54,17 +51,14 @@
                         @endif
                     </div>
                 </div>
-               
 
                 <div class="form-group{{ $errors->has('imagen') ? ' has-error' : '' }}">
 
                     <label for="imagen" class="col-sm-2 control-label">Imagen</label>                             
-  <span>La imagen no debe pesar mas de 2mb y debe tener un ancho de 900px y una altura 506px.</span>
+                    <span>La imagen no debe pesar mas de 2mb y debe tener un ancho de 900px y una altura 506px.</span>
                     <div class="col-sm-10">
                         <input id="imagen" type="file" class="form-control" name="imagen">
                         <i>Por motivos de seguridad debe insertar la imagen manualmente.</i>
-
-
                         @if ($errors->has('imagen'))
                         <span class="help-block">
                             <strong><i>{{ $errors->first('urlimg') }}</i></strong>
@@ -75,7 +69,6 @@
 
                 <div class="form-group{{ $errors->has('publicar') ? ' has-error' : '' }}">
                     <label for="publicar" class="col-sm-2 control-label">Publicar</label>
-
                     <div class="col-sm-2">
                         <select id="publicar"  class="form-control" name="publicar" value="{{ old('publicar') }}">
                             <option value='1'>SI</option>
@@ -96,7 +89,6 @@
                         </button>
                     </div>
                 </div>
-
             </form>
         </div>
     </div>

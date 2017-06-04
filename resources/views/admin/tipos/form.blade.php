@@ -49,21 +49,17 @@
                         @endif
                     </div>
                 </div>
-
-
                 <div class="form-group">
-                            <div class="col-sm-6 col-sm-offset-3">
-                                <a href="{{url('admin/tipos')}}"class="btn btn-warning">Cancelar</a><span>  </span>
-                                <button type="submit" class="btn btn-primary">
-                                    <i class="fa fa-check-circle-o"></i> Añadir
-                                </button>
-                            </div>
-                        </div>
+                    <div class="col-sm-6 col-sm-offset-3">
+                        <a href="{{url('admin/tipos')}}"class="btn btn-warning">Cancelar</a><span>  </span>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fa fa-check-circle-o"></i> Añadir
+                        </button>
+                    </div>
+                </div>
             </form>
         </div>
     </div>
 </div>
-
-
-            <script src="{{ URL::asset('js/tipos.js')}}"></script>
-            @endsection
+<script src="{{ URL::asset('js/tipos.js')}}"></script>
+@endsection

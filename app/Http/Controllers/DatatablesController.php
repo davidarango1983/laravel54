@@ -32,27 +32,6 @@ class DatatablesController extends Controller {
         }
         return Datatables::of($users)->make(true);
     }
-
-    public function get_usuario($id) {
-        try {
-            $user = User::with('suscripcion')->find($id);
-            $tipoSuscripcion = TiposSuscripcion::find($user['id_suscripcion']);
-        } catch (Exception $e) {
-
-            return 'Se ha producdo el siguiente error: ' . $e;
-        }
-        return view('admin.modalusuario', array('usuario' => $user, 'tipo' => $tipoSuscripcion));
-    }
-
-    /*
-     * Función que elimina un usuario
-     * @param $id Identificador del usuario
-     * 
-     * 
-     */
-
-
-
     /*
      * TIPOS DE SUSCRIPCIÓN
      * 
@@ -103,13 +82,11 @@ class DatatablesController extends Controller {
         return Datatables::of($clases)->make(true);
     }
 
-    
-    
     /*
      * TIPOS DE CLASE
      * 
      */
-        
+
     public function tipoclases() {
         try {
             $clases = TipoClase::all();
@@ -119,63 +96,53 @@ class DatatablesController extends Controller {
         }
         return Datatables::of($clases)->make(true);
     }
+
     /*
      * RESERVAS
      * 
      */
-    
-    
-    public function listaReservas() {
-         try {
 
-            $reservas = Reservas::with('user','clase');
+    public function listaReservas() {
+        try {
+
+            $reservas = Reservas::with('user', 'clase');
         } catch (\Exception $e) {
 
             return 'Se ha producdo el siguiente error: ' . $e;
         }
         return Datatables::of($reservas)->make(true);
-        
-        
     }
-    
+
     /*
      * NOTICIAS
      * 
      */
-    
-     public function noticias() {
-         try {
 
-            $noticias= Noticias::all();
+    public function noticias() {
+        try {
+
+            $noticias = Noticias::all();
         } catch (\Exception $e) {
 
             return 'Se ha producdo el siguiente error: ' . $e;
         }
         return Datatables::of($noticias)->make(true);
-        
-        
     }
-    
+
     /*
      * NOTICIAS
      * 
      */
-    
-     public function imagenes() {
-         try {
 
-            $imagenes= Imagenes::all();
+    public function imagenes() {
+        try {
+
+            $imagenes = Imagenes::all();
         } catch (\Exception $e) {
 
             return 'Se ha producdo el siguiente error: ' . $e;
         }
         return Datatables::of($imagenes)->make(true);
-        
-        
     }
-    
-    
-    
-    
 
 }

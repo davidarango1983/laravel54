@@ -32,7 +32,7 @@
                 </div>
                 <div class='clearfix'></div>
 
-            <div class='col-lg-6'>
+                <div class='col-lg-6'>
                     <label><legend>Suscripción</legend>
                         <p>Suscripción :                        
                             @if(App\Jobs\Utiles::cuentaActiva(Auth::user())) <span class='alert-success'> Activa </span></p>

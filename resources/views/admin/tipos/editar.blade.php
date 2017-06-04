@@ -4,14 +4,11 @@
     <div class="panel panel-default">
         <div class="panel-heading">Editar Tipo de Suscripción</div>
         <div class="panel-body">
-
-
             <form class="form-horizontal" role="form" method="POST" action="{{ url('/admin/updatetipo') }}">
                 {{ csrf_field() }}
                 <input id="id" type="hidden" class="form-control" name="id" value="{{$tipo->id}}"> 
                 <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
                     <label for="name" class="col-sm-4 control-label">Nombre</label>
-
                     <div class="col-sm-6">
                         <input id="name" type="text" class="form-control" name="name" value="<?php
                         if ((old('name') != null)) {
@@ -20,7 +17,6 @@
                             echo $tipo->name;
                         }
                         ?>"> 
-
                         @if ($errors->has('name'))
                         <span class="help-block">
                             <strong><i>{{ $errors->first('name') }}</i></strong>
@@ -79,7 +75,6 @@
                     </div>
                 </div>
             </form>
-
         </div>
     </div>
 </div>      

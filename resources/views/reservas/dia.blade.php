@@ -31,14 +31,14 @@
 
                 @foreach ($reserva as $res)
 
-               <?php if($res->clase_id == $clase->id) $encontrado = true ;  ?>                                 
-                 
-                
+                <?php if ($res->clase_id == $clase->id) $encontrado = true; ?>                                 
+
+
 
                 @endforeach
                 @if (!$puedeReservar)
-                
-                 <button disabled class='btn btn-danger center-block'> Renueva tu suscripción </button>
+
+                <button disabled class='btn btn-danger center-block'> Renueva tu suscripción </button>
                 @else
                 @if ($hoy==$clase->dia && $hora > $clase->hora_ini-$horalimite)
 
@@ -54,14 +54,17 @@
                 <button id='reservarclase' name='reservar'type=submit' class='btnreserva reservaclase btn btn-default center-block'> Reservar </button>
                 @endif
                 @else
-                {{'<p>Clase completa</p>'}}
+                <p class=' btn-danger center-block'> COMPLETA </p>
+                @if(isset($encontrado)) 
+                <button type='submit' name='cancelar' class='btnreserva anularreserva btn btn-warning center-block'> Cancelar </button>
+                @endif
 
                 @endif
                 @endif
                 @endif
 
             </form>
-                </div>
+        </div>
     </div>
     @endif
     @endforeach

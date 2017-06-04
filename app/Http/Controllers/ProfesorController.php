@@ -60,7 +60,7 @@ class ProfesorController extends Controller {
     }
 
     public function destroy($id) {
-        
+
         try {
             Profesor::destroy($id);
             return 'Se ha eliminido correctamente el tipo con id: ' . $id;
@@ -71,7 +71,6 @@ class ProfesorController extends Controller {
                 return "Error :" . $e->getCode();
             }
         }
-        
     }
 
     public function editar($id) {

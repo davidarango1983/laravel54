@@ -9,7 +9,7 @@
                 <div class="col-md-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">Editar Usuario</div>
-                       
+
                         <div class="panel-body">
                             <form class="form-horizontal" role="form" method="POST" action="{{ url('/update') }}">
                                 {{ csrf_field() }}
@@ -26,7 +26,6 @@
                                             echo $usuario->name;
                                         }
                                         ?>">
-
                                         @if ($errors->has('name'))
                                         <span class="help-block">
                                             <strong><i>{{ $errors->first('name') }}</i></strong>

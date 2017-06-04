@@ -14,11 +14,9 @@
 
                             <div class="col-md-2">
                                 <input id="inicio" type="text" format=' h:mm'  class="form-control" required name="inicio" value="{{ old('inicio') }}">
-
-                               
                             </div>
                             <div>
-                             @if ($errors->has('fin'))
+                                @if ($errors->has('fin'))
                                 <span class="help-block">
                                     <strong><i>{{ $errors->first('inicio') }}</i></strong>
                                 </span>
@@ -30,19 +28,15 @@
 
                             <div class="col-md-2">
                                 <input id="fin" type="text" format=' HH:mm' class="form-control" name="fin" value="{{ old('fin') }}">
-
-                               
                             </div>
                             <div class='col-md-6'>
-                             @if ($errors->has('fin'))
+                                @if ($errors->has('fin'))
                                 <span class="help-block">
                                     <strong><i>{{ $errors->first('fin') }}</i></strong>
                                 </span>
                                 @endif
                             </div>
                         </div>
-                
-
                         <div class="form-group{{ $errors->has('limit') ? ' has-error' : '' }}">
                             <label for="limit" class="col-md-4 control-label">Límite de Usuarios</label>
 
@@ -74,12 +68,8 @@
                             <label for="publicar" class="col-md-4 control-label">Publicar</label>
 
                             <div class="col-md-2">
-
-
                                 @if (old('publicar') != null) 
-                                
                                 @if (old('publicar')==1)  
-
                                 <input checked type='radio'  name="publicar" value='1'/>SI
                                 <input type='radio'  name="publicar" value='0'/>NO
                                 @else
@@ -87,7 +77,7 @@
                                 <input type='radio'  name="publicar" value='0'/>NO
                                 @endif                    
                                 @else
-                               <input checked type='radio'  name="publicar" value='1'/>SI
+                                <input checked type='radio'  name="publicar" value='1'/>SI
                                 <input type='radio'  name="publicar" value='0'/>NO
                                 @endif
 
@@ -105,7 +95,7 @@
 
                             <div class="col-md-4">
                                 <select required id="profesor" class="form-control" name="profesor">
-                                        <option value="">Seleccione un profesor</option> 
+                                    <option value="">Seleccione un profesor</option> 
                                     @foreach ($profesores as $profesor)
 
                                     <option value={{$profesor->id}}>{{$profesor->name}}<span>  </span>{{$profesor->last_name}}</option>
@@ -121,29 +111,24 @@
                             </div>
                         </div>
 
-                            <div class="form-group{{ $errors->has('tipo') ? ' has-error' : '' }}">
-                                <label for="tipo" class="col-md-4 control-label">Tipo Clase</label>
-                                
-                                <div class="col-md-4">
-                                     <select  id="tipo" class="form-control" name="tipo">
-                                  <option required value="">Seleccione el tipo de clase</option>        
+                        <div class="form-group{{ $errors->has('tipo') ? ' has-error' : '' }}">
+                            <label for="tipo" class="col-md-4 control-label">Tipo Clase</label>
+                            <div class="col-md-4">
+                                <select  id="tipo" class="form-control" name="tipo">
+                                    <option required value="">Seleccione el tipo de clase</option>        
                                     @foreach ($tipos as $tipo)
-
                                     <option value={{$tipo->id}}>{{$tipo->name}}</option>
-
                                     @endforeach
-
                                 </select>
-                                    @if ($errors->has('tipo'))
-                                    <span class="help-block">
-                                        <strong><i>{{ $errors->first('tipo') }}</i></strong>
-                                    </span>
-                                    @endif
-                                </div>
+                                @if ($errors->has('tipo'))
+                                <span class="help-block">
+                                    <strong><i>{{ $errors->first('tipo') }}</i></strong>
+                                </span>
+                                @endif
                             </div>
+                        </div>
 
-
-                             <div class="form-group">
+                        <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
                                 <a href="{{url('admin/clases')}}"class="btn btn-warning">Cancelar</a><span>  </span>
                                 <button type="submit" class="btn btn-primary">
@@ -157,13 +142,13 @@
         </div>
     </div>
 
-                     
+
 </div>
 <link rel="stylesheet" type="text/css" href="{{ URL::asset('css/timedropper.css')}}">
 <script src="{{ URL::asset('js/timedropper.js')}}"></script>
 <script src="{{ URL::asset('js/clases.js')}}"></script>
-    <script>$( "#inicio" ).timeDropper();</script>
-                                 <script>$( "#fin" ).timeDropper();</script>
+<script>$("#inicio").timeDropper();</script>
+<script>$("#fin").timeDropper();</script>
 
 @endsection
 

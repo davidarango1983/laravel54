@@ -1,6 +1,4 @@
 <?php
-
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,28 +11,13 @@
 */
 
 Route::get('/', 'HomeController@index');
-
-
-Route::get("test-email", function() {
-	Mail::send("emails.bienvenido", [], function($message) {
-    $message->from('gymzonezaragoza@gmail.com', 'ADMIN');
-    $message->to("soldaditorockero@gmail.com", "ASIER")->subject("Bienvenido a GYMZONE!");
-	});
-});
-
 Route::auth();
-
 Route::get('/home', 'HomeController@index');
 Route::get('/perfil', 'HomeController@perfil');
 Route::post('update','UserController@update');
 Route::get('editar','UserController@editar');
 
-
-
-//RUTAS DE APP LAYOUT
-
 Route::get('admin', 'AdministracionController@administrador');
-
 
 //Rutas de la zona administrativa. Middleware isAdmin
 
@@ -48,14 +31,9 @@ Route::get('admin/noticias', 'AdministracionController@noticias');
 Route::get('admin/imagenes', 'AdministracionController@imagenes');
 Route::get('admin/general', 'AdministracionController@general');
 Route::get('admin/reservas', 'AdministracionController@reservas');
-Route::get('admin/noticias', 'AdministracionController@noticias');
 Route::get('admin/imagenes', 'AdministracionController@imagenes');
 Route::get('admin/config', 'ConfigurationController@config');
 Route::post('admin/updateconfig', 'ConfigurationController@update');
-
-//RUTA UTILIZADA POR CRON
-Route::get('admin/eliminarclases', 'AdministracionController@eliminarClases');
-
 
 /*
  * TIPOS DE SUSCRIPCIÓN
@@ -118,7 +96,7 @@ Route::get('spanish','AdministracionController@traduccionDatatable');
  * USUARIOS
  * 
  */
-Route::post('admin/get_usuario/{id}', 'DatatablesController@get_usuario');
+Route::post('admin/get_usuario/{id}', 'UserController@get_usuario');
 Route::post('admin/usuarios', 'DatatablesController@usuarios');
 Route::post('admin/eliminarusuario/{id}','UserController@destroy');
 
@@ -163,9 +141,6 @@ Route::post('admin/eliminarimagen/{id}', 'ImagenesController@destroy');
 Route::get('admin/editarimagen/{id}', 'ImagenesController@editar');
 Route::post('admin/updateimagen', 'ImagenesController@update');
 
-
-
-
 /*
  * Rutas para las imágenes
  * 
@@ -192,3 +167,8 @@ Route::get('/images/{filename}', function ($filename)
  */
 
 Validator::extend('dni', 'customValidation@dni');
+
+/*
+ * Pruebas
+ */
+Route::get('/templateEmail','AdministracionController@testEmail');

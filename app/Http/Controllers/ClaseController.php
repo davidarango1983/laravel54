@@ -13,6 +13,7 @@ use App\Jobs\Utiles;
 use Illuminate\Foundation\Auth\User;
 use Carbon;
 use App\Configuration;
+use Illuminate\Support\Facades\Mail;
 
 class ClaseController extends Controller {
 
@@ -72,7 +73,7 @@ class ClaseController extends Controller {
                 $user = User::find($user->user_id);
                 if($config->disable_mails==0){
                 Mail::send('emails.cancelacion', ['user' => $user, 'clase' => $clase], function ($m) use ($user) {
-                    $m->from('hello@app.com', 'GYMZONE ZARAGOZA');
+                    $m->from('gymzonezaragoza@gmail.com', 'GYMZONE ZARAGOZA');
                     $m->to($user->email, $user->name)->subject('Tu clase ha sido cancelada!');
                 });
                 }
@@ -90,7 +91,7 @@ class ClaseController extends Controller {
                 if($config->disable_mails==0){
                    Mail::send('emails.cambios', ['user' => $user, 'clase' => $clase], function ($m) use ($user) {
                     $m->from('gymzonezaragoza@gmail.com', 'GYMZONE ZARAGOZA');
-                    $m->to($user->email, $user->name)->subject('Tu clase ha sufrido modificaciones cancelada!');
+                    $m->to($user->email, $user->name)->subject('Tu clase ha sufrido modificaciones !');
                 });
                }
             }

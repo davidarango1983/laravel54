@@ -26,20 +26,18 @@
                         @endif
                     </div>
                 </div>
- 
-
                 <div class="col-md-12 form-group{{ $errors->has('fin') ? ' has-error' : '' }}">
                     <label for="description" class="col-md-2 control-label">Descripción:</label>
 
                     <div class="col-md-10 col-md-offset-1">
 
                         <textarea name="description" cols="100" rows="10"><?php
-                        if ((old('description') != null)) {
-                            echo old('description');
-                        } else {
-                            isset($tipo) ? print $tipo->description : '';
-                        }
-                        ?></textarea>
+                            if ((old('description') != null)) {
+                                echo old('description');
+                            } else {
+                                isset($tipo) ? print $tipo->description : '';
+                            }
+                            ?></textarea>
 
 
                         @if ($errors->has('fin'))
@@ -50,13 +48,13 @@
                     </div>
                 </div>
                 <div class="form-group">
-                            <div class="col-sm-6 col-sm-offset-1">
-                                <a href="{{url('admin/clases')}}"class="btn btn-warning">Cancelar</a><span>  </span>
-                                <button type="submit" class="btn btn-primary">
-                                    <i class="fa fa-check-circle-o"></i> Editar
-                                </button>
-                            </div>
-                        </div>
+                    <div class="col-sm-6 col-sm-offset-1">
+                        <a href="{{url('admin/clases')}}"class="btn btn-warning">Cancelar</a><span>  </span>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fa fa-check-circle-o"></i> Editar
+                        </button>
+                    </div>
+                </div>
             </form>
         </div>
     </div>

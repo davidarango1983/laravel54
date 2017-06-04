@@ -12,6 +12,5 @@
         </tr>
     </thead>
 </table>
-
 <script src="{{ URL::asset('js/tipos.js')}}"></script>
 @endsection

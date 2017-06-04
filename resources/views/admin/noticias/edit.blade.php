@@ -1,16 +1,12 @@
 @extends('layouts.adminapp')
 @section('content')
 
-<!--<link rel="stylesheet" type="text/css" href="{{ URL::asset('js/editor/jquery-te-1.4.0.css')}}"> 
-<script src="{{ URL::asset('js/editor/jquery-te-1.4.0.min.js')}}"></script>-->
-
 <div class="container">
     <div class="row">
         <div class="col-md-10 col-md-offset-1">
             <div class="panel panel-default">
                 <div class="panel-heading">Editar Noticia</div>
                 <div class="panel-body">
-
                     <form class="form-horizontal" role="form" method="POST" enctype='multipart/form-data' action="{{ url('/admin/editarnoticia') }}">
                         {{ csrf_field() }}
                         <input id="id" type="hidden" class="form-control" name="id"  value="{{$noticia->id}}"/>
@@ -47,20 +43,16 @@
                                         isset($noticia) ? print $noticia->content : '';
                                     }
                                     ?></textarea>
-
-
-
-
                                 <script>
-$('.jqte-test').jqte();
+                                    $('.jqte-test').jqte();
 
 // settings of status
-var jqteStatus = true;
-$(".status").click(function ()
-{
-    jqteStatus = jqteStatus ? false : true;
-    $('.jqte-test').jqte({"status": jqteStatus});
-});
+                                    var jqteStatus = true;
+                                    $(".status").click(function ()
+                                    {
+                                        jqteStatus = jqteStatus ? false : true;
+                                        $('.jqte-test').jqte({"status": jqteStatus});
+                                    });
                                 </script>
 
 
@@ -70,10 +62,7 @@ $(".status").click(function ()
                                 </span>
                                 @endif
                             </div>
-
-
                         </div>
-
                         <div class="form-group{{ $errors->has('imagen') ? ' has-error' : '' }}">
 
                             <label for="imagen" class="col-md-2 col-sm-2 control-label">Imagen</label>                             
@@ -106,7 +95,7 @@ $(".status").click(function ()
                                 @endif
                             </div>
                         </div>
-<div class="form-group">
+                        <div class="form-group">
                             <div class="col-md-6 col-md-offset-2">
                                 <a href="{{url('admin/noticias')}}"class="btn btn-warning">Cancelar</a><span>  </span>
                                 <button type="submit" class="btn btn-primary">
@@ -114,7 +103,6 @@ $(".status").click(function ()
                                 </button>
                             </div>
                         </div>
-
                     </form>
                 </div>
             </div>

@@ -55,7 +55,7 @@ class TipoClaseController extends Controller {
 
         try {
             TipoClase::find($id);
-             TipoClase::destroy($id);
+            TipoClase::destroy($id);
         } catch (Exception $e) {
             if ($e->getCode() == '23000') {
                 return ("Error " . $e->getCode() . ". No se puede eliminar un tipo de clase asociada a una clase");
@@ -63,7 +63,7 @@ class TipoClaseController extends Controller {
                 return "Error :" . $e->getCode();
             }
         }
-       
+
         return 'Se ha borrado correctamente el Tipo de clase con id: ' . $id;
     }
 

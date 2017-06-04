@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use Carbon;
 use App\Http\Requests\UpdateImagenesRequest;
 use App\Http\Requests\ImagenesRequest;
@@ -97,12 +98,7 @@ class ImagenesController extends Controller {
         return view('admin.imagenes.form');
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    
     public function editar($id) {
         $imagen = Imagenes::find($id);
         return view('admin.imagenes.edit', ['imagen' => $imagen]);

@@ -14,7 +14,7 @@ class Kernel extends ConsoleKernel
      */
     protected $commands = [
       
-          "App\Console\Commands\LogDemo"
+          "App\Console\Commands\ResetTables"
     ];
 
     /**
@@ -25,9 +25,7 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-      
-       
-       $schedule->command('log:demo')->daily();
+             $schedule->command('reset:tables')->daily();
     }
 
     /**

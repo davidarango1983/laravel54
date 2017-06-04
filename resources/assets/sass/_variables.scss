@@ -1,12 +1,12 @@
 // Variables
 $black: black;
 $primary: #E95420;
-$gray-base:              #000 !default;
-$gray-darker:            lighten($gray-base, 13.5%) !default; // #222
+$black:              #000 !default;
+$gray-darker:            lighten($black, 13.5%) !default; // #222
 $gray-dark:              #333 !default;   // #333
 $gray:                   #777 !default; // #555
 $gray-light:             #AEA79F !default;   // #999
-$gray-lighter:           lighten($gray-base, 93.5%) !default; // #eee
+$gray-lighter:           lighten($black, 93.5%) !default; // #eee
 
 $brand-primary:         #E95420 !default;
 $brand-success:         #38B44A !default;
@@ -17,8 +17,6 @@ $dropdown-link-color:$primary;
 
 $code-color:                  #c7254e !default;
 $code-bg:                     #ffffff !default;
-
-$kbd-color:                   #fff !default;
 $kbd-bg:                      #333 !default;
 
 $pre-bg:                      #f5f5f5 !default;
@@ -31,7 +29,6 @@ $pre-scrollable-max-height:   340px !default;
 
 $font-primary: 'Audiowide', cursive;
 $font-body:"Montserrat","Helvetica Neue",Helvetica,Arial,sans-serif; 
-//"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif;
-//"Montserrat","Helvetica Neue",Helvetica,Arial,sans-serif; 
+
 
 $border-rad : 10px;

@@ -16,6 +16,4 @@
     </thead>
 </table>
 <div id='modalusuarios' class="modal fade" tabindex="-1" role="dialog"></div>
-
-
 @endsection

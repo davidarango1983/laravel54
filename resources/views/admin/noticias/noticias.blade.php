@@ -8,11 +8,10 @@
             <th title="Ordenar">Titulo</th>
             <th title="Ordenar">Contenido</th>       
             <th title="Ordenar">Publicado</th>
-                 <th title="Ordenar">Url Imagen</th>
+            <th title="Ordenar">Url Imagen</th>
             <th>Editar</th>
         </tr>
     </thead>
 </table>
-
 <script src="{{ URL::asset('js/noticias.js')}}"></script>
 @endsection

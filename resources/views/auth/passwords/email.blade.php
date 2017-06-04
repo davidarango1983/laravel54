@@ -1,5 +1,4 @@
 @extends('layouts.app')
-
 @section('content')
 <header class="intro">
     <div class="intro-body">
@@ -21,7 +20,7 @@
                         <strong>{{ $errors->first('email') }}</strong>
                     </span>
                     @endif
-                    <button class="btn btn-primary btn-block btn-lg col-lg-offset-3 col-md-offset-3 col-sm-offset-3 col-xs-offset-3" type="submit">Enviar Link</button>
+                    <button class="btn btn-primary btn-block btn-lg" type="submit">Enviar Link</button>
                 </form><span>Reiniciar contraseña?</span>
             </div>
         </div>

@@ -5,13 +5,11 @@
     <div class="intro-body">
         <div class="container" id='containerregister'>
             <div class="login-card"><img src="{{ URL::asset('/images/logogym25.png') }}" class="profile-img-card">
-              <div class="panel-heading">Registro de usuarios</div>
+                <div class="panel-heading">Registro de usuarios</div>
                 <form class="form-signin" role="form" method="POST" action="{{ url('/register') }}">
                     {{ csrf_field() }}
 
                     <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-
-
                         <div class="">
                             <input id="name" type="text" class="form-control" name="name" placeholder="Nombre"value="{{ old('name') }}">
 
@@ -24,7 +22,6 @@
                     </div>
 
                     <div class="form-group{{ $errors->has('apellido') ? ' has-error' : '' }}">
-
                         <div class="">
                             <input id="apellido" type="text" class="form-control" name="apellido" placeholder="Apellido"value="{{ old('apellido') }}">
 
@@ -36,10 +33,9 @@
                         </div>
                     </div>
                     <div class="form-group{{ $errors->has('apellido') ? ' has-error' : '' }}">
-
                         <div class="">
                             <input id="fecha"  type="text" class="form-control" name="fecha" value="{{ isset($profesor->fecha_nac) ? $profesor->fecha_nac: ''}}" placeholder="Fecha de nacimiento" data-init-set="false"
- data-modal="true" data-large-default="true" data-large-mode="true"data-lang="es"   data-format="Y-m-d" data-min-year="1940" >
+                                   data-modal="true" data-large-default="true" data-large-mode="true"data-lang="es"   data-format="Y-m-d" data-min-year="1940" >
 
                             @if ($errors->has('fecha'))
                             <span class="help-block">
@@ -87,7 +83,6 @@
                         </div>
                     </div>                   
 
-
                     <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
 
                         <div class="">
@@ -102,7 +97,6 @@
                     </div>
 
                     <div class="form-group{{ $errors->has('password_confirmation') ? ' has-error' : '' }}">
-
                         <div class="">
                             <input id="password-confirm" type="password" class="form-control" placeholder="Repetir contraseña" name="password_confirmation">
 
@@ -126,30 +120,30 @@
                             </button>
                         </div>
                     </div>
-                    
-            </form>
+
+                </form>
+            </div>
         </div>
-    </div>
-  <!-- Modal -->
-<div id="modal-condiciones" class="modal fade" role="dialog">
-  <div class="modal-dialog">
+        <!-- Modal -->
+        <div id="modal-condiciones" class="modal fade" >
+            <div class="modal-dialog">
 
-    <!-- Modal content-->
-    <div class="modal-content black">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Condiciones Legales</h4>
-      </div>
-      <div class="modal-body">
-        @include('auth.condiciones')
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
-      </div>
-    </div>
+                <!-- Modal content-->
+                <div  style="color:black" class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Condiciones Legales</h4>
+                    </div>
+                    <div class="modal-body">
+                        @include('auth.condiciones')
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
+                    </div>
+                </div>
 
-  </div>
-</div>
+            </div>
+        </div>
 
 </header>
 @endsection

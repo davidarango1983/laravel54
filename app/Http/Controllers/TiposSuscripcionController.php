@@ -65,7 +65,7 @@ class TiposSuscripcionController extends Controller {
 
     public function destroy($id) {
 
-         try {
+        try {
             TiposSuscripcion::destroy($id);
             return 'Se ha eliminido correctamente el tipo con id: ' . $id;
         } catch (\Exception $e) {

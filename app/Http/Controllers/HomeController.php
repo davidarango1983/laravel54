@@ -5,16 +5,15 @@ namespace App\Http\Controllers;
 use \App\Imagenes;
 use App\TipoClase;
 
-class HomeController extends Controller
-{
+class HomeController extends Controller {
+
     /**
      * Create a new controller instance.
      *
      * @return void
      */
-    public function __construct()
-    {
-        
+    public function __construct() {
+
         //$this->middleware('auth');
     }
 
@@ -23,29 +22,20 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-   
-    
-    public function perfil()
-    {
+    public function perfil() {
         return view('auth.perfil');
     }
-   
-    public function index(){        
+
+    public function index() {
         /*
-     * 
-     * Cargamos las noticias 
-     * 
-     */
-    
-     $actividad= TipoClase::all();
-    $imagenes= Imagenes::all();
-    return view('home',['imagen'=>$imagenes,'actividad'=>$actividad]);
- 
-     
-        
+         * 
+         * Cargamos las informacion
+         * 
+         */
+
+        $actividad = TipoClase::all();
+        $imagenes = Imagenes::all();
+        return view('home.home', ['imagen' => $imagenes, 'actividad' => $actividad]);
     }
-    
-   
-    
-    
+
 }

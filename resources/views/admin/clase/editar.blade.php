@@ -22,14 +22,13 @@
 
                             <div class="col-md-2">
                                 <input id="inicio" type="time" class="form-control" required name="inicio" value="<?php
-                        if ((old('inicio') != null)) {
-                            echo old('inicio');
-                        } else {
-                            isset($clase) ? print substr($clase->hora_ini, 0,5) : '';
-                        }
-                  
-                        ?>">
-                           
+                                if ((old('inicio') != null)) {
+                                    echo old('inicio');
+                                } else {
+                                    isset($clase) ? print substr($clase->hora_ini, 0, 5) : '';
+                                }
+                                ?>">
+
 
                                 @if ($errors->has('inicio'))
                                 <span class="help-block">
@@ -44,12 +43,12 @@
 
                             <div class="col-md-2">
                                 <input id="fin" type="time" class="form-control" name="fin" value="<?php
-                                if ((old('fin') != null)) {
-                                    echo old('fin');
-                                } else {
-                                    isset($clase) ? print substr($clase->hora_fin, 0,5) : '';
-                                }
-                        ?>">
+                                       if ((old('fin') != null)) {
+                                           echo old('fin');
+                                       } else {
+                                           isset($clase) ? print substr($clase->hora_fin, 0, 5) : '';
+                                       }
+                                ?>">
 
                                 @if ($errors->has('fin'))
                                 <span class="help-block">
@@ -69,7 +68,7 @@
                                 } else {
                                     isset($clase) ? print $clase->limit : '';
                                 }
-                        ?>" >
+                                ?>" >
                                 <p id='infoLimit'><?php
                                 if ((old('inicio') != null)) {
                                     echo old('limit');
@@ -190,28 +189,28 @@
                                 @endif
                             </div>
                         </div>
-                         <div class="form-group">
-                  <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
-                                <a href="{{url('admin/clases')}}"class="btn btn-warning">Cancelar</a><span>  </span>
-                                <button type="submit" class="btn btn-primary">
-                                    <i class="fa fa-check-circle-o"></i> Editar
-                                </button>
+                        <div class="form-group">
+                            <div class="form-group">
+                                <div class="col-md-6 col-md-offset-4">
+                                    <a href="{{url('admin/clases')}}"class="btn btn-warning">Cancelar</a><span>  </span>
+                                    <button type="submit" class="btn btn-primary">
+                                        <i class="fa fa-check-circle-o"></i> Editar
+                                    </button>
+                                </div>
                             </div>
                         </div>
-                </div>
                     </form>
                 </div>
             </div>
         </div>
     </div>
-    
+
 </div>
 <link rel="stylesheet" type="text/css" href="{{ URL::asset('css/timedropper.css')}}">
 <script src="{{ URL::asset('js/timedropper.js')}}"></script>
 
 <script src="{{ URL::asset('js/clases.js')}}"></script>
 
-                         <script>$( "#inicio" ).timeDropper();</script>
-                                 <script>$( "#fin" ).timeDropper();</script>
+<script>$("#inicio").timeDropper();</script>
+<script>$("#fin").timeDropper();</script>
 @endsection

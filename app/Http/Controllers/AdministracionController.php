@@ -2,98 +2,99 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use Faker\Provider\tr_TR\DateTime;
-use App\Http\Requests;
 use App\User;
 
-class AdministracionController extends Controller
-{
-
+class AdministracionController extends Controller {
     /*
      * Aplicamos el control de acceso a la zona administrativa
      * mediante el middleware admin
      * 
      */
-    
-     public function __construct()
-    {
+
+    public function __construct() {
         $this->middleware('Admin');
     }
-    
-    
-    
-    public function administrador(){        
-        $hoy= new \DateTime();
-        
+
+    public function administrador() {
+        $hoy = new \DateTime();
+
         //Usuarios inscritos y activos
-        $usuarios=count(User::all()->where('id_rol',1));
-        $activos=count(User::all()->where('id_rol',1)->where('fecha_fin','<', $hoy ));
-        
+        $usuarios = count(User::all()->where('id_rol', 1));
+        $activos = count(User::all()->where('id_rol', 1)->where('fecha_fin', '<', $hoy));
+
         //Noticias creadas y publicadas
-        
-        $noticias=count(\App\Noticias::all());
-        $notpub=count(\App\Noticias::all()->where('publicado','=',1));
-        
+
+        $noticias = count(\App\Noticias::all());
+        $notpub = count(\App\Noticias::all()->where('publicado', '=', 1));
+
         //Clases creadas y publicadas
-        
-        $clases=  count(\App\Clase::all());
-        $clasespub=count(\App\Clase::all()->where('publicado','=',1));
-        
+
+        $clases = count(\App\Clase::all());
+        $clasespub = count(\App\Clase::all()->where('publicado', '=', 1));
+
         //Imágenes subidas y publicadas
-        $img=count(\App\Imagenes::all());
-        $imgpub=count(\App\Imagenes::all()->where('publicado','=',1));
-        
-        $prof=  \App\Profesor::all();
-        $act= \App\TipoClase::all();
-       
-        return view('admin.admin',['users'=>$usuarios,'activos'=>$activos,'noticias'=>$noticias,'notpub'=>$notpub,'clases'=>$clases,'clasespub'=>$clasespub,'img'=>$img,'imgpub'=>$imgpub,
-            'prof'=>$prof,'act'=>$act]);
+        $img = count(\App\Imagenes::all());
+        $imgpub = count(\App\Imagenes::all()->where('publicado', '=', 1));
+
+        $prof = \App\Profesor::all();
+        $act = \App\TipoClase::all();
+
+        return view('admin.admin', ['users' => $usuarios, 'activos' => $activos, 'noticias' => $noticias, 'notpub' => $notpub, 'clases' => $clases, 'clasespub' => $clasespub, 'img' => $img, 'imgpub' => $imgpub,
+            'prof' => $prof, 'act' => $act]);
     }
-    
-    
-    public function usuarios(){        
-        
+
+    public function usuarios() {
+
         return view('admin.usuario.usuarios');
     }
-    
-      public function profesores(){        
-        
+
+    public function profesores() {
+
         return view('admin.profesor.profesores');
     }
-      public function clases(){        
-        
+
+    public function clases() {
+
         return view('admin.clase.clases');
     }
-      public function noticias(){        
-        
+
+    public function noticias() {
+
         return view('admin.noticias.noticias');
     }
-      public function imagenes(){        
-        
+
+    public function imagenes() {
+
         return view('admin.imagenes.imagenes');
     }
-      public function general(){        
-        
+
+    public function general() {
+
         return view('admin.general');
     }
-      public function tiposuscricion(){        
-        
+
+    public function tiposuscricion() {
+
         return view('admin.tiposuscripcion');
     }
-    public function tipoclases(){        
-        
+
+    public function tipoclases() {
+
         return view('admin.tipoclase.tipoclases');
     }
-    
-     public function reservas(){        
-        
+
+    public function reservas() {
+
         return view('admin.reservas.reservas');
     }
-    
-    public function traduccionDatatable(){
 
-$jsonDatatable='{
+    public function testEmail() {
+        return view('emails.template');
+    }
+
+    public function traduccionDatatable() {
+
+        $jsonDatatable = '{
 	"sProcessing":     "Procesando...",
 	"sLengthMenu":     "Mostrar _MENU_ Registros",
 	"sZeroRecords":    "No se han encontrado resultados",
@@ -117,24 +118,7 @@ $jsonDatatable='{
 		"sSortDescending": ": Activar para ordenar la columna de manera descendente"
 	}
 }';
+        return $jsonDatatable;
+    }
 
-return $jsonDatatable;
-
-
-}
-
-
-private function eliminarClases(){
-    
-    
-   return 'Ha entrado';
-}
-
-
-
-
-    
-    
-    
-    
 }

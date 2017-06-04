@@ -4,16 +4,14 @@ namespace App\Http\Requests;
 
 use App\Http\Requests\Request;
 
+class NoticiasRequest extends Request {
 
-class NoticiasRequest extends Request
-{
     /**
      * Determine if the user is authorized to make this request.
      *
      * @return bool
      */
-    public function authorize()
-    {
+    public function authorize() {
         return true;
     }
 
@@ -22,24 +20,14 @@ class NoticiasRequest extends Request
      *
      * @return array
      */
-    public function rules()
-    {
-       
+    public function rules() {
+
 
         return [
-            'titulo'=>'required',
-            'contenido'=>'required',
-           'imagen'=>'image|mimes:jpeg,jpg,png|max:2048',
-                   
-                        
+            'titulo' => 'required',
+            'contenido' => 'required',
+            'imagen' => 'image|mimes:jpeg,jpg,png|max:2048',
         ];
-      
-        
-       
-            
-            
-        }
-        
-        
-    
+    }
+
 }

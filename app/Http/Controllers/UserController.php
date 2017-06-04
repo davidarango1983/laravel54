@@ -7,6 +7,7 @@ use App\Jobs\Utiles;
 use App\User;
 use Illuminate\Support\Facades\Auth;
 use Carbon;
+use App\TiposSuscripcion;
 
 class UserController extends Controller {
 
@@ -53,6 +54,17 @@ class UserController extends Controller {
         }
         User::destroy($id);
         return 'Se ha borrado correctamente al Usuario con id: ' . $id;
+    }
+
+    public function get_usuario($id) {
+        try {
+            $user = User::with('suscripcion')->find($id);
+            $tipoSuscripcion = TiposSuscripcion::find($user->suscripcion->id);
+        } catch (Exception $e) {
+
+            return 'Se ha producdo el siguiente error: ' . $e;
+        }
+        return view('admin.modalusuario', array('usuario' => $user, 'tipo' => $tipoSuscripcion));
     }
 
 }
