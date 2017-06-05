@@ -51,12 +51,6 @@ $(document).ready(function () {
      * 
      */
 
-    $('#limitClase').on('input', function () {
-        $('#infoLimit').html(this.value);
-    });
-    $('#limitClase').on('change', function () {
-        $('#infoLimit').html(this.value);
-    });
     /*
      * FIN ZONA ADMINISTRATIVA
      * 

@@ -2,7 +2,7 @@ $(document).ready(function () {
     $.ajaxPrefilter(function (a, e, t) {
         var n = $('meta[name="csrf-token"]').attr("content");
         if (n)
-            return t.setRequestHeader("X-CSRF-TOKEN", n)
+            return t.setRequestHeader("X-CSRF-TOKEN", n);
     }),
             $("#usuarios").addClass("active"), $(function () {
         $("#users-table").DataTable({retrieve: !0, processing: !0,
@@ -35,8 +35,8 @@ $(document).ready(function () {
             success: function (a) {
                 e.draw();
                 var t = {icon: "gymzone", title: "Administración", cls: "eliminado", speed: 200, timeout: 3e3};
-                $.Growl.show(a, t)
-            }, complete: {}})
+                $.Growl.show(a, t);
+            }, complete: {}});
     }), $("#users-table").on("click", ".vermas",
             function (a) {
                 var e = $("#users-table").DataTable();
@@ -51,7 +51,7 @@ $(document).ready(function () {
                     },
                     complete: function () {
                         $("#modalusuarios").modal("show");
-                    }})
+                    }});
             })
 });
 //# sourceMappingURL=usuarios.js.map

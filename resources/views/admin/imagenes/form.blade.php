@@ -3,7 +3,7 @@
 
 <div class="container">
     <div class="panel panel-default col-lg-6 col-lg-offset-3">
-        <div class="panel-heading">Editar Imagen</div>
+        <div class="panel-heading">Añadir Imagen</div>
         <div class="panel-body">
             <form class="form-horizontal" role="form" method="POST" enctype='multipart/form-data' action="{{ url('/admin/createimagen') }}">
                 {{ csrf_field() }}
@@ -49,21 +49,31 @@
                     </div>
                 </div>
 
-                <div class="form-group{{ $errors->has('publicar') ? ' has-error' : '' }}">
-                    <label for="publicar" class="col-sm-2 control-label">Publicar</label>
+                 <div class="form-group{{ $errors->has('publicado') ? ' has-error' : '' }}">
+                            <label for="publicar" class="col-sm-2 control-label">Publicar</label>
 
-                    <div class="col-sm-2">
-                        <select id="publicar"  class="form-control " name="publicar" value="{{ old('publicar') }}">
-                            <option value='1'>SI</option>
-                            <option value='0'>NO</option>
-                        </select>
-                        @if ($errors->has('publicar'))
-                        <span class="help-block">
-                            <strong><i>{{ $errors->first('publicar') }}</i></strong>
-                        </span>
-                        @endif
-                    </div>
-                </div>
+                            <div class="col-sm-3">
+                                @if (old('publicar') != null) 
+                                @if (old('publicar')==1)  
+                                <input checked type='radio'  name="publicar" value='1'/>SI
+                                <input type='radio'  name="publicar" value='0'/>NO
+                                @else
+                                <input type='radio'  name="publicar" value='1'/>SI
+                                <input checked  type='radio'  name="publicar" value='0'/>NO
+                                @endif                    
+                                @else
+                                <input checked type='radio'  name="publicar" value='1'/>SI
+                                <input type='radio'  name="publicar" value='0'/>NO
+                                @endif
+
+
+                                @if ($errors->has('publicar'))
+                                <span class="help-block">
+                                    <strong><i>{{ $errors->first('publicar') }}</i></strong>
+                                </span>
+                                @endif
+                            </div>
+                        </div>
 
 
 

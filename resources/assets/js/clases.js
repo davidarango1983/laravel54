@@ -1,4 +1,15 @@
 $(document).ready(function () {
+    
+    
+    $('#limitClase').on('input', function () {
+        $('#infoLimit').html(this.value);
+    });
+    $('#limitClase').on('change', function () {
+        $('#infoLimit').html(this.value);
+    });
+
+    
+    
     $.ajaxPrefilter(function (a, e, n) {
         var s = $('meta[name="csrf-token"]').attr("content");
         if (s)

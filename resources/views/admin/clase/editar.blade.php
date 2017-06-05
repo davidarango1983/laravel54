@@ -21,7 +21,7 @@
                             <label for="inicio" class="col-md-4 control-label">Hora de Inicio</label>
 
                             <div class="col-md-2">
-                                <input id="inicio" type="time" class="form-control" required name="inicio" value="<?php
+                                <input id="inicio" type="time" autoswitch:"false" class="form-control" required name="inicio" value="<?php
                                 if ((old('inicio') != null)) {
                                     echo old('inicio');
                                 } else {
@@ -120,17 +120,16 @@
                                 <input checked type='radio'  name="publicar" value='1'/>SI
                                 <input type='radio'  name="publicar" value='0'/>NO
                                 @else
-                                <input checked type='radio'  name="publicar" value='1'/>SI
-                                <input type='radio'  name="publicar" value='0'/>NO
+                                <input  type='radio'  name="publicar" value='1'/>SI
+                                <input checked type='radio'  name="publicar" value='0'/>NO
                                 @endif                    
                                 @else
                                 @if ($clase->publicado==1)
                                 <input checked type='radio'  name="publicar" value='1'/>SI
                                 <input type='radio'  name="publicar" value='0'/>NO
-
                                 @else 
                                 <input type='radio'  name="publicar" value='1'/>SI
-                                <input checked type='radio'  name="publicar" value='1'/>NO
+                                <input checked type='radio'  name="publicar" value='0'/>NO
                                 @endif
                                 @endif
 

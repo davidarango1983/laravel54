@@ -7,9 +7,12 @@
         <div class="col-sm-12">
             <h3>{{$new->title}}</h3>
             <i>Publicado el {{substr($new->created_at,0,10)}}</i><br/><br/>
-            <div><img class="col-sm-5 img-circle imgNoticia img-responsive" style="max-width: 
-                      400px;"alt='gymzone' src="/images/{{$new->urlimg}}" alt="{{$new->urlimg}}">
+            <div>
+                @if ($new->urlimg != "")
+                <img class="col-sm-5 img-circle imgNoticia img-responsive" style="max-width: 
+                      400px;"alt='gymzone' src="/images/{{$new->urlimg}}" alt="{{$new->urlimg}}"/>
                 <br/></div>
+            @endif
             <div><p class='white'><?php print ($new->content) ?></p></div>
             <div class="col-sm-12"><hr/></div>  
         </div>

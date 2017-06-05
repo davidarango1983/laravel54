@@ -3,8 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-href=window.location.href;
-href2= href.substring(0,href.length-14);
+href = window.location.href;
+href2 = href.substring(0, href.length - 14);
 
 $(document).ready(function () {
 
@@ -30,22 +30,22 @@ $(document).ready(function () {
                 'type': 'POST'
             },
             columns: [
-                {data: 'id', name: 'id',"className":"col-xs-1"},
-                {data: 'title', name: 'title',"className":"col-xs-1"},
-                {data: 'alt', name: 'alt',"className":"col-xs-1"},
-               {data: 'publicado', name: 'publicado',"className":"col-xs-1",
+                {data: 'id', name: 'id', "className": "col-xs-1"},
+                {data: 'title', name: 'title', "className": "col-xs-1"},
+                {data: 'alt', name: 'alt', "className": "col-xs-1"},
+                {data: 'publicado', name: 'publicado', "className": "col-xs-1",
                     'render': function () {
                         return (arguments[0] === '1') ? 'SI' : 'NO';
                     }
-                 },
-                 {data: 'urlimg', name: 'urlimg',"className":"col-xs-1",
-                 'render': function () {
+                },
+                {data: 'urlimg', name: 'urlimg', "className": "col-xs-1",
+                    'render': function () {
                         /*añadimos las clases editarbtn y borrarbtn para procesar los eventos click de los botones. No lo hacemos mediante id ya que habrá más de un botón de edición o borrado*/
-                        return "<img width='200' src='" +href2+'/images/'+arguments[0] +"' <img>";
+                        return "<img width='200' src='" + href2 + '/images/' + arguments[0] + "' <img>";
 
                     }},
-                {data: 'urlimg', name: 'urlimg',"className":"col-xs-1"},
-                {'data': "id","className":"col-xs-2", 
+                {data: 'urlimg', name: 'urlimg', "className": "col-xs-1"},
+                {'data': "id", "className": "col-xs-2",
                     'render': function () {
                         /*añadimos las clases editarbtn y borrarbtn para procesar los eventos click de los botones. No lo hacemos mediante id ya que habrá más de un botón de edición o borrado*/
                         return "<a href='editarimagen/" + arguments[0] + "' class='editar btn btn-sm btn-warning ' >Editar</a><span> </span><button class='borrarbtn btn btn-xs btn-danger'>Borrar</button>";
@@ -98,7 +98,7 @@ $(document).ready(function () {
 
 
                 var options = {
-                  "icon": 'gymzone', //Icon class - false / string - see provided CSS
+                    "icon": 'gymzone', //Icon class - false / string - see provided CSS
                     "title": 'Administración', //Show title - false / string
                     "cls": "eliminado", //Additional container class
                     "speed": 200, //Fade-in / out animation speed
@@ -110,13 +110,6 @@ $(document).ready(function () {
             }
         });
     });
-
-
-
-
-
-
-
 });
 
 

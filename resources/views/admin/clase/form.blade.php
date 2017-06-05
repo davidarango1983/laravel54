@@ -13,7 +13,7 @@
                             <label for="inicio" class="col-md-4 control-label">Hora de Inicio</label>
 
                             <div class="col-md-2">
-                                <input id="inicio" type="text" format=' h:mm'  class="form-control" required name="inicio" value="{{ old('inicio') }}">
+                                <input id="inicio" type="text" format='HH'  autoswitch="false" class="form-control" required name="inicio" value="{{ old('inicio') }}">
                             </div>
                             <div>
                                 @if ($errors->has('fin'))
@@ -27,7 +27,7 @@
                             <label for="fin" class="col-md-4 control-label">Hora de Finalización</label>
 
                             <div class="col-md-2">
-                                <input id="fin" type="text" format=' HH:mm' class="form-control" name="fin" value="{{ old('fin') }}">
+                                <input id="fin" type="text" format='HH' autoswitch="false" class="form-control" name="fin" value="{{ old('fin') }}">
                             </div>
                             <div class='col-md-6'>
                                 @if ($errors->has('fin'))
@@ -73,8 +73,8 @@
                                 <input checked type='radio'  name="publicar" value='1'/>SI
                                 <input type='radio'  name="publicar" value='0'/>NO
                                 @else
-                                <input checked type='radio'  name="publicar" value='1'/>SI
-                                <input type='radio'  name="publicar" value='0'/>NO
+                                <input type='radio'  name="publicar" value='1'/>SI
+                                <input checked  type='radio'  name="publicar" value='0'/>NO
                                 @endif                    
                                 @else
                                 <input checked type='radio'  name="publicar" value='1'/>SI
